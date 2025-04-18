@@ -6708,3 +6708,9 @@ Windows.Win32.System.WindowsProgramming.Apis.PROCESS_CREATION_MITIGATION_POLICY_
 Windows.Win32.UI.HiDpi.DPI_AWARENESS_CONTEXT : [InvalidHandleValue(-1),InvalidHandleValue(0),NativeTypedef] => [InvalidHandleValue(0),NativeTypedef]
 # CldApi Handles generate invalid SafeFileHandle overloads #2058
 Windows.Win32.Storage.CloudFilters.Apis.CfOpenFileWithOplock : ProtectedHandle : [Out] => [Out,RAIIFree(CfCloseHandle)]
+# Revert "Fixed #469."
+Windows.Win32.System.Com.STGMEDIUM._Anonymous_e__Union added
+Windows.Win32.System.Com.STGMEDIUM._u_e__Union removed
+Windows.Win32.System.Com.STGMEDIUM.Anonymous added
+Windows.Win32.System.Com.STGMEDIUM.u removed
+Windows.Win32.System.Com.userSTGMEDIUM.u removed
