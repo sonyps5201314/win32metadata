@@ -6730,3 +6730,5 @@ Windows.Win32.System.Rpc.Apis.NdrServerContextUnmarshall : return...NDR_SCONTEXT
 Windows.Win32.System.Rpc.MIDL_STUB_MESSAGE.SavedContextHandles...Windows.Win32.System.Rpc.NDR_SCONTEXT** => Windows.Win32.System.Rpc._NDR_SCONTEXT**
 Windows.Win32.System.Rpc.NDR_SCONTEXT removed
 Windows.Win32.System.Rpc.SCONTEXT_QUEUE.ArrayOfObjects...Windows.Win32.System.Rpc.NDR_SCONTEXT** => Windows.Win32.System.Rpc._NDR_SCONTEXT**
+# Fixed TOKEN_AUDIT_POLICY size verification failure
+winmd1: Windows.Win32.System.SystemServices.Apis.POLICY_AUDIT_SUBCATEGORY_COUNT = 59, winmd2 = 60

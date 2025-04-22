@@ -12229,7 +12229,7 @@ typedef struct _TOKEN_LOGGING_INFORMATION {
 // Valid bits for each TOKEN_AUDIT_POLICY policy mask field.
 //
 
-#define POLICY_AUDIT_SUBCATEGORY_COUNT (59)
+#define POLICY_AUDIT_SUBCATEGORY_COUNT (60)
 
 typedef struct _TOKEN_AUDIT_POLICY {
     BYTE  PerUserPolicy[((POLICY_AUDIT_SUBCATEGORY_COUNT) >> 1) + 1];
