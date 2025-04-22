@@ -4773,22 +4773,14 @@ Windows.Win32.Storage.Nvme.NVME_CDW14_IDENTIFY added
 Windows.Win32.Storage.Nvme.NVME_COMMAND_DWORD0._Anonymous_e__Struct._bitfield : [NativeBitfield(OPC,0,8),NativeBitfield(FUSE,8,2),NativeBitfield(Reserved0,10,5),NativeBitfield(PSDT,15,1),NativeBitfield(CID,16,16)] => [NativeBitfield(OPC,0,8),NativeBitfield(FUSE,8,2),NativeBitfield(Reserved0,10,4),NativeBitfield(PSDT,14,2),NativeBitfield(CID,16,16)]
 Windows.Win32.Storage.Nvme.NVME_COMMAND_EFFECTS_DATA._Anonymous_e__Struct._bitfield : [NativeBitfield(CSUPP,0,1),NativeBitfield(LBCC,1,1),NativeBitfield(NCC,2,1),NativeBitfield(NIC,3,1),NativeBitfield(CCC,4,1),NativeBitfield(Reserved0,5,11),NativeBitfield(CSE,16,3),NativeBitfield(Reserved1,19,13)] => [NativeBitfield(CSUPP,0,1),NativeBitfield(LBCC,1,1),NativeBitfield(NCC,2,1),NativeBitfield(NIC,3,1),NativeBitfield(CCC,4,1),NativeBitfield(Reserved,5,11),NativeBitfield(CSE,16,3),NativeBitfield(UUIDSelectionSupported,19,1),NativeBitfield(CSPNamespace,20,1),NativeBitfield(CSPController,21,1),NativeBitfield(CSPNVMSet,22,1),NativeBitfield(CSPEnduranceGroup,23,1),NativeBitfield(CSPDomain,24,1),NativeBitfield(CSPNVMSubsystem,25,1),NativeBitfield(CSPReserved,26,6)]
 Windows.Win32.Storage.Nvme.NVME_COMMAND_STATUS._Anonymous_e__Struct._bitfield : [NativeBitfield(P,0,1),NativeBitfield(SC,1,8),NativeBitfield(SCT,9,3),NativeBitfield(Reserved,12,2),NativeBitfield(M,14,1),NativeBitfield(DNR,15,1)] => [NativeBitfield(P,0,1),NativeBitfield(SC,1,8),NativeBitfield(SCT,9,3),NativeBitfield(CRD,12,2),NativeBitfield(M,14,1),NativeBitfield(DNR,15,1)]
-Windows.Win32.Storage.Nvme.NVME_COMMAND._Anonymous_e__Union added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._DEVICESELFTEST_e__Struct added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct._Anonymous_e__Union removed
-Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct._Anonymous1_e__Union added
-Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct._Anonymous2_e__Union added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct.Anonymous removed
-Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct.Anonymous1 added
-Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct.Anonymous2 added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct.CDW14 removed
-Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._IDENTIFY_e__Struct._Anonymous_e__Union added
-Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._IDENTIFY_e__Struct.Anonymous added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._IDENTIFY_e__Struct.CDW14 removed
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._VENDORSPECIFIC_e__Struct added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union.DEVICESELFTEST added
 Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union.VENDORSPECIFIC added
-Windows.Win32.Storage.Nvme.NVME_COMMAND.Anonymous added
 Windows.Win32.Storage.Nvme.NVME_COMMAND.PRP1 removed
 Windows.Win32.Storage.Nvme.NVME_COMMAND.PRP2 removed
 Windows.Win32.Storage.Nvme.NVME_CONTROLLER_CAPABILITIES._Anonymous_e__Struct._bitfield : [NativeBitfield(MQES,0,16),NativeBitfield(CQR,16,1),NativeBitfield(AMS_WeightedRoundRobinWithUrgent,17,1),NativeBitfield(AMS_VendorSpecific,18,1),NativeBitfield(Reserved0,19,5),NativeBitfield(TO,24,8),NativeBitfield(DSTRD,32,4),NativeBitfield(NSSRS,36,1),NativeBitfield(CSS_NVM,37,1),NativeBitfield(CSS_Reserved0,38,1),NativeBitfield(CSS_Reserved1,39,1),NativeBitfield(CSS_Reserved2,40,1),NativeBitfield(CSS_Reserved3,41,1),NativeBitfield(CSS_Reserved4,42,1),NativeBitfield(CSS_MultipleIo,43,1),NativeBitfield(CSS_AdminOnly,44,1),NativeBitfield(Reserved2,45,3),NativeBitfield(MPSMIN,48,4),NativeBitfield(MPSMAX,52,4),NativeBitfield(Reserved3,56,8)] => [NativeBitfield(MQES,0,16),NativeBitfield(CQR,16,1),NativeBitfield(AMS_WeightedRoundRobinWithUrgent,17,1),NativeBitfield(AMS_VendorSpecific,18,1),NativeBitfield(Reserved0,19,5),NativeBitfield(TO,24,8),NativeBitfield(DSTRD,32,4),NativeBitfield(NSSRS,36,1),NativeBitfield(CSS_NVM,37,1),NativeBitfield(CSS_Reserved0,38,1),NativeBitfield(CSS_Reserved1,39,1),NativeBitfield(CSS_Reserved2,40,1),NativeBitfield(CSS_Reserved3,41,1),NativeBitfield(CSS_Reserved4,42,1),NativeBitfield(CSS_MultipleIo,43,1),NativeBitfield(CSS_AdminOnly,44,1),NativeBitfield(BPS,45,1),NativeBitfield(CPS,46,2),NativeBitfield(MPSMIN,48,4),NativeBitfield(MPSMAX,52,4),NativeBitfield(PMRS,56,1),NativeBitfield(CMBS,57,1),NativeBitfield(NSSS,58,1),NativeBitfield(CRWMS,59,1),NativeBitfield(CRIMS,60,1),NativeBitfield(Reserved2,61,3)]
@@ -5329,7 +5321,6 @@ Windows.Win32.System.Ioctl.STORAGE_ICE_TYPE added
 Windows.Win32.System.Ioctl.STORAGE_ICE_TYPE.StorageIceTypeNvme added
 Windows.Win32.System.Ioctl.STORAGE_ICE_TYPE.StorageIceTypeUfs added
 Windows.Win32.System.Ioctl.STORAGE_ICE_TYPE.StorageIceTypeUnknown added
-Windows.Win32.System.Ioctl.STORAGE_MINIPORT_DESCRIPTOR._Flags_e__Union._Anonymous_e__Struct._bitfield : [NativeBitfield(LogicalPoFxForDisk,0,1),NativeBitfield(Reserved,1,7)] => [NativeBitfield(LogicalPoFxForDisk,0,1),NativeBitfield(ForwardIo,1,1),NativeBitfield(Reserved,2,6)]
 Windows.Win32.System.Ioctl.STORAGE_PROPERTY_ID.StorageAdapterProtocolSpecificPropertyEx added
 Windows.Win32.System.Ioctl.STORAGE_PROPERTY_ID.StorageDeviceProtocolSpecificPropertyEx added
 Windows.Win32.System.Ioctl.STORAGE_PROPERTY_ID.StorageStackProperty added
@@ -6732,3 +6723,1457 @@ Windows.Win32.System.Rpc.NDR_SCONTEXT removed
 Windows.Win32.System.Rpc.SCONTEXT_QUEUE.ArrayOfObjects...Windows.Win32.System.Rpc.NDR_SCONTEXT** => Windows.Win32.System.Rpc._NDR_SCONTEXT**
 # Fixed TOKEN_AUDIT_POLICY size verification failure
 winmd1: Windows.Win32.System.SystemServices.Apis.POLICY_AUDIT_SUBCATEGORY_COUNT = 59, winmd2 = 60
+# Identify the IncompleteArray property we implemented to fix size validation issues on some structures
+Windows.Win32.Devices.BiometricFramework.PIBIO_STORAGE_QUERY_BY_CONTENT_FN.Invoke : IndexVector : [In,NativeArrayInfo(CountParamIndex=3)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_DATA_CAP._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_MATRIX_CAP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_MATRIX_CAP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_MATRIX_CAP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.COLORSPACE_TRANSFORM_MATRIX_CAP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_SOURCE_INFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_SOURCE_INFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_SOURCE_INFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_SOURCE_INFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_TARGET_INFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_TARGET_INFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_TARGET_INFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_PATH_TARGET_INFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_TARGET_PERSISTENCE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_TARGET_PERSISTENCE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_TARGET_PERSISTENCE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SET_TARGET_PERSISTENCE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.MIPI_DSI_PACKET._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.MIPI_DSI_RESET._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.MIPI_DSI_RESET._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.MIPI_DSI_RESET._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.MIPI_DSI_RESET._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.PANEL_BRIGHTNESS_SENSOR_DATA._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.PANEL_BRIGHTNESS_SENSOR_DATA._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.PANEL_BRIGHTNESS_SENSOR_DATA._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.PANEL_BRIGHTNESS_SENSOR_DATA._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.PANEL_GET_BRIGHTNESS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.PANEL_GET_BRIGHTNESS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.PANEL_GET_BRIGHTNESS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.PANEL_GET_BRIGHTNESS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.PANEL_QUERY_BRIGHTNESS_CAPS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.PANEL_QUERY_BRIGHTNESS_CAPS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.PANEL_QUERY_BRIGHTNESS_CAPS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.PANEL_QUERY_BRIGHTNESS_CAPS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS_STATE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS_STATE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS_STATE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS_STATE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.Display.PANEL_SET_BRIGHTNESS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_HEADER._ProhibitedActions_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_HEADER._ProhibitedActions_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_HEADER._ProhibitedActions_e__Union.Anonymous removed
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_HEADER._ProhibitedActions_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT._WriteProtectActions_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT._WriteProtectActions_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT._WriteProtectActions_e__Union.Anonymous removed
+Windows.Win32.Devices.Dvd.DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT._WriteProtectActions_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Enumeration.Pnp.IUPnPEventSink.OnStateChanged : rgdispidChanges : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.HumanInterfaceDevice.HIDP_KEYBOARD_MODIFIER_STATE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.HumanInterfaceDevice.HIDP_KEYBOARD_MODIFIER_STATE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.HumanInterfaceDevice.HIDP_KEYBOARD_MODIFIER_STATE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.HumanInterfaceDevice.HIDP_KEYBOARD_MODIFIER_STATE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.HumanInterfaceDevice.MOUSE_INPUT_DATA._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.HumanInterfaceDevice.MOUSE_INPUT_DATA._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.HumanInterfaceDevice.MOUSE_INPUT_DATA._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Devices.HumanInterfaceDevice.MOUSE_INPUT_DATA._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.DeleteMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.DeletePropertyNames : rgpropid : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.GetPropertyAttributes : rgflags : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.GetPropertyAttributes : rgpropvar : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.GetPropertyAttributes : rgpspec : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.ReadMultiple : rgpropvar : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.ReadMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.ReadPropertyNames : rglpwstrName : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.ReadPropertyNames : rgpropid : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.WriteMultiple : rgpropvar : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.WriteMultiple : rgpspec : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.WritePropertyNames : rglpwstrName : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.ImageAcquisition.IWiaPropertyStorage.WritePropertyNames : rgpropid : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.Devices.Sensors.MATRIX3X3._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR._Anonymous2_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR._VconnPower_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR._VconnPower_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR._VconnPower_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR._VconnPower_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR.AlternateMode...Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR+_Anonymous_e__Struct[] => Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR+_Anonymous2_e__Struct[]
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR._bmAttributes_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR._bmAttributes_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR._bmAttributes_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR._bmAttributes_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR._bmCapabilities_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR._bmCapabilities_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR._bmCapabilities_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR._bmCapabilities_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR._bmAttributes_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR._bmAttributes_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR._bmAttributes_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR._bmAttributes_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._bmAttributes_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._bmAttributes_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._bmAttributes_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._bmAttributes_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._wFunctionalitySupport_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._wFunctionalitySupport_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._wFunctionalitySupport_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR._wFunctionalitySupport_e__Union.Anonymous_1 added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR._bmAttributes_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR._bmAttributes_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR._bmAttributes_e__Union.Anonymous removed
+Windows.Win32.Devices.Usb.USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR._bmAttributes_e__Union.Anonymous_1 added
+Windows.Win32.Foundation.DECIMAL._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Foundation.DECIMAL._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Foundation.DECIMAL._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Foundation.DECIMAL._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Foundation.DECIMAL._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Foundation.DECIMAL._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Foundation.DECIMAL._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Foundation.DECIMAL._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Foundation.Metadata.IncompleteArrayAttribute added
+Windows.Win32.Globalization.Apis.uenum_openCharStringsEnumeration : strings : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Globalization.Apis.uenum_openUCharStringsEnumeration : strings : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Globalization.Apis.ulistfmt_format : strings : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Globalization.Apis.ulistfmt_formatStringsToResult : strings : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Globalization.Apis.uregex_split : destFields : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Globalization.Apis.uregex_splitUText : destFields : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_3X2_F._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X3_F._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X3_F._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X3_F._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X3_F._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X4_F._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X4_F._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X4_F._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_4X4_F._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_5X4_F._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_5X4_F._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_5X4_F._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Graphics.Direct2D.Common.D2D_MATRIX_5X4_F._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Graphics.Direct3D.D3DMATRIX._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Graphics.Direct3D.D3DMATRIX._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Graphics.Direct3D.D3DMATRIX._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Graphics.Direct3D.D3DMATRIX._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Graphics.Direct3D9.D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Graphics.Direct3D9.D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Graphics.Direct3D9.D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Graphics.Direct3D9.D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union.Anonymous1 removed
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union.Anonymous1_1 added
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union.Anonymous2 removed
+Windows.Win32.Graphics.Gdi.DEVMODEA._Anonymous1_e__Union.Anonymous2_1 added
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union.Anonymous1 removed
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union.Anonymous1_1 added
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union.Anonymous2 removed
+Windows.Win32.Graphics.Gdi.DEVMODEW._Anonymous1_e__Union.Anonymous2_1 added
+Windows.Win32.Graphics.GdiPlus.Apis.GdipGetFontCollectionFamilyList : gpfamilies : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Graphics.Printing.IPrintCoreHelper.EnumConstrainedOptions : pConstrainedOptionList : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Graphics.Printing.IPrintCoreHelper.EnumFeatures : pFeatureList : [Const,Out] => [Const,IncompleteArray,Out]
+Windows.Win32.Graphics.Printing.IPrintCoreHelper.EnumOptions : pOptionList : [Const,Out] => [Const,IncompleteArray,Out]
+Windows.Win32.Graphics.Printing.IPrintCoreHelper.SetOptions : pFOPairs : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.Graphics.Printing.IPrintTicketProvider.GetSupportedVersions : ppVersions : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Media.Audio.DirectMusic.IDirectMusicSynth8.GetVoiceState : dwVoice : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Media.Audio.DirectMusic.IDirectMusicSynth8.GetVoiceState : dwVoiceState : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Media.Audio.IAudioSessionEvents.OnChannelVolumeChanged : NewChannelVolumeArray : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Media.Audio.IPerChannelDbLevel.SetLevelAllChannels : aLevelsDB : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union.Anonymous1 removed
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union.Anonymous1_1 added
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union.Anonymous2 removed
+Windows.Win32.Media.Audio.MIXERCONTROLA._Bounds_e__Union.Anonymous2_1 added
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union.Anonymous1 removed
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union.Anonymous1_1 added
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union.Anonymous2 removed
+Windows.Win32.Media.Audio.MIXERCONTROLW._Bounds_e__Union.Anonymous2_1 added
+Windows.Win32.Media.DirectShow.AVIFIELDINDEX.aIndex :  => [IncompleteArray]
+Windows.Win32.Media.DirectShow.AVIMETAINDEX.adwIndex :  => [IncompleteArray]
+Windows.Win32.Media.DirectShow.AVIOLDINDEX.aIndex :  => [IncompleteArray]
+Windows.Win32.Media.DirectShow.AVIPALCHANGE.peNew :  => [IncompleteArray]
+Windows.Win32.Media.DirectShow.IBDA_ConditionalAccess.get_SmartCardApplications : rgApplications : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Media.DirectShow.IBDA_DiseqCommand.get_DiseqResponse : pbResponse : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Media.DirectShow.IBDA_EthernetFilter.GetMulticastList : pAddressList : [In,NativeArrayInfo(CountParamIndex=0),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Media.DirectShow.IBDA_EthernetFilter.PutMulticastList : pAddressList : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Media.DirectShow.IBDA_IPV4Filter.GetMulticastList : pAddressList : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Media.DirectShow.IBDA_IPV4Filter.PutMulticastList : pAddressList : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Media.DirectShow.IBDA_IPV6Filter.GetMulticastList : pAddressList : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.Media.DirectShow.IBDA_IPV6Filter.PutMulticastList : pAddressList : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Media.DirectShow.IBDA_Topology.GetNodeDescriptors : rgNodeDescriptors : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Media.DirectShow.IBDA_Topology.GetNodeInterfaces : rgguidInterfaces : [In,NativeArrayInfo(CountParamIndex=2),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.Media.DirectShow.IBDA_Topology.GetNodeTypes : rgulNodeTypes : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Media.DirectShow.IBDA_Topology.GetPinTypes : rgulPinTypes : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Media.DirectShow.IBDA_Topology.GetTemplateConnections : rgConnections : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.Media.DirectShow.IFrequencyMap.put_FrequencyMapping : pList : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.Media.DirectShow.REGFILTER2._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.Media.DirectShow.Tv.MPEG2_FILTER2._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.DirectShow.Tv.MPEG2_FILTER2._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.DirectShow.Tv.MPEG2_FILTER2._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.DirectShow.Tv.MPEG2_FILTER2._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.KernelStreaming.KS_FRAME_INFO._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.KernelStreaming.KS_FRAME_INFO._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.KernelStreaming.KS_FRAME_INFO._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Media.KernelStreaming.KS_FRAME_INFO._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Media.KernelStreaming.KSCAMERA_PROFILE_PININFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.KernelStreaming.KSCAMERA_PROFILE_PININFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.KernelStreaming.KSCAMERA_PROFILE_PININFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.KernelStreaming.KSCAMERA_PROFILE_PININFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.KernelStreaming.KSIDENTIFIER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.KernelStreaming.KSIDENTIFIER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.KernelStreaming.KSIDENTIFIER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.KernelStreaming.KSIDENTIFIER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.KernelStreaming.KSSTREAM_UVC_METADATATYPE_TIMESTAMP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.KernelStreaming.KSSTREAM_UVC_METADATATYPE_TIMESTAMP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.KernelStreaming.KSSTREAM_UVC_METADATATYPE_TIMESTAMP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.KernelStreaming.KSSTREAM_UVC_METADATATYPE_TIMESTAMP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.MediaFoundation.DXVA2_ExtendedFormat._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.MediaFoundation.DXVA2_ExtendedFormat._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.MediaFoundation.DXVA2_ExtendedFormat._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.MediaFoundation.DXVA2_ExtendedFormat._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.MediaFoundation.DXVA2_Fixed32._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.MediaFoundation.DXVA2_Fixed32._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.MediaFoundation.DXVA2_Fixed32._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.MediaFoundation.DXVA2_Fixed32._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.MediaFoundation.DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.MediaFoundation.DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.MediaFoundation.DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.MediaFoundation.DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.MediaFoundation.DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.MediaFoundation.DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.MediaFoundation.DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.MediaFoundation.DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.Multimedia.ADPCMWAVEFORMAT.aCoef :  => [IncompleteArray]
+Windows.Win32.Media.Speech.SPPHRASEPROPERTY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Media.Speech.SPPHRASEPROPERTY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Media.Speech.SPPHRASEPROPERTY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Media.Speech.SPPHRASEPROPERTY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union._Anonymous3_1_e__Struct added
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union._Anonymous3_e__Struct removed
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union.Anonymous1 removed
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union.Anonymous1_1 added
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union.Anonymous2 removed
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union.Anonymous2_1 added
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union.Anonymous3 removed
+Windows.Win32.Media.Speech.SPTRANSITIONENTRY._Anonymous2_e__Union.Anonymous3_1 added
+Windows.Win32.Networking.BackgroundIntelligentTransferService.IBackgroundCopyCallback3.FileRangesTransferred : ranges : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Networking.BackgroundIntelligentTransferService.IBackgroundCopyFile6.RequestFileRanges : ranges : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Networking.BackgroundIntelligentTransferService.IBackgroundCopyJob3.AddFileWithRanges : Ranges : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Networking.BackgroundIntelligentTransferService.IBackgroundCopyServerCertificateValidationCallback.ValidateServerCertificate : certData : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Networking.BackgroundIntelligentTransferService.IBackgroundCopyServerCertificateValidationCallback.ValidateServerCertificate : certStoreData : [Const,In,NativeArrayInfo(CountParamIndex=5)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=5)]
+Windows.Win32.Networking.Clustering.Apis.SetClusterGroupNodeList : NodeList : [In,NativeArrayInfo(CountParamIndex=1),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional]
+Windows.Win32.Networking.Clustering.Apis.SetClusterGroupNodeListEx : NodeList : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Networking.Clustering.Apis.SetClusterNetworkPriorityOrder : NetworkList : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Networking.Clustering.CLUS_RESOURCE_CLASS_INFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.Clustering.CLUS_RESOURCE_CLASS_INFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.Clustering.CLUS_RESOURCE_CLASS_INFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.Clustering.CLUS_RESOURCE_CLASS_INFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.Clustering.CLUS_SCSI_ADDRESS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.Clustering.CLUS_SCSI_ADDRESS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.Clustering.CLUS_SCSI_ADDRESS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.Clustering.CLUS_SCSI_ADDRESS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.Clustering.CLUSPROP_BINARY.rgb :  => [IncompleteArray]
+Windows.Win32.Networking.Clustering.CLUSPROP_SECURITY_DESCRIPTOR._Anonymous_e__Union.rgbSecurityDescriptor : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.Networking.Clustering.CLUSPROP_SZ.sz :  => [IncompleteArray]
+Windows.Win32.Networking.Clustering.CLUSTER_VALIDATE_CSV_FILENAME.szFileName :  => [IncompleteArray]
+Windows.Win32.Networking.Clustering.CLUSTER_VALIDATE_DIRECTORY.szPath :  => [IncompleteArray]
+Windows.Win32.Networking.Clustering.CLUSTER_VALIDATE_NETNAME.szNetworkName :  => [IncompleteArray]
+Windows.Win32.Networking.Clustering.CLUSTER_VALIDATE_PATH.szPath :  => [IncompleteArray]
+Windows.Win32.Networking.Clustering.PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX.Invoke : NodeList : [In,NativeArrayInfo(CountParamIndex=1),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional]
+Windows.Win32.Networking.Clustering.PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST.Invoke : NodeList : [In,NativeArrayInfo(CountParamIndex=1),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional]
+Windows.Win32.Networking.Clustering.PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER.Invoke : NetworkList : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Networking.Ldap.Apis.ldap_add : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_ext : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_ext_s : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_ext_sA : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_ext_sW : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_extA : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_extW : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_s : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_sA : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_add_sW : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_addA : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_addW : attrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_ext : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_ext_s : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_ext_sA : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_ext_sW : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_extA : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_extW : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_s : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_sA : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modify_sW : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modifyA : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.Ldap.Apis.ldap_modifyW : mods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Networking.RemoteDifferentialCompression.IRdcGenerator.Process : outputBuffers : [NativeArrayInfo(CountParamIndex=3),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=3),Out]
+Windows.Win32.Networking.RemoteDifferentialCompression.IRdcLibrary.CreateGenerator : iGeneratorParametersArray : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOA._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOA._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOA._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOA._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOW._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOW._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOW._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinInet.INTERNET_CACHE_CONFIG_INFOW._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinInet.INTERNET_CREDENTIALS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinInet.INTERNET_CREDENTIALS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinInet.INTERNET_CREDENTIALS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinInet.INTERNET_CREDENTIALS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.DL_EUI64._Anonymous_e__Struct._Anonymous_1_e__Union added
+Windows.Win32.Networking.WinSock.DL_EUI64._Anonymous_e__Struct._Anonymous_e__Union removed
+Windows.Win32.Networking.WinSock.DL_EUI64._Anonymous_e__Struct.Anonymous removed
+Windows.Win32.Networking.WinSock.DL_EUI64._Anonymous_e__Struct.Anonymous_1 added
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS_PRV._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS_PRV._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS_PRV._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS_PRV._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.DL_TEREDO_ADDRESS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IGMP_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IGMP_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IGMP_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IGMP_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IGMPV3_QUERY_HEADER._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous3_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous3_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous3_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV4_HEADER._Anonymous3_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV4_OPTION_HEADER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV4_OPTION_HEADER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV4_OPTION_HEADER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV4_OPTION_HEADER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV4_TIMESTAMP_OPTION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV4_TIMESTAMP_OPTION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV4_TIMESTAMP_OPTION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV4_TIMESTAMP_OPTION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV6_FRAGMENT_HEADER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV6_FRAGMENT_HEADER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV6_FRAGMENT_HEADER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV6_FRAGMENT_HEADER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.IPV6_HEADER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.IPV6_HEADER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.IPV6_HEADER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.IPV6_HEADER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.MLDV2_QUERY_HEADER._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.ND_OPTION_PREFIX_INFO._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.ND_OPTION_PREFIX_INFO._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.ND_OPTION_PREFIX_INFO._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.ND_OPTION_PREFIX_INFO._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.SCOPE_ID._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.SCOPE_ID._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.SCOPE_ID._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.SCOPE_ID._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.TRANSMIT_PACKETS_ELEMENT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.TRANSMIT_PACKETS_ELEMENT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.TRANSMIT_PACKETS_ELEMENT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.TRANSMIT_PACKETS_ELEMENT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Networking.WinSock.VLAN_TAG._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Networking.WinSock.VLAN_TAG._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Networking.WinSock.VLAN_TAG._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Networking.WinSock.VLAN_TAG._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.Dhcp.Apis.DhcpServerQueryAttributes : pDhcpAttribs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_LH._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_XP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_XP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_XP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ADDRESSES_XP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ANYCAST_ADDRESS_XP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ANYCAST_ADDRESS_XP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ANYCAST_ADDRESS_XP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_ANYCAST_ADDRESS_XP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_DNS_SERVER_ADDRESS_XP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_DNS_SERVER_ADDRESS_XP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_DNS_SERVER_ADDRESS_XP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_DNS_SERVER_ADDRESS_XP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_GATEWAY_ADDRESS_LH._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_GATEWAY_ADDRESS_LH._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_GATEWAY_ADDRESS_LH._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_GATEWAY_ADDRESS_LH._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_MULTICAST_ADDRESS_XP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_MULTICAST_ADDRESS_XP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_MULTICAST_ADDRESS_XP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_MULTICAST_ADDRESS_XP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_PREFIX_XP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_PREFIX_XP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_PREFIX_XP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_PREFIX_XP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_LH._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_LH._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_LH._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_LH._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_XP._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_XP._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_XP._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_UNICAST_ADDRESS_XP._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_WINS_SERVER_ADDRESS_LH._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_WINS_SERVER_ADDRESS_LH._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_WINS_SERVER_ADDRESS_LH._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.IP_ADAPTER_WINS_SERVER_ADDRESS_LH._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.MIB_IPNET_ROW2._Anonymous_e__Union removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_IPNET_ROW2._Anonymous1_e__Union added
+Windows.Win32.NetworkManagement.IpHelper.MIB_IPNET_ROW2.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_IPNET_ROW2.Anonymous1 added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW_OWNER_MODULE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW_OWNER_MODULE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW_OWNER_MODULE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW_OWNER_MODULE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW2._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW2._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW2._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDP6ROW2._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW_OWNER_MODULE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW_OWNER_MODULE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW_OWNER_MODULE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW_OWNER_MODULE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW2._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW2._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW2._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.IpHelper.MIB_UDPROW2._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.NetManagement.Apis.GetNetScheduleAccountInformation : wszAccount : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.NetworkManagement.NetManagement.Apis.NetServiceInstall : argv : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.NetworkManagement.NetShell.NS_CONTEXT_ATTRIBUTES._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.NetShell.NS_CONTEXT_ATTRIBUTES._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.NetShell.NS_CONTEXT_ATTRIBUTES._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.NetShell.NS_CONTEXT_ATTRIBUTES._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.NetShell.NS_HELPER_ATTRIBUTES._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.NetShell.NS_HELPER_ATTRIBUTES._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.NetShell.NS_HELPER_ATTRIBUTES._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.NetShell.NS_HELPER_ATTRIBUTES._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.NetworkDiagnosticsFramework.INetDiagExtensibleHelper.ResolveAttributes : rgKeyAttributes : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.NetworkManagement.NetworkDiagnosticsFramework.INetDiagHelper.Initialize : rgAttributes : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.NetworkManagement.Rras.RTM_ENTITY_ID._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.Rras.RTM_ENTITY_ID._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.Rras.RTM_ENTITY_ID._Anonymous_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.Rras.RTM_ENTITY_ID._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.GetAttribute : pbBuffer : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.GetStringAttribute : wszString : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.GetVendorExtension : pbBuffer : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.SetNFCPasswordParams : pbDHKeyBlob : [Const,In,NativeArrayInfo(CountParamIndex=6),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=6),Optional]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.SetNFCPasswordParams : pbPassword : [Const,In,NativeArrayInfo(CountParamIndex=2),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.SetNFCPasswordParams : pbRemotePublicKeyHash : [Const,In,NativeArrayInfo(CountParamIndex=4),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=4),Optional]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.SetPassword : pbPassword : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.NetworkManagement.WindowsConnectNow.IWCNDevice.SetVendorExtension : pbBuffer : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.FWPM_NET_EVENT_HEADER1._Anonymous3_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.FWPM_NET_EVENT_HEADER1._Anonymous3_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.FWPM_NET_EVENT_HEADER1._Anonymous3_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.FWPM_NET_EVENT_HEADER1._Anonymous3_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION0._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION1._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union._Anonymous3_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union._Anonymous3_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union.Anonymous1 removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union.Anonymous1_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union.Anonymous2 removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union.Anonymous2_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union.Anonymous3 removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous1_e__Union.Anonymous3_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union._Anonymous3_1_e__Struct added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union._Anonymous3_e__Struct removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union.Anonymous1 removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union.Anonymous1_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union.Anonymous2 removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union.Anonymous2_1 added
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union.Anonymous3 removed
+Windows.Win32.NetworkManagement.WindowsFilteringPlatform.IKEEXT_CERTIFICATE_AUTHENTICATION2._Anonymous2_e__Union.Anonymous3_1 added
+Windows.Win32.Security.Authentication.Identity.Apis.TokenBindingGenerateMessage : tokenBindings : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Authentication.Identity.Apis.TokenBindingGenerateMessage : tokenBindingsSize : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CertFindAttribute : rgAttr : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Security.Cryptography.Apis.CertFindExtension : rgExtensions : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Security.Cryptography.Apis.CertVerifyCRLRevocation : rgpCrlInfo : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CertVerifyRevocation : rgpvContext : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CryptEncryptMessage : rgpRecipientCert : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Security.Cryptography.Apis.CryptHashMessage : rgcbToBeHashed : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CryptHashMessage : rgpbToBeHashed : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CryptInstallOIDFunctionAddress : rgFuncEntry : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Security.Cryptography.Apis.CryptSignAndEncryptMessage : rgpRecipientCert : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CryptSignMessage : rgcbToBeSigned : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.Security.Cryptography.Apis.CryptSignMessage : rgpbToBeSigned : [Const,In,NativeArrayInfo(CountParamIndex=2),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional]
+Windows.Win32.Security.Cryptography.Apis.CryptVerifyDetachedMessageHash : rgcbToBeHashed : [In,NativeArrayInfo(CountParamIndex=3)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Security.Cryptography.Apis.CryptVerifyDetachedMessageHash : rgpbToBeHashed : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Security.Cryptography.Apis.CryptVerifyDetachedMessageSignature : rgcbToBeSigned : [In,NativeArrayInfo(CountParamIndex=4)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4)]
+Windows.Win32.Security.Cryptography.Apis.CryptVerifyDetachedMessageSignature : rgpbToBeSigned : [Const,In,NativeArrayInfo(CountParamIndex=4)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=4)]
+Windows.Win32.Security.Cryptography.Certificates.Apis.CertSrvRestoreRegisterThroughFile : rgrstmap : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Security.Cryptography.Certificates.Apis.CertSrvRestoreRegisterW : rgrstmap : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Security.Cryptography.Certificates.FNCERTSRVRESTOREREGISTERW.Invoke : rgrstmap : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Security.Cryptography.PFN_CRYPT_ENUM_OID_FUNC.Invoke : rgcbValueData : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Security.Cryptography.PFN_CRYPT_ENUM_OID_FUNC.Invoke : rgdwValueType : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Security.Cryptography.PFN_CRYPT_ENUM_OID_FUNC.Invoke : rgpbValueData : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Security.Cryptography.PFN_CRYPT_ENUM_OID_FUNC.Invoke : rgpwszValueName : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.Storage.CloudFilters.CF_CALLBACK_PARAMETERS._Anonymous_e__Union._Cancel_e__Struct._Anonymous_2_e__Union added
+Windows.Win32.Storage.CloudFilters.CF_CALLBACK_PARAMETERS._Anonymous_e__Union._Cancel_e__Struct._Anonymous_e__Union removed
+Windows.Win32.Storage.CloudFilters.CF_CALLBACK_PARAMETERS._Anonymous_e__Union._Cancel_e__Struct.Anonymous removed
+Windows.Win32.Storage.CloudFilters.CF_CALLBACK_PARAMETERS._Anonymous_e__Union._Cancel_e__Struct.Anonymous_2 added
+Windows.Win32.Storage.FileSystem.Apis.AlignReservedLog : rgcbReservation : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Storage.FileSystem.Apis.BuildIoRingRegisterBuffers : buffers : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Storage.FileSystem.Apis.BuildIoRingRegisterFileHandles : handles : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.Storage.FileSystem.Apis.GetNextLogArchiveExtent : rgadExtent : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Storage.FileSystem.Apis.ReadFileScatter : aSegmentArray : [In] => [In,IncompleteArray]
+Windows.Win32.Storage.FileSystem.Apis.ReserveAndAppendLog : rgcbReservation : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Storage.FileSystem.Apis.ReserveAndAppendLogAligned : rgcbReservation : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.Storage.FileSystem.Apis.WriteFileGather : aSegmentArray : [In] => [In,IncompleteArray]
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_BKLOGTIME._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Jet.JET_CONVERT_A._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_CONVERT_A._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_CONVERT_A._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_CONVERT_A._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Jet.JET_CONVERT_W._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_CONVERT_W._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_CONVERT_W._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_CONVERT_W._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Jet.JET_DBINFOUPGRADE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_DBINFOUPGRADE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_DBINFOUPGRADE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_DBINFOUPGRADE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.Storage.Jet.JET_ENUMCOLUMN._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.Storage.Jet.JET_LOGTIME._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.ACTIVE_LATENCY_CONFIGURATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.ACTIVE_LATENCY_CONFIGURATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.ACTIVE_LATENCY_CONFIGURATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.ACTIVE_LATENCY_CONFIGURATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.LATENCY_MONITOR_FEATURE_STATUS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.LATENCY_MONITOR_FEATURE_STATUS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.LATENCY_MONITOR_FEATURE_STATUS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.LATENCY_MONITOR_FEATURE_STATUS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._Anonymous1_e__Union added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct._Anonymous1_2_e__Union added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct._Anonymous2_2_e__Union added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct.Anonymous1_2 added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._GETLOGPAGE_e__Struct.Anonymous2_2 added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._IDENTIFY_e__Struct._Anonymous_2_e__Union added
+Windows.Win32.Storage.Nvme.NVME_COMMAND._u_e__Union._IDENTIFY_e__Struct.Anonymous_2 added
+Windows.Win32.Storage.Nvme.NVME_COMMAND.Anonymous1 added
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW2_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW2_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW3_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW3_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW3_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_COMPLETION_ENTRY._DW3_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_ERROR_INJECTION_ENTRY._Flags_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_ERROR_INJECTION_ENTRY._Flags_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_ERROR_INJECTION_ENTRY._Flags_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_ERROR_INJECTION_ENTRY._Flags_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_HEALTH_INFO_LOG._CriticalWarning_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_HEALTH_INFO_LOG._CriticalWarning_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_HEALTH_INFO_LOG._CriticalWarning_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_HEALTH_INFO_LOG._CriticalWarning_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._DatasetMgmtCommand_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._DatasetMgmtCommand_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._DatasetMgmtCommand_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._DatasetMgmtCommand_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._FusedCommand_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._FusedCommand_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._FusedCommand_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._FusedCommand_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._OobMgmtSupport_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._OobMgmtSupport_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._OobMgmtSupport_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._OobMgmtSupport_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._SanitizeCommand_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._SanitizeCommand_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._SanitizeCommand_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._SanitizeCommand_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteUncorrectableCommand_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteUncorrectableCommand_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteUncorrectableCommand_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteUncorrectableCommand_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteZeroesCommand_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteZeroesCommand_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteZeroesCommand_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_CAPABILITIES_LOG._WriteZeroesCommand_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_LATENCY_MONITOR_LOG._DebugLogStampUnits_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_LATENCY_MONITOR_LOG._DebugLogStampUnits_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_LATENCY_MONITOR_LOG._DebugLogStampUnits_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_LATENCY_MONITOR_LOG._DebugLogStampUnits_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG._State_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG._State_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG._State_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG._State_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_CAPABILITIES._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_CAPABILITIES._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_CAPABILITIES._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_CAPABILITIES._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_RESET_ACTION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_RESET_ACTION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_RESET_ACTION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Nvme.NVME_WCS_DEVICE_RESET_ACTION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Packaging.Appx.PACKAGE_VERSION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.Storage.Packaging.Appx.PACKAGE_VERSION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.Storage.Packaging.Appx.PACKAGE_VERSION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.Storage.Packaging.Appx.PACKAGE_VERSION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.Storage.Vhd.STORAGE_DEPENDENCY_INFO._Anonymous_e__Union.Version1Entries : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.Storage.Vhd.STORAGE_DEPENDENCY_INFO._Anonymous_e__Union.Version2Entries : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.System.ApplicationInstallationAndServicing.ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION.Elements :  => [IncompleteArray]
+Windows.Win32.System.Com.ICatInformation.EnumClassesOfCategories : rgcatidImpl : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.ICatInformation.EnumClassesOfCategories : rgcatidReq : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Com.ICatInformation.IsClassOfCategories : rgcatidImpl : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Com.ICatInformation.IsClassOfCategories : rgcatidReq : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.System.Com.ICatRegister.RegisterCategories : rgCategoryInfo : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.ICatRegister.RegisterClassImplCategories : rgcatid : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Com.ICatRegister.RegisterClassReqCategories : rgcatid : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Com.ICatRegister.UnRegisterCategories : rgcatid : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.ICatRegister.UnRegisterClassImplCategories : rgcatid : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Com.ICatRegister.UnRegisterClassReqCategories : rgcatid : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.DeleteMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.DeletePropertyNames : rgpropid : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.ReadMultiple : rgpropvar : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.ReadMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.ReadPropertyNames : rglpwstrName : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.ReadPropertyNames : rgpropid : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.WriteMultiple : rgpropvar : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.WriteMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.WritePropertyNames : rglpwstrName : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.IPropertyStorage.WritePropertyNames : rgpropid : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Com.StructuredStorage.PROPVARIANT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Com.StructuredStorage.PROPVARIANT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Com.StructuredStorage.PROPVARIANT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Com.StructuredStorage.PROPVARIANT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.ComponentServices.ICOMLBArguments.GetMachineName : szServerName : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.ComponentServices.ICOMLBArguments.SetMachineName : szServerName : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.ComponentServices.ICrmLogControl.WriteLogRecord : rgBlob : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Contacts.IContactProperties.GetPropertyCollection : ppszLabels : [Const,In,NativeArrayInfo(CountParamIndex=3)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.System.Contacts.IContactProperties.SetLabels : ppszLabels : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.MovedReferences : cObjectIDRangeLength : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.MovedReferences : newObjectIDRangeStart : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.MovedReferences : oldObjectIDRangeStart : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.ObjectReferences : objectRefIds : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.ObjectsAllocatedByClass : classIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.ObjectsAllocatedByClass : cObjects : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback.RootReferences : rootRefIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback10.EventPipeEventDelivered : stackFrames : [In] => [In,IncompleteArray]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.GarbageCollectionStarted : generationCollected : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.RootReferences2 : rootFlags : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.RootReferences2 : rootIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.RootReferences2 : rootKinds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.RootReferences2 : rootRefIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.SurvivingReferences : cObjectIDRangeLength : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.SurvivingReferences : objectIDRangeStart : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback2.ThreadNameChanged : name : [In,NativeArrayInfo(CountParamIndex=1),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback4.MovedReferences2 : cObjectIDRangeLength : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback4.MovedReferences2 : newObjectIDRangeStart : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback4.MovedReferences2 : oldObjectIDRangeStart : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback4.SurvivingReferences2 : cObjectIDRangeLength : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback4.SurvivingReferences2 : objectIDRangeStart : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback5.ConditionalWeakTableElementReferences : keyRefIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback5.ConditionalWeakTableElementReferences : rootIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerCallback5.ConditionalWeakTableElementReferences : valueRefIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerFunctionControl.SetILInstrumentedCodeMap : rgILMapEntries : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerFunctionEnum.Next : ids : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo.GetAppDomainInfo : szName : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo.GetAssemblyInfo : szName : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo.GetILToNativeMapping : map : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo.GetModuleInfo : szName : [NativeArrayInfo(CountParamIndex=2),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo.SetILInstrumentedCodeMap : rgILMapEntries : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo10.RequestReJITWithInliners : methodIds : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo10.RequestReJITWithInliners : moduleIds : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo11.GetEnvironmentVariableA : szValue : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo12.EventPipeDefineEvent : pParamDescs : [In,NativeArrayInfo(CountParamIndex=8)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=8)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo12.EventPipeGetProviderInfo : providerName : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo12.EventPipeStartSession : pProviderConfigs : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo12.EventPipeWriteEvent : data : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo14.GetNonGCHeapBounds : ranges : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.DoStackSnapshot : context : [In,NativeArrayInfo(CountParamIndex=5)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=5)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetArrayObjectInfo : pDimensionLowerBounds : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetArrayObjectInfo : pDimensionSizes : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetClassFromTokenAndTypeArgs : typeArgs : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetClassIDInfo2 : typeArgs : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetClassLayout : rFieldOffset : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetCodeInfo2 : codeInfos : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetFunctionFromTokenAndTypeArgs : typeArgs : [In,NativeArrayInfo(CountParamIndex=3)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=3)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetFunctionInfo2 : typeArgs : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo2.GetGenerationBounds : ranges : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo3.GetAppDomainsContainingModule : appDomainIds : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo3.GetModuleInfo2 : szName : [NativeArrayInfo(CountParamIndex=2),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo3.GetRuntimeInformation : szVersionString : [NativeArrayInfo(CountParamIndex=6),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=6),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.GetCodeInfo3 : codeInfos : [NativeArrayInfo(CountParamIndex=2),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.GetILToNativeMapping2 : map : [NativeArrayInfo(CountParamIndex=2),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.GetReJITIDs : reJitIds : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.RequestReJIT : methodIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.RequestReJIT : moduleIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.RequestRevert : methodIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.RequestRevert : moduleIds : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo4.RequestRevert : status : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo8.GetDynamicFunctionInfo : wszName : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo9.GetCodeInfo4 : codeInfos : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo9.GetILToNativeMapping3 : map : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerInfo9.GetNativeCodeStartAddresses : codeStartAddresses : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerMethodEnum.Next : elements : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerModuleEnum.Next : ids : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerObjectEnum.Next : objects : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.ICorProfilerThreadEnum.Next : ids : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Diagnostics.ClrProfiling.StackSnapshotCallback.Invoke : context : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Diagnostics.Debug.ActiveScript.IActiveScriptProfilerHeapEnum.GetNameIdMap : pNameList : [Const,NativeArrayInfo(CountParamIndex=1),Out] => [Const,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Diagnostics.Debug.ActiveScript.IDebugDocumentTextAuthor.InsertText : pcharText : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Diagnostics.Debug.ActiveScript.IDebugDocumentTextAuthor.ReplaceText : pcharText : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Diagnostics.Debug.ARM64_NT_CONTEXT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.ARM64_NT_CONTEXT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.ARM64_NT_CONTEXT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.ARM64_NT_CONTEXT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.CONTEXT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_POOL_DATA._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_POOL_DATA._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_POOL_DATA._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_POOL_DATA._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_VALUE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_VALUE._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_VALUE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_VALUE._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.Diagnostics.Debug.Extensions.OS_INFO_v1._Anonymous_e__Union removed
+Windows.Win32.System.Diagnostics.Debug.Extensions.OS_INFO_v1._Anonymous1_e__Union added
+Windows.Win32.System.Diagnostics.Debug.Extensions.OS_INFO_v1.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.Extensions.OS_INFO_v1.Anonymous1 added
+Windows.Win32.System.Diagnostics.Debug.IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.KNONVOLATILE_CONTEXT_POINTERS._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous3_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous3_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous4_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous4_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous5_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union._Anonymous5_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous3 removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous3_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous4 removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous4_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous5 removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_CALLBACK_OUTPUT._Anonymous_e__Union.Anonymous5_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.MINIDUMP_SYSTEM_INFO._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Debug.XSTATE_CONFIGURATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Debug.XSTATE_CONFIGURATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Debug.XSTATE_CONFIGURATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Debug.XSTATE_CONFIGURATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.ETW_BUFFER_CONTEXT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.ETW_BUFFER_CONTEXT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.ETW_BUFFER_CONTEXT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.ETW_BUFFER_CONTEXT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_DATA_DESCRIPTOR._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_DATA_DESCRIPTOR._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_DATA_DESCRIPTOR._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_DATA_DESCRIPTOR._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_HEADER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_HEADER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_HEADER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_HEADER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union.Anonymous1 removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union.Anonymous1_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union.Anonymous2 removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_INSTANCE_HEADER._Anonymous3_e__Union.Anonymous2_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_PROPERTY_INFO._Anonymous4_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_PROPERTY_INFO._Anonymous4_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_PROPERTY_INFO._Anonymous4_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_PROPERTY_INFO._Anonymous4_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union.Anonymous1 removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union.Anonymous1_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union.Anonymous2 removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_HEADER._Anonymous4_e__Union.Anonymous2_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous3_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous3_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous3_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.EVENT_TRACE_PROPERTIES_V2._Anonymous3_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.TRACE_EVENT_INFO._Anonymous3_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.TRACE_EVENT_INFO._Anonymous3_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_EVENT_INFO._Anonymous3_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_EVENT_INFO._Anonymous3_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER32._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER32._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER32._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER32._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER64._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER64._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER64._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.TRACE_LOGFILE_HEADER64._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.WMIREGINFOW.WmiRegGuid :  => [IncompleteArray]
+Windows.Win32.System.Diagnostics.Etw.WNODE_ALL_DATA._Anonymous_e__Union.OffsetInstanceDataAndLength : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.System.Diagnostics.Etw.WNODE_EVENT_REFERENCE._Anonymous_e__Union.TargetInstanceName : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.System.Diagnostics.Etw.WNODE_HEADER._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Diagnostics.Etw.WNODE_HEADER._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Diagnostics.Etw.WNODE_HEADER._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.Diagnostics.Etw.WNODE_HEADER._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.Diagnostics.Etw.WNODE_METHOD_ITEM.VariableData :  => [IncompleteArray]
+Windows.Win32.System.Diagnostics.Etw.WNODE_SINGLE_INSTANCE.VariableData :  => [IncompleteArray]
+Windows.Win32.System.Diagnostics.Etw.WNODE_SINGLE_ITEM.VariableData :  => [IncompleteArray]
+Windows.Win32.System.EventLog.EVENTSFORLOGFILE.pEventLogRecords :  => [IncompleteArray]
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._FpControlStatus_e__Struct._Anonymous_2_e__Union added
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._FpControlStatus_e__Struct._Anonymous_e__Union removed
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._FpControlStatus_e__Struct.Anonymous removed
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._FpControlStatus_e__Struct.Anonymous_2 added
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._Segment_e__Struct._Anonymous_2_e__Union added
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._Segment_e__Struct._Anonymous_e__Union removed
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._Segment_e__Struct.Anonymous removed
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._Segment_e__Struct.Anonymous_2 added
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._XmmControlStatus_e__Struct._Anonymous_2_e__Union added
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._XmmControlStatus_e__Struct._Anonymous_e__Union removed
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._XmmControlStatus_e__Struct.Anonymous removed
+Windows.Win32.System.Hypervisor.VIRTUAL_PROCESSOR_REGISTER._X64_e__Union._XmmControlStatus_e__Struct.Anonymous_2 added
+Windows.Win32.System.Hypervisor.WHV_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Hypervisor.WHV_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Hypervisor.WHV_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Hypervisor.WHV_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Hypervisor.WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Hypervisor.WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Hypervisor.WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Hypervisor.WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Hypervisor.WHV_X64_FP_CONTROL_STATUS_REGISTER._Anonymous_e__Struct._Anonymous_1_e__Union added
+Windows.Win32.System.Hypervisor.WHV_X64_FP_CONTROL_STATUS_REGISTER._Anonymous_e__Struct._Anonymous_e__Union removed
+Windows.Win32.System.Hypervisor.WHV_X64_FP_CONTROL_STATUS_REGISTER._Anonymous_e__Struct.Anonymous removed
+Windows.Win32.System.Hypervisor.WHV_X64_FP_CONTROL_STATUS_REGISTER._Anonymous_e__Struct.Anonymous_1 added
+Windows.Win32.System.Hypervisor.WHV_X64_SEGMENT_REGISTER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Hypervisor.WHV_X64_SEGMENT_REGISTER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Hypervisor.WHV_X64_SEGMENT_REGISTER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Hypervisor.WHV_X64_SEGMENT_REGISTER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Hypervisor.WHV_X64_XMM_CONTROL_STATUS_REGISTER._Anonymous_e__Struct._Anonymous_1_e__Union added
+Windows.Win32.System.Hypervisor.WHV_X64_XMM_CONTROL_STATUS_REGISTER._Anonymous_e__Struct._Anonymous_e__Union removed
+Windows.Win32.System.Hypervisor.WHV_X64_XMM_CONTROL_STATUS_REGISTER._Anonymous_e__Struct.Anonymous removed
+Windows.Win32.System.Hypervisor.WHV_X64_XMM_CONTROL_STATUS_REGISTER._Anonymous_e__Struct.Anonymous_1 added
+Windows.Win32.System.Iis.AsyncIMSAdminBaseSinkW.Begin_SinkNotify : pcoChangeList : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Iis.IMSAdminBaseSinkW.SinkNotify : pcoChangeList : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.IO.OVERLAPPED._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.IO.OVERLAPPED._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.IO.OVERLAPPED._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.IO.OVERLAPPED._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.System.Ioctl.DEVICE_LOCATION._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.System.Ioctl.DEVICE_STORAGE_RANGE_ATTRIBUTES._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Ioctl.DEVICE_STORAGE_RANGE_ATTRIBUTES._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Ioctl.DEVICE_STORAGE_RANGE_ATTRIBUTES._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Ioctl.DEVICE_STORAGE_RANGE_ATTRIBUTES._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Ioctl.DISK_DETECTION_INFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Ioctl.DISK_DETECTION_INFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Ioctl.DISK_DETECTION_INFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Ioctl.DISK_DETECTION_INFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Ioctl.FILE_OBJECTID_BUFFER._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Ioctl.FILE_OBJECTID_BUFFER._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Ioctl.FILE_OBJECTID_BUFFER._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Ioctl.FILE_OBJECTID_BUFFER._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Ioctl.QUERY_FILE_LAYOUT_INPUT._Anonymous_e__Union removed
+Windows.Win32.System.Ioctl.QUERY_FILE_LAYOUT_INPUT._Anonymous1_e__Union added
+Windows.Win32.System.Ioctl.QUERY_FILE_LAYOUT_INPUT.Anonymous removed
+Windows.Win32.System.Ioctl.QUERY_FILE_LAYOUT_INPUT.Anonymous1 added
+Windows.Win32.System.Ioctl.STORAGE_MINIPORT_DESCRIPTOR._Flags_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Ioctl.STORAGE_MINIPORT_DESCRIPTOR._Flags_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Ioctl.STORAGE_MINIPORT_DESCRIPTOR._Flags_e__Union.Anonymous removed
+Windows.Win32.System.Ioctl.STORAGE_MINIPORT_DESCRIPTOR._Flags_e__Union.Anonymous_1 added
+Windows.Win32.System.Ioctl.STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE._Anonymous_e__Union.Lev1Depends : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.System.Ioctl.STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE._Anonymous_e__Union.Lev2Depends : [FieldOffset(0)] => [FieldOffset(0),IncompleteArray]
+Windows.Win32.System.Ioctl.STORAGE_SPEC_VERSION._Anonymous_e__Struct._MinorVersion_e__Union._Anonymous_2_e__Struct added
+Windows.Win32.System.Ioctl.STORAGE_SPEC_VERSION._Anonymous_e__Struct._MinorVersion_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Ioctl.STORAGE_SPEC_VERSION._Anonymous_e__Struct._MinorVersion_e__Union.Anonymous removed
+Windows.Win32.System.Ioctl.STORAGE_SPEC_VERSION._Anonymous_e__Struct._MinorVersion_e__Union.Anonymous_2 added
+Windows.Win32.System.JobObjects.JOBOBJECT_CPU_RATE_CONTROL_INFORMATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.JobObjects.JOBOBJECT_CPU_RATE_CONTROL_INFORMATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.JobObjects.JOBOBJECT_CPU_RATE_CONTROL_INFORMATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.JobObjects.JOBOBJECT_CPU_RATE_CONTROL_INFORMATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Kernel.RTL_BALANCED_NODE._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Kernel.RTL_BALANCED_NODE._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Kernel.RTL_BALANCED_NODE._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.Kernel.RTL_BALANCED_NODE._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.Kernel.SLIST_HEADER._Anonymous_e__Struct removed
+Windows.Win32.System.Kernel.SLIST_HEADER._Anonymous_e__Struct removed
+Windows.Win32.System.Kernel.SLIST_HEADER._Anonymous1_e__Struct added
+Windows.Win32.System.Kernel.SLIST_HEADER._Anonymous1_e__Struct added
+Windows.Win32.System.Kernel.SLIST_HEADER.Anonymous removed
+Windows.Win32.System.Kernel.SLIST_HEADER.Anonymous removed
+Windows.Win32.System.Kernel.SLIST_HEADER.Anonymous1 added
+Windows.Win32.System.Kernel.SLIST_HEADER.Anonymous1 added
+Windows.Win32.System.Memory.WIN32_MEMORY_REGION_INFORMATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Memory.WIN32_MEMORY_REGION_INFORMATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Memory.WIN32_MEMORY_REGION_INFORMATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Memory.WIN32_MEMORY_REGION_INFORMATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.MessageQueuing.Apis.MQLocateNext : aPropVar : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.System.Mmc.RESULT_VIEW_TYPE_INFO._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.System.Ole.IOleCommandTarget.QueryStatus : prgCmds : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_A._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_A._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_A._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_A._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_W._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_W._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_W._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Performance.PDH_COUNTER_INFO_W._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_A._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union._Anonymous1_e__Struct removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union._Anonymous2_1_e__Struct added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union._Anonymous2_e__Struct removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union.Anonymous1 removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union.Anonymous2 removed
+Windows.Win32.System.Performance.PDH_LOG_SERVICE_QUERY_INFO_W._Anonymous_e__Union.Anonymous2_1 added
+Windows.Win32.System.ProcessStatus.PSAPI_WORKING_SET_EX_BLOCK._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.ProcessStatus.PSAPI_WORKING_SET_EX_BLOCK._Anonymous_e__Union._Anonymous1_1_e__Struct added
+Windows.Win32.System.ProcessStatus.PSAPI_WORKING_SET_EX_BLOCK._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.ProcessStatus.PSAPI_WORKING_SET_EX_BLOCK._Anonymous_e__Union.Anonymous1_1 added
+Windows.Win32.System.RemoteDesktop.ITsSbGlobalStore.EnumerateEnvironmentsByProvider : ppVal : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.RemoteDesktop.ITsSbGlobalStore.EnumerateSessions : ppVal : [NativeArrayInfo(CountParamIndex=7),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=7),Out]
+Windows.Win32.System.RemoteDesktop.ITsSbGlobalStore.EnumerateTargets : pVal : [NativeArrayInfo(CountParamIndex=3),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=3),Out]
+Windows.Win32.System.RemoteDesktop.ITsSbResourcePluginStore.EnumerateEnvironments : pVal : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.RemoteDesktop.ITsSbResourcePluginStore.EnumerateSessions : ppVal : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.RemoteDesktop.ITsSbResourcePluginStore.EnumerateTargets : pVal : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.RemoteDesktop.ITsSbTaskPlugin.SetTaskQueue : pITsSbTaskInfo : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.RemoteDesktop.IWTSSBPlugin.WTSSBX_SessionChangeNotification : SessionInfo : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.RestartManager.Apis.RmGetList : rgAffectedApps : [In,NativeArrayInfo(CountParamIndex=2),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional,Out]
+Windows.Win32.System.RestartManager.Apis.RmJoinSession : strSessionKey : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.RestartManager.Apis.RmRegisterResources : rgApplications : [In,NativeArrayInfo(CountParamIndex=3),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=3),Optional]
+Windows.Win32.System.RestartManager.Apis.RmRegisterResources : rgsFileNames : [Const,In,NativeArrayInfo(CountParamIndex=1),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional]
+Windows.Win32.System.RestartManager.Apis.RmRegisterResources : rgsServiceNames : [Const,In,NativeArrayInfo(CountParamIndex=5),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=5),Optional]
+Windows.Win32.System.RestartManager.Apis.RmStartSession : strSessionKey : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Rpc.Apis.NdrMesTypeAlignSize3 : ArrTypeOffset : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.Rpc.Apis.NdrMesTypeDecode3 : ArrTypeOffset : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.Rpc.Apis.NdrMesTypeEncode3 : ArrTypeOffset : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.Rpc.Apis.NdrMesTypeFree3 : ArrTypeOffset : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.Rpc.MIDL_FORMAT_STRING.Format :  => [IncompleteArray]
+Windows.Win32.System.Search.IAccessor.CreateAccessor : rgBindings : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IAccessor.CreateAccessor : rgStatus : [NativeArrayInfo(CountParamIndex=1),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional,Out]
+Windows.Win32.System.Search.IAlterIndex.AlterIndex : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=3),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=3),Out]
+Windows.Win32.System.Search.IAlterTable.AlterTable : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=2),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.System.Search.IColumnsInfo.MapColumnIDs : rgColumnIDs : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IColumnsInfo.MapColumnIDs : rgColumns : [NativeArrayInfo(CountParamIndex=0),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.IColumnsInfo2.GetRestrictedColumnInfo : rgColumnIDMasks : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IColumnsRowset.GetColumnsRowset : rgOptColumns : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IColumnsRowset.GetColumnsRowset : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=4),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4),Optional,Out]
+Windows.Win32.System.Search.ICommandCost.SetCostGoals : rgCostGoals : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.ICommandProperties.GetProperties : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.ICommandProperties.SetProperties : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ICommandWithParameters.MapParameterNames : rgParamNames : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ICommandWithParameters.MapParameterNames : rgParamOrdinals : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.ICommandWithParameters.SetParameterInfo : rgParamBindInfo : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.ICommandWithParameters.SetParameterInfo : rgParamOrdinals : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IDBDataSourceAdmin.CreateDataSource : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=0),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.IDBDataSourceAdmin.GetCreationProperties : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IDBDataSourceAdmin.ModifyDataSource : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=0),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.IDBInfo.GetLiteralInfo : rgLiterals : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IDBProperties.GetProperties : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IDBProperties.GetPropertyInfo : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IDBProperties.SetProperties : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=0),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.IDBSchemaRowset.GetRowset : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=5),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=5),Optional,Out]
+Windows.Win32.System.Search.IDBSchemaRowset.GetRowset : rgRestrictions : [Const,In,NativeArrayInfo(CountParamIndex=2),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional]
+Windows.Win32.System.Search.IDCInfo.GetInfo : rgeInfoType : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IDCInfo.SetInfo : rgInfo : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IIndexDefinition.CreateIndex : rgIndexColumnDescs : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Search.IIndexDefinition.CreateIndex : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=4),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4),Out]
+Windows.Win32.System.Search.IMDDataset.GetAxisRowset : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=3),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=3),Out]
+Windows.Win32.System.Search.IMDRangeRowset.GetRangeRowset : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=4),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4),Out]
+Windows.Win32.System.Search.IOpenRowset.OpenRowset : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=4),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4),Optional,Out]
+Windows.Win32.System.Search.IRow.GetColumns : rgColumns : [In,NativeArrayInfo(CountParamIndex=0),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowChange.SetColumns : rgColumns : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowSchemaChange.AddColumns : rgColumns : [In,NativeArrayInfo(CountParamIndex=0),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowSchemaChange.AddColumns : rgNewColumnInfo : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowSchemaChange.DeleteColumns : rgColumnIDs : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowSchemaChange.DeleteColumns : rgdwStatus : [In,NativeArrayInfo(CountParamIndex=0),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowset.AddRefRows : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowset.AddRefRows : rgRefCounts : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowset.AddRefRows : rgRowStatus : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowset.ReleaseRows : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowset.ReleaseRows : rgRefCounts : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowset.ReleaseRows : rgRowOptions : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowset.ReleaseRows : rgRowStatus : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IRowsetChange.DeleteRows : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetChange.DeleteRows : rgRowStatus : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IRowsetChangeExtInfo.GetPendingColumns : rgColumnStatus : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.Search.IRowsetChangeExtInfo.GetPendingColumns : rgiOrdinals : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.Search.IRowsetCopyRows.CopyByHROWS : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Search.IRowsetCopyRows.DefineSource : rgSourceColumns : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetCopyRows.DefineSource : rgTargetColumns : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetInfo.GetProperties : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IRowsetLocate.GetRowsByBookmark : rgcbBookmarks : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetLocate.GetRowsByBookmark : rghRows : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IRowsetLocate.GetRowsByBookmark : rgpBookmarks : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetLocate.GetRowsByBookmark : rgRowStatus : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IRowsetLocate.Hash : rgBookmarkStatus : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IRowsetLocate.Hash : rgcbBookmarks : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetLocate.Hash : rgHashedValues : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IRowsetLocate.Hash : rgpBookmarks : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetNotify.OnFieldChange : rgColumns : [In,NativeArrayInfo(CountParamIndex=2)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.System.Search.IRowsetNotify.OnRowChange : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetRefresh.RefreshVisibleData : rghRows : [Const,In] => [Const,In,IncompleteArray]
+Windows.Win32.System.Search.IRowsetResynch.ResynchRows : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IRowsetUpdate.GetRowStatus : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetUpdate.GetRowStatus : rgPendingStatus : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IRowsetUpdate.Undo : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IRowsetUpdate.Update : rghRows : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IScopedOperations.Copy : rgdwStatus : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IScopedOperations.Copy : rgpwszDestURLs : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IScopedOperations.Copy : rgpwszNewURLs : [NativeArrayInfo(CountParamIndex=0),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.IScopedOperations.Copy : rgpwszSourceURLs : [In,NativeArrayInfo(CountParamIndex=0),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IScopedOperations.Delete : rgdwStatus : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IScopedOperations.Delete : rgpwszURLs : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IScopedOperations.Move : rgdwStatus : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.IScopedOperations.Move : rgpwszDestURLs : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IScopedOperations.Move : rgpwszNewURLs : [NativeArrayInfo(CountParamIndex=0),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.IScopedOperations.Move : rgpwszSourceURLs : [In,NativeArrayInfo(CountParamIndex=0),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.IScopedOperations.OpenRowset : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=4),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4),Out]
+Windows.Win32.System.Search.ISearchItemsChangedSink.OnItemsChanged : rgDataChangeEntries : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ISearchItemsChangedSink.OnItemsChanged : rgdwDocIds : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.ISearchItemsChangedSink.OnItemsChanged : rghrCompletionCodes : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.ISearchNotifyInlineSite.OnItemIndexedStatusChange : rgItemStatusEntries : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.ISearchPersistentItemsChangedSink.OnItemsChanged : DataChangeEntries : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ISearchPersistentItemsChangedSink.OnItemsChanged : hrCompletionCodes : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.ISessionProperties.GetProperties : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=0),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional]
+Windows.Win32.System.Search.ISessionProperties.SetProperties : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=0),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0),Optional,Out]
+Windows.Win32.System.Search.ISourcesRowset.GetSourcesRowset : rgProperties : [In,NativeArrayInfo(CountParamIndex=2),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional,Out]
+Windows.Win32.System.Search.ISQLRequestDiagFields.RequestDiagFields : rgDiagFields : [In,NativeArrayInfo(CountParamIndex=0)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ISubscriptionItem.ReadProperties : rgValue : [NativeArrayInfo(CountParamIndex=0),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=0),Out]
+Windows.Win32.System.Search.ISubscriptionItem.ReadProperties : rgwszName : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ISubscriptionItem.WriteProperties : rgValue : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ISubscriptionItem.WriteProperties : rgwszName : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.ITableCreation.GetTableDefinition : prgColumnDescs : [NativeArrayInfo(CountParamIndex=1),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Optional,Out]
+Windows.Win32.System.Search.ITableCreation.GetTableDefinition : prgConstraintDescs : [NativeArrayInfo(CountParamIndex=5),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=5),Optional,Out]
+Windows.Win32.System.Search.ITableCreation.GetTableDefinition : prgPropertySets : [NativeArrayInfo(CountParamIndex=3),Optional,Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=3),Optional,Out]
+Windows.Win32.System.Search.ITableDefinition.CreateTable : rgColumnDescs : [Const,In,NativeArrayInfo(CountParamIndex=2),Optional] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional]
+Windows.Win32.System.Search.ITableDefinition.CreateTable : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=5),Optional,Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=5),Optional,Out]
+Windows.Win32.System.Search.ITableDefinitionWithConstraints.CreateTableWithConstraints : rgColumnDescs : [In,NativeArrayInfo(CountParamIndex=2),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.System.Search.ITableDefinitionWithConstraints.CreateTableWithConstraints : rgConstraintDescs : [In,NativeArrayInfo(CountParamIndex=4)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=4)]
+Windows.Win32.System.Search.ITableDefinitionWithConstraints.CreateTableWithConstraints : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=7),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=7),Out]
+Windows.Win32.System.Search.ITrusteeAdmin.CreateTrustee : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.ITrusteeAdmin.GetTrusteeProperties : rgPropertyIDSets : [Const,In,NativeArrayInfo(CountParamIndex=1)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.ITrusteeAdmin.SetTrusteeProperties : rgPropertySets : [In,NativeArrayInfo(CountParamIndex=1),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IUrlAccessor.GetDocFormat : wszDocFormat : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IUrlAccessor.GetFileName : wszFileName : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IUrlAccessor.GetHost : wszHost : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IUrlAccessor.GetRedirectedURL : wszRedirectedURL : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IUrlAccessor2.GetCodePage : wszCodePage : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IUrlAccessor2.GetDisplayUrl : wszDocUrl : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IViewFilter.GetFilter : pCompareOps : [NativeArrayInfo(CountParamIndex=1),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=1),Out]
+Windows.Win32.System.Search.IViewFilter.SetFilter : CompareOps : [In,NativeArrayInfo(CountParamIndex=1)] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=1)]
+Windows.Win32.System.Search.IViewSort.GetSortOrder : prgColumns : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Search.IViewSort.GetSortOrder : prgOrders : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.Search.IViewSort.SetSortOrder : rgColumns : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.Search.IViewSort.SetSortOrder : rgOrders : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct._Anonymous1_2_e__Union added
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct._Anonymous1_e__Union removed
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct._Anonymous2_2_e__Union added
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct._Anonymous2_e__Union removed
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct.Anonymous1 removed
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct.Anonymous1_2 added
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct.Anonymous2 removed
+Windows.Win32.System.SystemInformation.SYSTEM_CPU_SET_INFORMATION._Anonymous_e__Union._CpuSet_e__Struct.Anonymous2_2 added
+Windows.Win32.System.SystemInformation.SYSTEM_INFO._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemInformation.SYSTEM_INFO._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemInformation.SYSTEM_INFO._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemInformation.SYSTEM_INFO._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.IMAGE_ARM_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.IMAGE_ARM_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.IMAGE_ARM_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.IMAGE_ARM_RUNTIME_FUNCTION_ENTRY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.IMAGE_AUX_SYMBOL_EX._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.IMAGE_AUX_SYMBOL_EX._Anonymous4_e__Struct added
+Windows.Win32.System.SystemServices.IMAGE_AUX_SYMBOL_EX.Anonymous removed
+Windows.Win32.System.SystemServices.IMAGE_AUX_SYMBOL_EX.Anonymous4 added
+Windows.Win32.System.SystemServices.IMAGE_POLICY_METADATA.Policies :  => [IncompleteArray]
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous1_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous1_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous1_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous1_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous2_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous2_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous2_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.IMAGE_RESOURCE_DIRECTORY_ENTRY._Anonymous2_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY32._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY32._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY32._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY32._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY64._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY64._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY64._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.IMAGE_TLS_DIRECTORY64._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.KERNEL_CET_CONTEXT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.KERNEL_CET_CONTEXT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.KERNEL_CET_CONTEXT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.KERNEL_CET_CONTEXT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PACKEDEVENTINFO.ulOffsets :  => [IncompleteArray]
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_ASLR_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_ASLR_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_ASLR_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_ASLR_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CHILD_PROCESS_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CHILD_PROCESS_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CHILD_PROCESS_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CHILD_PROCESS_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DEP_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DEP_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DEP_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DEP_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DYNAMIC_CODE_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DYNAMIC_CODE_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DYNAMIC_CODE_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_DYNAMIC_CODE_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_FONT_DISABLE_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_FONT_DISABLE_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_FONT_DISABLE_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_FONT_DISABLE_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_IMAGE_LOAD_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_IMAGE_LOAD_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_IMAGE_LOAD_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_IMAGE_LOAD_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SEHOP_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SEHOP_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SEHOP_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SEHOP_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESSOR_IDLESTATE_POLICY._Flags_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.SystemServices.PROCESSOR_IDLESTATE_POLICY._Flags_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESSOR_IDLESTATE_POLICY._Flags_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESSOR_IDLESTATE_POLICY._Flags_e__Union.Anonymous_1 added
+Windows.Win32.System.SystemServices.PROCESSOR_PERFSTATE_POLICY._Anonymous_e__Union._Flags_e__Union._Anonymous_2_e__Struct added
+Windows.Win32.System.SystemServices.PROCESSOR_PERFSTATE_POLICY._Anonymous_e__Union._Flags_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.SystemServices.PROCESSOR_PERFSTATE_POLICY._Anonymous_e__Union._Flags_e__Union.Anonymous removed
+Windows.Win32.System.SystemServices.PROCESSOR_PERFSTATE_POLICY._Anonymous_e__Union._Flags_e__Union.Anonymous_2 added
+Windows.Win32.System.TaskScheduler.IScheduledWorkItem.SetWorkItemData : rgbData : [In] => [In,IncompleteArray]
+Windows.Win32.System.Threading.UMS_SYSTEM_THREAD_INFORMATION._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Threading.UMS_SYSTEM_THREAD_INFORMATION._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Threading.UMS_SYSTEM_THREAD_INFORMATION._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Threading.UMS_SYSTEM_THREAD_INFORMATION._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.TpmBaseServices.TBS_CONTEXT_PARAMS2._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.TpmBaseServices.TBS_CONTEXT_PARAMS2._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.TpmBaseServices.TBS_CONTEXT_PARAMS2._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.TpmBaseServices.TBS_CONTEXT_PARAMS2._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.Variant.VARIANT._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.Variant.VARIANT._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.Variant.VARIANT._Anonymous_e__Union.Anonymous removed
+Windows.Win32.System.Variant.VARIANT._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.System.WindowsProgramming.IMAGE_DELAYLOAD_DESCRIPTOR._Attributes_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.System.WindowsProgramming.IMAGE_DELAYLOAD_DESCRIPTOR._Attributes_e__Union._Anonymous_e__Struct removed
+Windows.Win32.System.WindowsProgramming.IMAGE_DELAYLOAD_DESCRIPTOR._Attributes_e__Union.Anonymous removed
+Windows.Win32.System.WindowsProgramming.IMAGE_DELAYLOAD_DESCRIPTOR._Attributes_e__Union.Anonymous_1 added
+Windows.Win32.System.WinRT.ILanguageExceptionStackBackTrace.GetStackBackTrace : stackBackTrace : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataAssemblyImport.EnumAssemblyRefs : rAssemblyRefs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataAssemblyImport.EnumExportedTypes : rExportedTypes : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataAssemblyImport.EnumFiles : rFiles : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataAssemblyImport.EnumManifestResources : rManifestResources : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataAssemblyImport.FindAssembliesByName : ppIUnk : [Out] => [IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.DefineEvent : rmdOtherMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.DefineNestedType : rtkImplements : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.DefineProperty : rmdOtherMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.DefineSecurityAttributeSet : rSecAttrs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.DefineTypeDef : rtkImplements : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.SetClassLayout : rFieldOffsets : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.SetEventProps : rmdOtherMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.SetPropertyProps : rmdOtherMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit.SetTypeDefProps : rtkImplements : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit2.DefineGenericParam : rtkConstraints : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataEmit2.SetGenericParamProps : rtkConstraints : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumCustomAttributes : rCustomAttributes : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumEvents : rEvents : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumFields : rFields : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumFieldsWithName : rFields : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumInterfaceImpls : rImpls : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMemberRefs : rMemberRefs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMembers : rMembers : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMembersWithName : rMembers : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMethodImpls : rMethodBody : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMethodImpls : rMethodDecl : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMethods : rMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMethodSemantics : rEventProp : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumMethodsWithName : rMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumModuleRefs : rModuleRefs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumParams : rParams : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumPermissionSets : rPermission : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumProperties : rProperties : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumSignatures : rSignatures : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumTypeDefs : rTypeDefs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumTypeRefs : rTypeRefs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumTypeSpecs : rTypeSpecs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumUnresolvedMethods : rMethods : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.EnumUserStrings : rStrings : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.GetClassLayout : rFieldOffset : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.GetEventProps : rmdOtherMethod : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport.GetPropertyProps : rmdOtherMethod : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport2.EnumGenericParamConstraints : rGenericParamConstraints : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport2.EnumGenericParams : rGenericParams : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.System.WinRT.Metadata.IMetaDataImport2.EnumMethodSpecs : rMethodSpecs : [In,Out] => [In,IncompleteArray,Out]
+Windows.Win32.UI.Input.Ime.IMEWRD._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.UI.Input.Ime.IMEWRD._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.UI.Input.Ime.IMEWRD._Anonymous_e__Union.Anonymous removed
+Windows.Win32.UI.Input.Ime.IMEWRD._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.UI.Input.Ime.MORRSLT.BLKBuff :  => [IncompleteArray]
+Windows.Win32.UI.Input.KeyboardAndMouse.MODIFIERS.ModNumber :  => [IncompleteArray]
+Windows.Win32.UI.Input.Pointer.INPUT_TRANSFORM._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.UI.Input.Pointer.INPUT_TRANSFORM._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.UI.Input.Pointer.INPUT_TRANSFORM._Anonymous_e__Union.Anonymous removed
+Windows.Win32.UI.Input.Pointer.INPUT_TRANSFORM._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.UI.Input.RAWMOUSE._Anonymous_e__Union._Anonymous_1_e__Struct added
+Windows.Win32.UI.Input.RAWMOUSE._Anonymous_e__Union._Anonymous_e__Struct removed
+Windows.Win32.UI.Input.RAWMOUSE._Anonymous_e__Union.Anonymous removed
+Windows.Win32.UI.Input.RAWMOUSE._Anonymous_e__Union.Anonymous_1 added
+Windows.Win32.UI.Shell.Apis.SHCreateStdEnumFmtEtc : afmt : [Const,In,NativeArrayInfo(CountParamIndex=0)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=0)]
+Windows.Win32.UI.Shell.Apis.SHOpenPropSheetW : ahkeys : [In,NativeArrayInfo(CountParamIndex=2),Optional] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Optional]
+Windows.Win32.UI.Shell.PropertiesSystem.Apis.SHPropStgReadMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.UI.Shell.PropertiesSystem.Apis.SHPropStgReadMultiple : rgvar : [NativeArrayInfo(CountParamIndex=2),Out] => [IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
+Windows.Win32.UI.Shell.PropertiesSystem.Apis.SHPropStgWriteMultiple : rgpspec : [Const,In,NativeArrayInfo(CountParamIndex=2)] => [Const,In,IncompleteArray,NativeArrayInfo(CountParamIndex=2)]
+Windows.Win32.UI.Shell.PropertiesSystem.Apis.SHPropStgWriteMultiple : rgvar : [In,NativeArrayInfo(CountParamIndex=2),Out] => [In,IncompleteArray,NativeArrayInfo(CountParamIndex=2),Out]
