@@ -116,6 +116,14 @@ public class IncompleteArrayAttribute : Attribute
     }
 }
 
+[AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
+public class SizeZeroConstantArrayAttribute : Attribute
+{
+    public SizeZeroConstantArrayAttribute()
+    {
+    }
+}
+
 [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.Struct, AllowMultiple = false, Inherited = false)]
 [ComVisible(true)]
 public class FreeWithAttribute : Attribute
