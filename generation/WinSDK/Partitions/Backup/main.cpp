@@ -6,3 +6,4 @@
 #include <sdkddkver.h>
 
 #include <winnt.h>
+#include "manual.h"
