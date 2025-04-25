@@ -173,6 +173,14 @@ public class MetadataTypedefAttribute : Attribute
     }
 }
 
+[AttributeUsage(AttributeTargets.Struct, AllowMultiple = false, Inherited = false)]
+public class NativeAlignmentAttribute : Attribute
+{
+    public NativeAlignmentAttribute(long Value)
+    {
+    }
+}
+
 public class NativeArrayInfoAttribute : Attribute
 {
     //

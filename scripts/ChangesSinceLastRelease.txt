@@ -8219,3 +8219,26 @@ Windows.Win32.System.Diagnostics.Debug.MINIDUMP_THREAD_LIST.Threads : [FlexibleA
 Windows.Win32.System.Diagnostics.Debug.MINIDUMP_THREAD_NAME_LIST.ThreadNames : [FlexibleArray] => [FlexibleArray,SizeZeroConstantArray]
 Windows.Win32.System.Ioctl.PERSISTENT_RESERVE_COMMAND._Anonymous_e__Union._PR_OUT_e__Struct.ParameterList : [FlexibleArray] => [FlexibleArray,SizeZeroConstantArray]
 Windows.Win32.System.Ioctl.STORAGE_MEDIA_SERIAL_NUMBER_DATA.SerialNumber : [FlexibleArray] => [FlexibleArray,SizeZeroConstantArray]
+# Implemented the NativeAlignment attribute discussed in microsoft/win32metadata#1044 to fix SLIST_ENTRY size validation failure
+Windows.Win32.Foundation.Metadata.NativeAlignmentAttribute added
+Windows.Win32.NetworkManagement.Dns.DNS_QUERY_CANCEL : [Documentation(https://learn.microsoft.com/windows/win32/api/windns/ns-windns-dns_query_cancel)] => [Documentation(https://learn.microsoft.com/windows/win32/api/windns/ns-windns-dns_query_cancel),NativeAlignment(8)]
+Windows.Win32.NetworkManagement.Dns.DNS_QUERY_RAW_CANCEL :  => [NativeAlignment(8)]
+Windows.Win32.System.Diagnostics.Debug.ARM64_NT_CONTEXT : [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-arm64_nt_context),SupportedArchitecture(3)] => [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-arm64_nt_context),NativeAlignment(16),SupportedArchitecture(3)]
+Windows.Win32.System.Diagnostics.Debug.CONTEXT : [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-context),SupportedArchitecture(2)] => [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-context),NativeAlignment(16),SupportedArchitecture(2)]
+Windows.Win32.System.Diagnostics.Debug.CONTEXT : [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-context),SupportedArchitecture(4)] => [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-context),NativeAlignment(16),SupportedArchitecture(4)]
+Windows.Win32.System.Diagnostics.Debug.M128A :  => [NativeAlignment(16)]
+Windows.Win32.System.Diagnostics.Debug.XSAVE_AREA :  => [NativeAlignment(16)]
+Windows.Win32.System.Diagnostics.Debug.XSAVE_AREA_HEADER :  => [NativeAlignment(8)]
+Windows.Win32.System.Diagnostics.Debug.XSAVE_FORMAT : [SupportedArchitecture(1)] => [NativeAlignment(16),SupportedArchitecture(1)]
+Windows.Win32.System.Diagnostics.Debug.XSAVE_FORMAT : [SupportedArchitecture(6)] => [NativeAlignment(16),SupportedArchitecture(6)]
+Windows.Win32.System.Hypervisor.WHV_UINT128 : [StructLayout(2)] => [NativeAlignment(16),StructLayout(2)]
+Windows.Win32.System.Kernel.SLIST_ENTRY removed
+Windows.Win32.System.Kernel.SLIST_ENTRY(X64, Arm64) added
+Windows.Win32.System.Kernel.SLIST_ENTRY(X86) added
+Windows.Win32.System.Kernel.SLIST_HEADER : [StructLayout(2),SupportedArchitecture(2)] => [NativeAlignment(16),StructLayout(2),SupportedArchitecture(2)]
+Windows.Win32.System.Kernel.SLIST_HEADER : [StructLayout(2),SupportedArchitecture(4)] => [NativeAlignment(16),StructLayout(2),SupportedArchitecture(4)]
+Windows.Win32.System.Memory.MEM_EXTENDED_PARAMETER : [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-mem_extended_parameter)] => [Documentation(https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-mem_extended_parameter),NativeAlignment(8)]
+Windows.Win32.System.Memory.MEMORY_BASIC_INFORMATION64 :  => [NativeAlignment(16)]
+Windows.Win32.System.Memory.MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE :  => [NativeAlignment(8)]
+Windows.Win32.System.Memory.MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION :  => [NativeAlignment(8)]
+Windows.Win32.System.Memory.WIN32_MEMORY_PARTITION_INFORMATION :  => [NativeAlignment(8)]
