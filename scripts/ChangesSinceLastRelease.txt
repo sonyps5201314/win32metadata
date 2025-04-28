@@ -8242,3 +8242,8 @@ Windows.Win32.System.Memory.MEMORY_BASIC_INFORMATION64 :  => [NativeAlignment(16
 Windows.Win32.System.Memory.MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE :  => [NativeAlignment(8)]
 Windows.Win32.System.Memory.MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION :  => [NativeAlignment(8)]
 Windows.Win32.System.Memory.WIN32_MEMORY_PARTITION_INFORMATION :  => [NativeAlignment(8)]
+# Revert "Fixed #732."
+Windows.Win32.Graphics.Gdi.MONITORINFOEXA.Base added
+Windows.Win32.Graphics.Gdi.MONITORINFOEXA.monitorInfo removed
+Windows.Win32.Graphics.Gdi.MONITORINFOEXW.Base added
+Windows.Win32.Graphics.Gdi.MONITORINFOEXW.monitorInfo removed
