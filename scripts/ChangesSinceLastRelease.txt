@@ -8247,3 +8247,12 @@ Windows.Win32.Graphics.Gdi.MONITORINFOEXA.Base added
 Windows.Win32.Graphics.Gdi.MONITORINFOEXA.monitorInfo removed
 Windows.Win32.Graphics.Gdi.MONITORINFOEXW.Base added
 Windows.Win32.Graphics.Gdi.MONITORINFOEXW.monitorInfo removed
+# Disable name remapping for field names
+Windows.Win32.NetworkManagement.Ndis.NETWORK_ADDRESS_IP.in_addr added
+Windows.Win32.NetworkManagement.Ndis.NETWORK_ADDRESS_IP.IN_ADDR removed
+Windows.Win32.System.RemoteDesktop.WTS_SOCKADDR._u_e__Union._ipv4_e__Struct.in_addr added
+Windows.Win32.System.RemoteDesktop.WTS_SOCKADDR._u_e__Union._ipv4_e__Struct.IN_ADDR removed
+Windows.Win32.System.Rpc.RPC_ASYNC_NOTIFICATION_INFO._HWND_e__Struct added
+Windows.Win32.System.Rpc.RPC_ASYNC_NOTIFICATION_INFO._IntPtr_e__Struct removed
+Windows.Win32.System.Rpc.RPC_ASYNC_NOTIFICATION_INFO.HWND added
+Windows.Win32.System.Rpc.RPC_ASYNC_NOTIFICATION_INFO.IntPtr removed
