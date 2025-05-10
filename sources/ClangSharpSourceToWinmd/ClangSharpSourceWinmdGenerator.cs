@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -69,11 +70,11 @@ namespace ClangSharpSourceToWinmd
         private HashSet<string> forceGuidConsts;
 
         private ClangSharpSourceWinmdGenerator(
-            CSharpCompilation compilation, 
+            CSharpCompilation compilation,
             Dictionary<string, string> typeImports,
             HashSet<string> reducePointerLevels,
             HashSet<string> forceGuidConsts,
-            Version assemblyVersion, 
+            Version assemblyVersion,
             string assemblyName)
         {
             this.compilation = compilation;
@@ -162,20 +163,20 @@ namespace ClangSharpSourceToWinmd
         public bool WroteWinmd { get; private set; }
 
         public static ClangSharpSourceWinmdGenerator GenerateWindmdForCompilation(
-            ClangSharpSourceCompilation compilation, 
+            ClangSharpSourceCompilation compilation,
             Dictionary<string, string> typeImports,
             HashSet<string> reducePointerLevels,
             HashSet<string> forceGuidConsts,
-            Version version, 
+            Version version,
             string outputFileName)
         {
-            ClangSharpSourceWinmdGenerator generator = 
+            ClangSharpSourceWinmdGenerator generator =
                 new ClangSharpSourceWinmdGenerator(
-                    compilation.CSharpCompilation, 
-                    typeImports, 
+                    compilation.CSharpCompilation,
+                    typeImports,
                     reducePointerLevels,
                     forceGuidConsts,
-                    version, 
+                    version,
                     Path.GetFileName(outputFileName));
 
             generator.PopulateMetadataBuilder();
@@ -521,11 +522,18 @@ namespace ClangSharpSourceToWinmd
             this.WroteWinmd = true;
         }
 
+        List<StructDeclarationSyntax> dependTypedefStructs = new List<StructDeclarationSyntax>();
         private void PopulateMetadataBuilder()
         {
             GatherInterfaceTypes();
 
             VisitAllTypes();
+
+            foreach (var item in this.dependTypedefStructs)
+            {
+                this.WriteStructDef(item);
+            }
+            this.dependTypedefStructs.Clear();
 
             void VisitAllTypes()
             {
@@ -719,7 +727,7 @@ namespace ClangSharpSourceToWinmd
             {
                 return true;
             }
-            
+
             bool hasVtbl = node.Members.Any(m => m.Kind() == SyntaxKind.FieldDeclaration && ((FieldDeclarationSyntax)m).Declaration.Variables.First().Identifier.Text == "lpVtbl");
             bool hasDelegate = node.Members.Any(m => m.Kind() == SyntaxKind.DelegateDeclaration);
             return hasVtbl && hasDelegate;
@@ -926,7 +934,7 @@ namespace ClangSharpSourceToWinmd
             }
         }
 
-        private ITypeSymbol GetTypeFromShortName(string name)
+        private ITypeSymbol GetTypeFromShortName(string name, bool returnDirectlyIfNotFound = false)
         {
             var origName = name;
 
@@ -1013,11 +1021,145 @@ namespace ClangSharpSourceToWinmd
                     ret = this.compilation.GetTypeByMetadataName(fixedName);
                 }
 
+                if (ret == null)
+                {
+                    if (returnDirectlyIfNotFound)
+                    {
+                        return ret;
+                    }
+                }
+
                 // Use the original name and not the fixed name to cache it
                 this.nameToSymbols[name] = ret;
             }
 
             return ret;
+        }
+
+        void CheckForOtherTypeCanBeMapped(string nativeType, string typeName)
+        {
+            if (nativeType != typeName && !nativeType.StartsWith("__AnonymousRecord_"))
+            {
+                var foundTypeSymbol = this.GetTypeFromShortName(nativeType, true);
+                if (foundTypeSymbol == null)
+                {
+                    var ns = "Windows.Win32.Foundation";
+                    var pos = typeName.LastIndexOf('.');
+                    if (pos > -1)
+                    {
+                        ns = typeName.Substring(0, pos);
+                        typeName = typeName.Substring(pos + 1);
+                    }
+                    var code =
+    @$"using System;
+using Windows.Win32.Foundation.Metadata;
+
+namespace {ns}
+{{
+    [NativeTypedef]
+    public unsafe struct {nativeType}
+    {{
+        public {typeName} Value;
+    }}
+}}";
+                    var syntaxTree = CSharpSyntaxTree.ParseText(code);
+                    this.compilation = this.compilation.AddSyntaxTrees(syntaxTree);
+
+                    var typedefStructNode = syntaxTree.GetRoot().DescendantNodes().FirstOrDefault(node => node is StructDeclarationSyntax);
+                    this.dependTypedefStructs.Add(typedefStructNode as StructDeclarationSyntax);
+                    Console.WriteLine($"typedef {nativeType} {typeName};");
+                }
+            }
+        }
+
+        // 使用 HashSet 以获得 O(1) 的平均查找复杂度
+        private static readonly HashSet<string> _basicCppTypes = new HashSet<string>(StringComparer.Ordinal)
+        {
+            // C/C++ 标准类型关键字
+            "void",
+            "bool",
+
+            "char",
+            "signed char",
+            "unsigned char",
+
+            "short", // 等同于 signed short, short int, signed short int
+            "short int",
+            "signed short",
+            "signed short int",
+            "unsigned short",
+            "unsigned short int",
+
+            "int",   // 等同于 signed, signed int
+            "signed", // 通常作为 signed int 的简写
+            "signed int",
+            "unsigned", // 通常作为 unsigned int 的简写
+            "unsigned int",
+
+            "long",  // 等同于 signed long, long int, signed long int
+            "long int",
+            "signed long",
+            "signed long int",
+            "unsigned long",
+            "unsigned long int",
+
+            "long long", // 等同于 signed long long, long long int, signed long long int
+            "long long int",
+            "signed long long",
+            "signed long long int",
+            "unsigned long long",
+            "unsigned long long int",
+
+            "float",
+            "double",
+            "long double",
+
+            "wchar_t",
+
+            // C++11 及更高版本的类型关键字
+            "char16_t", // C++11
+            "char32_t", // C++11
+            "nullptr_t",// C++11
+            "char8_t",  // C++20 (有些编译器可能更早支持作为扩展)
+
+            // Microsoft (MSVC) 编译器内建类型关键字
+            // 这些通常带有双下划线
+            "__int8",
+            "signed __int8", // __int8 默认为 signed
+            "unsigned __int8",
+
+            "__int16",
+            "signed __int16", // __int16 默认为 signed
+            "unsigned __int16",
+
+            "__int32",
+            "signed __int32", // __int32 默认为 signed
+            "unsigned __int32",
+
+            "__int64",
+            "signed __int64", // __int64 默认为 signed
+            "unsigned __int64",
+
+            "__wchar_t" // MSVC有时也用这个，尽管wchar_t是标准的
+            // 注意：有些编译器可能有更多特定的内建类型，这里列出的是常见的。
+        };
+
+        /// <summary>
+        /// 判断给定的原生类型名称字符串是否 *不是* C++ 的基本类型关键字。
+        /// 包括标准类型、特定编译器的内建类型（如 __int8）和较新C++版本的类型关键字。
+        /// </summary>
+        /// <param name="nativeType">要检查的C++类型名称 (例如 "int", "unsigned __int64", "MyClass")。</param>
+        /// <returns>如果 nativeType *不是* C++ 基本类型关键字，则返回 true；如果是，则返回 false。</returns>
+        public static bool IsNotBasicCppType(string nativeType)
+        {
+            if (string.IsNullOrWhiteSpace(nativeType))
+            {
+                // 空字符串或仅包含空白的字符串显然不是一个有效的C++基本类型
+                return true;
+            }
+            // 如果类型在我们的基本类型集合中，则它 *是* 基本类型，所以函数应返回 false。
+            // 如果不在集合中，则它 *不是* 基本类型，函数应返回 true。
+            return !_basicCppTypes.Contains(nativeType);
         }
 
         private void RemapToMoreSpecificTypeIfPossible(
@@ -1063,29 +1205,48 @@ namespace ClangSharpSourceToWinmd
 
             var typeName = typeSymbol.ToString();
 
+            if (typeName.EndsWith("_e__FixedBuffer"))
+            {
+                return;
+            }
+
+            /*
+            bool IsSomeBasicCsType(ITypeSymbol typeSymbol, string typeName)
+            {
+                return typeSymbol.SpecialType == SpecialType.System_IntPtr ||
+                    typeSymbol.SpecialType == SpecialType.System_UIntPtr ||
+                    typeSymbol.SpecialType == SpecialType.System_Int16 ||
+                    typeSymbol.SpecialType == SpecialType.System_Int32 ||
+                    typeSymbol.SpecialType == SpecialType.System_UInt16 ||
+                    typeSymbol.SpecialType == SpecialType.System_UInt32 ||
+                    typeSymbol.SpecialType == SpecialType.System_Int64 ||
+                    typeSymbol.SpecialType == SpecialType.System_UInt64 ||
+                    typeSymbol.SpecialType == SpecialType.System_Byte ||
+                    typeName.StartsWith("System.IntPtr*") ||
+                    typeName.StartsWith("System.UIntPtr*") ||
+                    typeName.StartsWith("ushort*") ||
+                    typeName.StartsWith("sbyte*") ||
+                    typeName.StartsWith("int*") ||
+                    typeName.StartsWith("uint*") ||
+                    typeName.StartsWith("long*") ||
+                    typeName.StartsWith("ulong*") ||
+                    typeName.StartsWith("void*");
+            }
+            */
             // See if we can map from some generic types to a more specific type
-            if (typeSymbol.SpecialType == SpecialType.System_IntPtr ||
-                typeSymbol.SpecialType == SpecialType.System_UIntPtr ||
-                typeSymbol.SpecialType == SpecialType.System_Int16 ||
-                typeSymbol.SpecialType == SpecialType.System_Int32 ||
-                typeSymbol.SpecialType == SpecialType.System_UInt16 ||
-                typeSymbol.SpecialType == SpecialType.System_UInt32 ||
-                typeSymbol.SpecialType == SpecialType.System_Int64 ||
-                typeSymbol.SpecialType == SpecialType.System_UInt64 ||
-                typeSymbol.SpecialType == SpecialType.System_Byte ||
-                typeName.StartsWith("System.IntPtr*") ||
-                typeName.StartsWith("System.UIntPtr*") ||
-                typeName.StartsWith("ushort*") ||
-                typeName.StartsWith("sbyte*") ||
-                typeName.StartsWith("int*") ||
-                typeName.StartsWith("uint*") ||
-                typeName.StartsWith("long*") ||
-                typeName.StartsWith("ulong*") ||
-                typeName.StartsWith("void*"))
+            if (true)
             {
                 if (nativeType.StartsWith("const "))
                 {
                     nativeType = nativeType.Substring("const ".Length);
+                }
+                bool isNotBasicCppType = IsNotBasicCppType(nativeType);
+                if (isNotBasicCppType)
+                {
+                    if (!nativeType.Contains(' '))
+                    {
+                        this.CheckForOtherTypeCanBeMapped(nativeType, typeName);
+                    }
                 }
 
                 var newTypeSymbol = this.GetTypeFromShortName(nativeType);
@@ -1095,12 +1256,43 @@ namespace ClangSharpSourceToWinmd
                     return;
                 }
 
+                var kpos = nativeType.IndexOf(' ');
+                string nameOnly, star;
+                if (kpos > -1)
+                {
+                    nameOnly = nativeType.Substring(0, kpos);
+                    star = nativeType.Substring(kpos + 1);
+                    star = star.Replace("const", "");
+                    star = star.Replace(" ", "");
+                }
+                else
+                {
+                    nameOnly = nativeType;
+                    star = null;
+                }
+
+                // 下面的代码不兼容
+                // public static extern D3D12_RESOURCE_ALLOCATION_INFO ID3D12Device12_GetResourceAllocationInfo3_Proxy(ID3D12Device12* This, uint visibleMask, uint numResourceDescs, [NativeTypeName("const D3D12_RESOURCE_DESC1 *")] D3D12_RESOURCE_DESC1* pResourceDescs, [NativeTypeName("const UINT32 *")] uint* pNumCastableFormats, [NativeTypeName("const DXGI_FORMAT *const *")] DXGI_FORMAT** ppCastableFormats, D3D12_RESOURCE_ALLOCATION_INFO1* pResourceAllocationInfo1);
+                // 中的[NativeTypeName("const DXGI_FORMAT *const *")] DXGI_FORMAT** ppCastableFormats这个参数
+                /*
                 var parts = nativeType.Split(' ');
                 var nameOnly = parts[0];
                 var star = parts.Length > 1 ? parts[1] : null;
+                */
 
                 if (star != null)
                 {
+                    star = star.Replace("[]", "*");
+                    // Make sure it's actually a pointer. If it's not, we can't do anything more
+                    if (star[0] != '*')
+                    {
+                        return;
+                    }
+
+                    // 下面的代码不兼容
+                    // public static extern int CryptSignMessage([NativeTypeName("PCRYPT_SIGN_MESSAGE_PARA")] CRYPT_SIGN_MESSAGE_PARA* pSignPara, [NativeTypeName("BOOL")] int fDetachedSignature, [NativeTypeName("DWORD")] uint cToBeSigned, [NativeTypeName("const BYTE *[]")] [IncompleteArray] byte** rgpbToBeSigned, [NativeTypeName("DWORD[]")] uint* rgcbToBeSigned, byte* pbSignedBlob, [NativeTypeName("DWORD *")] uint* pcbSignedBlob);
+                    // 中的[NativeTypeName("const BYTE *[]")] [IncompleteArray] byte** rgpbToBeSigned这个参数
+                    /*
                     // If this is an array...
                     if (star[0] == '[')
                     {
@@ -1121,6 +1313,42 @@ namespace ClangSharpSourceToWinmd
                     {
                         return;
                     }
+                    */
+                }
+
+                var typeNameOnly = typeName;
+                if (star != null)
+                {
+                    for (int i = 0; i < star.Length; i++)
+                    {
+                        if (typeNameOnly.EndsWith('*'))
+                        {
+                            typeNameOnly = typeNameOnly.Remove(typeNameOnly.Length - 1);
+                        }
+                        else
+                        {
+                            if (i == star.Length - 1)
+                            {
+                                if (typeNameOnly == "System.IntPtr" || typeNameOnly == "System.UIntPtr")
+                                {
+
+                                }
+                                else
+                                {
+                                    Debug.Assert(false);
+                                }
+                            }
+                            else
+                            {
+                                Debug.Assert(false);
+                            }
+                        }
+                    }
+                }
+                bool isNotBasicCppTypeOnly = IsNotBasicCppType(nameOnly);
+                if (isNotBasicCppTypeOnly)
+                {
+                    this.CheckForOtherTypeCanBeMapped(nameOnly, typeNameOnly);
                 }
 
                 newTypeSymbol = this.GetTypeFromShortName(nameOnly);
@@ -1681,7 +1909,7 @@ namespace ClangSharpSourceToWinmd
                 {
                     return typeRef;
                 }
-                
+
                 throw new InvalidOperationException(
                     $"\"{fullName}\" could not be resolved. Make sure this symbol is defined in the metadata source files or in a referenced assembly.");
             }
@@ -1870,7 +2098,7 @@ namespace ClangSharpSourceToWinmd
                     parameters.Add(p);
                 }
 
-                var ctorFound = 
+                var ctorFound =
                     interfaceTypeAttr
                         .Constructors
                         .First(c => c.Parameters.Length == argTypes.Length && c.Parameters.Select(param => param.Type)
@@ -2413,7 +2641,7 @@ namespace ClangSharpSourceToWinmd
                 {
                     this.parent.CacheInterfaceType(node);
                 }
-                
+
                 if (HasGuidAttribute(node.AttributeLists))
                 {
                     this.parent.structNameWithGuids.Add(node.Identifier.ValueText);
