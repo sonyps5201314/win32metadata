@@ -14,6 +14,7 @@ using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Reflection.PortableExecutable;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.RegularExpressions;
 using MetadataUtils;
 using Microsoft.CodeAnalysis;
@@ -522,18 +523,48 @@ namespace ClangSharpSourceToWinmd
             this.WroteWinmd = true;
         }
 
-        List<StructDeclarationSyntax> dependTypedefStructs = new List<StructDeclarationSyntax>();
         private void PopulateMetadataBuilder()
         {
+            foreach (var tree in this.compilation.SyntaxTrees)
+            {
+                var root = tree.GetRoot();
+                var model = this.GetModel(root);
+                var collector = new NativeTypeNameCollector(model);
+                collector.Visit(root);
+                if (collector.FoundElements.Any())
+                {
+                    foreach (var info in collector.FoundElements)
+                    {
+                        this.RemapToMoreSpecificTypeIfPossible_Internal(false, info.ParentName, info.ElementName, info.NativeTypeNameValue, info.ElementManagedTypeNamespace, info.ElementManagedType, ref info.TypeSymbol);
+                    }
+                }
+            }
+
+            var code = dependTypedefStructsCode.ToString();
+            var fileName = @"z:\dependTypedefStructsCode.cs";
+            File.WriteAllText(fileName, code);
+            var syntaxTree = CSharpSyntaxTree.ParseText(code, null, fileName);
+            this.compilation = this.compilation.AddSyntaxTrees(syntaxTree);
+
+            // 检查编译诊断信息 (可选，但有助于调试)
+            var diagnostics = this.compilation.GetDiagnostics();
+            foreach (var diag in diagnostics.Where(d => d.Severity == DiagnosticSeverity.Error))
+            {
+                string line = string.Empty;
+                var pos = diag.Location.GetLineSpan();
+                if (pos.Path != null)
+                {
+                    if (pos.Path == fileName)
+                    {
+                        line += pos.Path + " (" + (pos.StartLinePosition.Line + 1) + "," + (pos.StartLinePosition.Character + 1) + ")";
+                        Debug.WriteLine($"{line}: {diag.GetMessage()}");
+                    }
+                }
+            }
+
             GatherInterfaceTypes();
 
             VisitAllTypes();
-
-            foreach (var item in this.dependTypedefStructs)
-            {
-                this.WriteStructDef(item);
-            }
-            this.dependTypedefStructs.Clear();
 
             void VisitAllTypes()
             {
@@ -1036,38 +1067,48 @@ namespace ClangSharpSourceToWinmd
             return ret;
         }
 
-        void CheckForOtherTypeCanBeMapped(string nativeType, string typeName)
+        StringBuilder dependTypedefStructsCode = new StringBuilder(
+@$"using System;
+using Windows.Win32.Foundation.Metadata;
+");
+        Dictionary<string, string> dependTypedefStructsMap = new Dictionary<string, string>();
+        void CheckForOtherTypeCanBeMapped(string nativeType, string ns, string typeName, ITypeSymbol typeSymbol)
         {
-            if (nativeType != typeName && !nativeType.StartsWith("__AnonymousRecord_"))
+            if (nativeType != typeName && nativeType != "GUID" && typeName != "void")
             {
-                var foundTypeSymbol = this.GetTypeFromShortName(nativeType, true);
-                if (foundTypeSymbol == null)
+                //if (nativeType == "PDISPATCHERQUEUECONTROLLER")
+                //{
+                //    int x = 0;
+                //}
+                var key = ns + "." + nativeType;
+                var found = this.dependTypedefStructsMap.TryGetValue(key, out _) || this.GetTypeFromShortName(nativeType, true) != null;
+                if (!found)
                 {
-                    var ns = "Windows.Win32.Foundation";
-                    var pos = typeName.LastIndexOf('.');
-                    if (pos > -1)
+                    var fullTypeName = typeSymbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
+                    // typeSymbol.ToDisplayString返回的类型名不带末尾的指针，所以我们像下面这样手动处理下
+                    var dpos = fullTypeName.LastIndexOf('.');
+                    if (dpos != -1)
                     {
-                        ns = typeName.Substring(0, pos);
-                        typeName = typeName.Substring(pos + 1);
+                        fullTypeName = fullTypeName.Substring(0, dpos + 1) + typeName;
+                    }
+                    else
+                    {
+                        fullTypeName = typeName;
                     }
                     var code =
-    @$"using System;
-using Windows.Win32.Foundation.Metadata;
-
-namespace {ns}
+@$"namespace {ns}
 {{
     [NativeTypedef]
     public unsafe struct {nativeType}
     {{
-        public {typeName} Value;
+        public {fullTypeName} Value;
     }}
-}}";
-                    var syntaxTree = CSharpSyntaxTree.ParseText(code);
-                    this.compilation = this.compilation.AddSyntaxTrees(syntaxTree);
+}}
+";
+                    this.dependTypedefStructsCode.Append(code);
+                    this.dependTypedefStructsMap.Add(key, typeName);
 
-                    var typedefStructNode = syntaxTree.GetRoot().DescendantNodes().FirstOrDefault(node => node is StructDeclarationSyntax);
-                    this.dependTypedefStructs.Add(typedefStructNode as StructDeclarationSyntax);
-                    Console.WriteLine($"typedef {nativeType} {typeName};");
+                    //Console.WriteLine($"typedef {nativeType} {typeName};");
                 }
             }
         }
@@ -1152,14 +1193,80 @@ namespace {ns}
         /// <returns>如果 nativeType *不是* C++ 基本类型关键字，则返回 true；如果是，则返回 false。</returns>
         public static bool IsNotBasicCppType(string nativeType)
         {
-            if (string.IsNullOrWhiteSpace(nativeType))
-            {
-                // 空字符串或仅包含空白的字符串显然不是一个有效的C++基本类型
-                return true;
-            }
-            // 如果类型在我们的基本类型集合中，则它 *是* 基本类型，所以函数应返回 false。
-            // 如果不在集合中，则它 *不是* 基本类型，函数应返回 true。
             return !_basicCppTypes.Contains(nativeType);
+        }
+
+        public static bool IsBasicCppTypePrefix(string nativeType)
+        {
+            string[] _basicCppTypePrefixs =
+            {
+                "unsigned",
+                "signed",
+                "long",
+                "short"
+            };
+            return _basicCppTypePrefixs.Contains(nativeType);
+        }
+
+        public static string CleanNativeType(string nativeType)
+        {
+            string[] qualifierPrefixesToStrip =
+            {
+                "const ",
+                "volatile ",
+                "__unaligned "
+            };
+
+            foreach (var prefix in qualifierPrefixesToStrip)
+            {
+                if (nativeType.StartsWith(prefix))
+                {
+                    nativeType = nativeType.Substring(prefix.Length);
+                }
+            }
+
+            string[] typePrefixesToStrip =
+            {
+                "struct ",
+                "union ",
+                "enum ",
+            };
+
+            foreach (var prefix in typePrefixesToStrip)
+            {
+                if (nativeType.StartsWith(prefix))
+                {
+                    nativeType = nativeType.Substring(prefix.Length);
+                    break;
+                }
+            }
+
+            var pos = nativeType.LastIndexOf("::");
+            if (pos > -1)
+            {
+                nativeType = nativeType.Substring(pos + 2);
+            }
+
+            return nativeType;
+        }
+
+        private static readonly HashSet<string> _CsTypeNotCppTypes = new HashSet<string>(StringComparer.Ordinal)
+        {
+                "byte",
+                "sbyte",
+                "decimal",
+                "uint",
+                "ulong",
+                "ushort",
+                "object",
+                "string",
+                "dynamic",
+                "nint",
+                "nuint",
+         };
+        public static bool IsCsTypeNotCppType(string nativeType)
+        {
+            return _CsTypeNotCppTypes.Contains(nativeType);
         }
 
         private void RemapToMoreSpecificTypeIfPossible(
@@ -1196,19 +1303,36 @@ namespace {ns}
                 return;
             }
 
-            if (typeSymbol.SpecialType == SpecialType.System_IntPtr && nativeType.Contains("(*)"))
+            var typeName = typeSymbol.ToString();
+            RemapToMoreSpecificTypeIfPossible_Internal(true, owner, name, nativeType, null, typeName, ref typeSymbol);
+        }
+
+        private void RemapToMoreSpecificTypeIfPossible_Internal(
+            bool forRemap,
+            string owner,
+            string name,
+            string nativeType,
+            string ns,
+            string typeName,
+            ref ITypeSymbol typeSymbol)
+        {
+            if (nativeType.Contains("(*)") || nativeType.Contains("(void *)"))
             {
                 string fullName = $"{owner}.{name}";
                 //this.diagnostics.Add(new GeneratorDiagnostic($"{fullName} is a pointer to a function: {nativeType}. To express this properly in metadata, define a delegate and map {fullName} to use it.", DiagnosticSeverity.Warning));
                 return;
             }
 
-            var typeName = typeSymbol.ToString();
-
-            if (typeName.EndsWith("_e__FixedBuffer"))
+            if (IsCsTypeNotCppType(nativeType))
             {
                 return;
             }
+
+            if (nativeType.StartsWith("__AnonymousRecord_") || typeName.EndsWith("_e__FixedBuffer") || typeName.Contains("_e__Struct"))
+            {
+                return;
+            }
+
 
             /*
             bool IsSomeBasicCsType(ITypeSymbol typeSymbol, string typeName)
@@ -1236,39 +1360,60 @@ namespace {ns}
             // See if we can map from some generic types to a more specific type
             if (true)
             {
-                if (nativeType.StartsWith("const "))
+                nativeType = CleanNativeType(nativeType);
+
+                ITypeSymbol newTypeSymbol;
+                if (!forRemap)
                 {
-                    nativeType = nativeType.Substring("const ".Length);
-                }
-                bool isNotBasicCppType = IsNotBasicCppType(nativeType);
-                if (isNotBasicCppType)
-                {
-                    if (!nativeType.Contains(' '))
+                    bool isNotBasicCppType = IsNotBasicCppType(nativeType);
+                    if (isNotBasicCppType)
                     {
-                        this.CheckForOtherTypeCanBeMapped(nativeType, typeName);
+                        if (!nativeType.Contains(' ') && !nativeType.Contains('*') && !nativeType.Contains('[') && !nativeType.Contains('&'))
+                        {
+                            this.CheckForOtherTypeCanBeMapped(nativeType, ns, typeName, typeSymbol);
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    newTypeSymbol = this.GetTypeFromShortName(nativeType);
+                    if (newTypeSymbol != null)
+                    {
+                        typeSymbol = newTypeSymbol;
+                        return;
                     }
                 }
 
-                var newTypeSymbol = this.GetTypeFromShortName(nativeType);
-                if (newTypeSymbol != null)
+                string nameOnly;
+                int star_count = 0;
+                var kpos = nativeType.IndexOf('*');
+                if (kpos == -1)
                 {
-                    typeSymbol = newTypeSymbol;
-                    return;
+                    kpos = nativeType.IndexOf('[');
+                    if (kpos == -1)
+                    {
+                        kpos = nativeType.IndexOf('&');
+                        if (kpos != -1)
+                        {
+                            star_count++;
+                        }
+                    }
+                    else
+                    {
+                        star_count++;
+                    }
                 }
-
-                var kpos = nativeType.IndexOf(' ');
-                string nameOnly, star;
                 if (kpos > -1)
                 {
                     nameOnly = nativeType.Substring(0, kpos);
-                    star = nativeType.Substring(kpos + 1);
-                    star = star.Replace("const", "");
-                    star = star.Replace(" ", "");
+                    nameOnly = nameOnly.TrimEnd();
+                    var star = nativeType.Substring(kpos);
+                    star_count = star_count + star.Count(c => c == '*');
                 }
                 else
                 {
                     nameOnly = nativeType;
-                    star = null;
                 }
 
                 // 下面的代码不兼容
@@ -1280,15 +1425,8 @@ namespace {ns}
                 var star = parts.Length > 1 ? parts[1] : null;
                 */
 
-                if (star != null)
+                if (star_count != 0)
                 {
-                    star = star.Replace("[]", "*");
-                    // Make sure it's actually a pointer. If it's not, we can't do anything more
-                    if (star[0] != '*')
-                    {
-                        return;
-                    }
-
                     // 下面的代码不兼容
                     // public static extern int CryptSignMessage([NativeTypeName("PCRYPT_SIGN_MESSAGE_PARA")] CRYPT_SIGN_MESSAGE_PARA* pSignPara, [NativeTypeName("BOOL")] int fDetachedSignature, [NativeTypeName("DWORD")] uint cToBeSigned, [NativeTypeName("const BYTE *[]")] [IncompleteArray] byte** rgpbToBeSigned, [NativeTypeName("DWORD[]")] uint* rgcbToBeSigned, byte* pbSignedBlob, [NativeTypeName("DWORD *")] uint* pcbSignedBlob);
                     // 中的[NativeTypeName("const BYTE *[]")] [IncompleteArray] byte** rgpbToBeSigned这个参数
@@ -1317,9 +1455,9 @@ namespace {ns}
                 }
 
                 var typeNameOnly = typeName;
-                if (star != null)
+                if (star_count != 0)
                 {
-                    for (int i = 0; i < star.Length; i++)
+                    for (int i = 0; i < star_count; i++)
                     {
                         if (typeNameOnly.EndsWith('*'))
                         {
@@ -1327,52 +1465,74 @@ namespace {ns}
                         }
                         else
                         {
-                            if (i == star.Length - 1)
+                            if (i == star_count - 1)
                             {
-                                if (typeNameOnly == "System.IntPtr" || typeNameOnly == "System.UIntPtr")
+                                if (forRemap)
+                                {
+                                    var pos = typeNameOnly.LastIndexOf('.');
+                                    if (pos > -1)
+                                    {
+                                        ns = typeNameOnly.Substring(0, pos);
+                                        typeNameOnly = typeNameOnly.Substring(pos + 1);
+                                    }
+                                }
+                                if (typeNameOnly == "IntPtr" || typeNameOnly == "UIntPtr")
                                 {
 
                                 }
+                                else if (nameOnly == typeNameOnly)
+                                {
+                                    break;
+                                }
                                 else
                                 {
-                                    Debug.Assert(false);
+                                    //Debug.Assert(false);
+                                    //Debug.WriteLine($"{owner}.{name} nativeType:{nativeType} does not match typeName:{typeName}!");
+                                    return;
                                 }
                             }
                             else
                             {
                                 Debug.Assert(false);
+                                Debug.WriteLine($"{owner}.{name} nativeType:{nativeType} does not match typeName:{typeName}!");
+                                return;
                             }
                         }
                     }
                 }
-                bool isNotBasicCppTypeOnly = IsNotBasicCppType(nameOnly);
-                if (isNotBasicCppTypeOnly)
+                if (!forRemap)
                 {
-                    this.CheckForOtherTypeCanBeMapped(nameOnly, typeNameOnly);
-                }
-
-                newTypeSymbol = this.GetTypeFromShortName(nameOnly);
-
-                if (newTypeSymbol != null)
-                {
-                    if (!string.IsNullOrEmpty(star))
+                    bool isNotBasicCppTypeOnly = IsNotBasicCppType(nameOnly);
+                    if (isNotBasicCppTypeOnly)
                     {
-                        var currentName = nameOnly;
-                        for (int i = 0; i < star.Length; i++)
-                        {
-                            currentName += "*";
-                            var pointerSymbol = this.GetTypeFromShortName(currentName);
-                            if (pointerSymbol == null)
-                            {
-                                pointerSymbol = this.compilation.CreatePointerTypeSymbol(newTypeSymbol);
-                                this.nameToSymbols[currentName] = pointerSymbol;
-                            }
-
-                            newTypeSymbol = pointerSymbol;
-                        }
+                        this.CheckForOtherTypeCanBeMapped(nameOnly, ns, typeNameOnly, typeSymbol);
                     }
+                }
+                else
+                {
+                    newTypeSymbol = this.GetTypeFromShortName(nameOnly);
 
-                    typeSymbol = newTypeSymbol;
+                    if (newTypeSymbol != null)
+                    {
+                        if (star_count != 0)
+                        {
+                            var currentName = nameOnly;
+                            for (int i = 0; i < star_count; i++)
+                            {
+                                currentName += "*";
+                                var pointerSymbol = this.GetTypeFromShortName(currentName);
+                                if (pointerSymbol == null)
+                                {
+                                    pointerSymbol = this.compilation.CreatePointerTypeSymbol(newTypeSymbol);
+                                    this.nameToSymbols[currentName] = pointerSymbol;
+                                }
+
+                                newTypeSymbol = pointerSymbol;
+                            }
+                        }
+
+                        typeSymbol = newTypeSymbol;
+                    }
                 }
             }
         }
