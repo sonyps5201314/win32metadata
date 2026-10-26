@@ -307,7 +307,7 @@ namespace ClangSharpSourceToWinmd
         /// </summary>
         /// <param name="ownerAttributes">Owner attributes</param>
         /// <returns>Normalized native type name</returns>
-        private static string GetNormalizedNativeTypeName(ImmutableArray<AttributeData> ownerAttributes)
+        private static string GetNormalizedNativeTypeName(ImmutableArray<AttributeData> ownerAttributes, bool isArrayElement = false)
         {
             var nativeTypeNameAttr = ownerAttributes.FirstOrDefault(a => a.AttributeClass.Name == "NativeTypeNameAttribute");
             if (nativeTypeNameAttr == null)
@@ -316,6 +316,12 @@ namespace ClangSharpSourceToWinmd
             }
 
             var nativeType = nativeTypeNameAttr.ConstructorArguments[0].Value.ToString();
+            if (isArrayElement)
+            {
+                // 数组维度由字段编码器处理，类型重映射只处理原始元素声明。
+                return ArrayMatcher.Replace(nativeType, string.Empty).TrimEnd();
+            }
+
             var match = NormalizeNativeTypeNameRegex.Match(nativeType);
             if (match.Success && !string.IsNullOrEmpty(match.Groups[2].Value))
             {
@@ -1273,9 +1279,10 @@ using Windows.Win32.Foundation.Metadata;
             string owner,
             string name,
             ImmutableArray<AttributeData> ownerAttributes,
-            ref ITypeSymbol typeSymbol)
+            ref ITypeSymbol typeSymbol,
+            bool isArrayElement = false)
         {
-            var nativeType = GetNormalizedNativeTypeName(ownerAttributes);
+            var nativeType = GetNormalizedNativeTypeName(ownerAttributes, isArrayElement);
 
             // Can't do anything without a NativeTypeNameAttribute 
             if (nativeType == null)
@@ -2559,13 +2566,7 @@ using Windows.Win32.Foundation.Metadata;
                 }
 
                 var fieldType = fixedBufferInfo.Type;
-                this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref fieldType);
-
-                bool symbolsChanged = !SymbolEqualityComparer.Default.Equals(fieldType, fixedBufferInfo.Type);
-                if (symbolsChanged && fieldType is IPointerTypeSymbol pointer)
-                {
-                    fieldType = pointer.PointedAtType;
-                }
+                this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref fieldType, isArrayElement: true);
 
                 signatureEncoder.Array(
                     s => this.EncodeTypeSymbol(fieldType, signatureEncoder),
