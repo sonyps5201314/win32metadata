@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="../ClangSharp/sources/ClangSharp.Interop/ClangSharp.Interop.csproj" />
+  <Project Path="../ClangSharp/sources/ClangSharp/ClangSharp.csproj" />
+  <Project Path="../ClangSharp/sources/ClangSharp.PInvokeGenerator/ClangSharp.PInvokeGenerator.csproj" />
+  <Project Path="sources/MetadataUtils/MetadataUtils.csproj" />
+  <Project Path="sources/WinmdUtils/WinmdUtils.csproj" />
+  <Project Path="sources/ClangSharpSourceToWinmd/ClangSharpSourceToWinmd.csproj" />
+  <Project Path="sources/Win32MetadataScraper/Win32MetadataScraper.csproj" />
+  <Project Path="tests/ClangSharpSourceToWinmdTests/ClangSharpSourceToWinmdTests.csproj" />
+</Solution>

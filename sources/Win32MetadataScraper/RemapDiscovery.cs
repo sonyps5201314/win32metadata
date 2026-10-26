@@ -307,16 +307,13 @@ public static class RemapDiscovery
     }
 
     /// <summary>
-    /// Unwraps sugar types (ElaboratedType, AttributedType, ParenType) to get to
-    /// the semantically meaningful type underneath.
+    /// 去除属性和括号包装，取得实际类型。
     /// </summary>
     public static ClangSharp.Type UnwrapType(ClangSharp.Type type)
     {
         while (true)
         {
-            if (type is ElaboratedType elab)
-                type = elab.NamedType;
-            else if (type is AttributedType attr)
+            if (type is AttributedType attr)
                 type = attr.ModifiedType;
             else if (type is ParenType paren)
                 type = paren.InnerType;

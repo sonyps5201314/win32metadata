@@ -26,6 +26,7 @@ exclude-funcs-with-body
 generate-cpp-attributes
 generate-native-bitfield-attribute
 generate-native-inheritance-attribute
+generate-native-alignment-attribute
 dont-use-using-statics-for-enums
 exclude-anonymous-field-helpers
 --methodClassName

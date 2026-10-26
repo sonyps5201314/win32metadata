@@ -7,14 +7,11 @@
     <SelfContained>false</SelfContained>
     <WarningLevel>5</WarningLevel>
     <NoWarn>1701;1702;</NoWarn>
+    <ClangSharpSourceRoot Condition="'$(ClangSharpSourceRoot)' == ''">$(MSBuildProjectDirectory)\..\..\..\ClangSharp</ClangSharpSourceRoot>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClangSharp" Version="21.1.8.4" />
-    <PackageReference Include="ClangSharp.Interop" Version="21.1.8.4" />
-    <PackageReference Include="ClangSharp.PInvokeGenerator" Version="21.1.8.4" />
-    <PackageReference Include="libclang" Version="21.1.8" />
-    <PackageReference Include="libClangSharp" Version="21.1.8.2" />
+    <ProjectReference Include="$(ClangSharpSourceRoot)\sources\ClangSharp.PInvokeGenerator\ClangSharp.PInvokeGenerator.csproj" />
   </ItemGroup>
 
 </Project>

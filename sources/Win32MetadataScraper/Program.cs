@@ -1,9 +1,7 @@
 // Win32MetadataScraper: Single-pass scraper that wraps ClangSharp PInvokeGenerator.
 //
-// Hosts PInvokeGenerator as a library (via NuGet package references). Parses the
-// translation unit, walks the AST to discover typedef-tag remappings, merges them
-// with the configured --remap entries, then runs PInvokeGenerator.GenerateBindings
-// with the full merged remap set — all in a single parse pass.
+// 通过同级 ClangSharp 源码项目调用 PInvokeGenerator，确保本地扩展参与抓取。
+// 在同一次解析中发现 typedef 映射，合并配置，再生成绑定。
 //
 // Usage: dotnet Win32MetadataScraper.dll <remapsOutputPath> @rsp1 @rsp2 ...
 
@@ -352,8 +350,12 @@ class Program
         {
             DefaultClass = defaultClass ?? "Methods",
             TraversalNames = settings.GetValueOrDefault("--traverse")?.ToArray() ?? Array.Empty<string>(),
-            ExcludedNames = excludes.ToArray(),
+            ExcludedNames = excludes.Concat(new[] { "NativeAlignmentAttribute" }).Distinct(StringComparer.Ordinal).ToArray(),
             RemappedNames = remaps,
+            WithNamespaces = new Dictionary<string, string>
+            {
+                ["NativeAlignmentAttribute"] = "Windows.Win32.Foundation.Metadata",
+            },
             WithAttributes = ParseKeyValueMultiPairs(settings.GetValueOrDefault("--with-attribute")),
             WithTypes = ParseKeyValuePairs(settings.GetValueOrDefault("--with-type")),
             WithLibraryPaths = ParseKeyValuePairs(settings.GetValueOrDefault("--with-librarypath")),
@@ -400,6 +402,7 @@ class Program
                     "generate-cpp-attributes" => PInvokeGeneratorConfigurationOptions.GenerateCppAttributes,
                     "generate-native-bitfield-attribute" => PInvokeGeneratorConfigurationOptions.GenerateNativeBitfieldAttribute,
                     "generate-native-inheritance-attribute" => PInvokeGeneratorConfigurationOptions.GenerateNativeInheritanceAttribute,
+                    "generate-native-alignment-attribute" => PInvokeGeneratorConfigurationOptions.GenerateNativeAlignmentAttribute,
                     "dont-use-using-statics-for-enums" or
                     "exclude-using-statics-for-enums" => PInvokeGeneratorConfigurationOptions.DontUseUsingStaticsForEnums,
                     "exclude-anonymous-field-helpers" => PInvokeGeneratorConfigurationOptions.ExcludeAnonymousFieldHelpers,
