@@ -104,6 +104,125 @@ namespace Display
         }
 
         [TestMethod]
+        public void AnsiStringsKeepTheirAliasesAcrossSignedAndUnsignedCharProjections()
+        {
+            using var module = new GeneratedModule(@"
+namespace Windows.Win32.Foundation
+{
+    [NativeTypedef] public unsafe struct PSTR { public byte* Value; }
+}
+namespace Strings
+{
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""PSTR"")] public sbyte* Text;
+        [NativeTypeName(""PCSTR"")] public sbyte* ConstantText;
+        [NativeTypeName(""PCSTR *"")] public sbyte** TextArray;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Text", "PSTR");
+            AssertFieldTarget(module, "Holder", "ConstantText", "PSTR");
+            AssertFieldTarget(module, "Holder", "TextArray", "PSTR", 1);
+        }
+
+        [TestMethod]
+        public void PointerAliasDiscoveryAcceptsConstPrefixesAndAbbreviatedNames()
+        {
+            using var module = new GeneratedModule(@"
+namespace Shell
+{
+    public struct ITEMIDLIST { public int Value; }
+    public struct IBindCtx { public int Value; }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""LPCITEMIDLIST"")] public ITEMIDLIST* Item;
+        [NativeTypeName(""LPCITEMIDLIST *"")] public ITEMIDLIST** Items;
+        [NativeTypeName(""LPBC"")] public IBindCtx* Context;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Item", "LPCITEMIDLIST");
+            AssertFieldTarget(module, "Holder", "Items", "LPCITEMIDLIST", 1);
+            AssertFieldTarget(module, "Holder", "Context", "LPBC");
+            AssertValueSignature(module, "LPCITEMIDLIST", 1, SignatureTypeCode.TypeHandle);
+            AssertValueSignature(module, "LPBC", 1, SignatureTypeCode.TypeHandle);
+        }
+
+        [TestMethod]
+        public void OpaqueHandleAliasesPreserveTheExtraOutputPointer()
+        {
+            using var module = new GeneratedModule(@"
+namespace Shell
+{
+    [NativeTypedef] public struct PAPPSTATE_REGISTRATION { public IntPtr Value; }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""PAPPSTATE_REGISTRATION"")] public IntPtr* Handle;
+        [NativeTypeName(""PAPPSTATE_REGISTRATION *"")] public IntPtr** Output;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Handle", "PAPPSTATE_REGISTRATION");
+            AssertFieldTarget(module, "Holder", "Output", "PAPPSTATE_REGISTRATION", 1);
+        }
+
+        [TestMethod]
+        public void ExistingEnumWithNativeAliasNameIsKeptForCompatibleIntegers()
+        {
+            using var module = new GeneratedModule(@"
+namespace Shell
+{
+    public enum SFBS_FLAGS : int { Round = 1, Truncate = 2 }
+    public struct Holder { [NativeTypeName(""SFBS_FLAGS"")] public int Flags; }
+}
+");
+            AssertFieldTarget(module, "Holder", "Flags", "SFBS_FLAGS");
+        }
+
+        [TestMethod]
+        public void PointerAliasesToEnumsPreserveExistingSemanticProjections()
+        {
+            using var module = new GeneratedModule(@"
+namespace Semantic
+{
+    public enum Flags : uint { One = 1 }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""DWORD"")] public uint Raw;
+        [NativeTypeName(""PCFLAGS"")] public Flags* Named;
+        [NativeTypeName(""DWORD *"")] public Flags* Projected;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Named", "PCFLAGS");
+            AssertFieldTarget(module, "Holder", "Projected", "Flags", 1);
+            AssertValueSignature(module, "PCFLAGS", 1, SignatureTypeCode.TypeHandle);
+            AssertValueSignature(module, "DWORD", 0, SignatureTypeCode.UInt32);
+        }
+
+        private static void AssertFieldTarget(GeneratedModule module, string owner, string fieldName, string target, int pointers = 0)
+        {
+            var definition = module.Types.Single(t => module.Reader.GetString(t.Name) == owner);
+            var field = definition.GetFields().Select(module.Reader.GetFieldDefinition)
+                .Single(f => module.Reader.GetString(f.Name) == fieldName);
+            var blob = module.Reader.GetBlobReader(field.Signature);
+            Assert.AreEqual(SignatureKind.Field, blob.ReadSignatureHeader().Kind);
+            for (int i = 0; i < pointers; i++)
+            {
+                Assert.AreEqual(SignatureTypeCode.Pointer, blob.ReadSignatureTypeCode(), fieldName);
+            }
+
+            Assert.AreEqual(SignatureTypeCode.TypeHandle, blob.ReadSignatureTypeCode(), fieldName);
+            var handle = blob.ReadTypeHandle();
+            string actual = handle.Kind == HandleKind.TypeDefinition
+                ? module.Reader.GetString(module.Reader.GetTypeDefinition((TypeDefinitionHandle)handle).Name)
+                : module.Reader.GetString(module.Reader.GetTypeReference((TypeReferenceHandle)handle).Name);
+            Assert.AreEqual(target, actual, fieldName);
+            Assert.AreEqual(0, blob.RemainingBytes, fieldName);
+        }
+
+        [TestMethod]
         public void ConflictingProjectionsKeepOneAliasWithoutChangingSpecializedBuffers()
         {
             using var module = new GeneratedModule(@"

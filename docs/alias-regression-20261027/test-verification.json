@@ -1,0 +1,13 @@
+{
+  "tests": {
+    "Windows.Win32.Tests.dll": 35,
+    "ClangSharpSourceToWinmdTests.dll": 40,
+    "Win32MetadataScraperTests.dll": 50,
+    "MetadataUtils.Tests.dll": 17
+  },
+  "total": 142,
+  "cpp_architecture_tests": [
+    "x64",
+    "x86"
+  ]
+}

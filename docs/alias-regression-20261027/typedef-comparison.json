@@ -1,0 +1,899 @@
+{
+  "restored_aliases": {
+    "LPDHCP_SERVER_INFO_ARRAY": [
+      "DHCPDS_SERVERS*"
+    ],
+    "PWLDP_WINDOWS_LOCKDOWN_MODE": [
+      "WLDP_WINDOWS_LOCKDOWN_MODE*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO*"
+    ],
+    "PWSC_SECURITY_PROVIDER_HEALTH": [
+      "WSC_SECURITY_PROVIDER_HEALTH*"
+    ],
+    "PCPEERDIST_CONTENT_TAG": [
+      "PEERDIST_CONTENT_TAG*"
+    ],
+    "PCWEBAUTHN_RP_ENTITY_INFORMATION": [
+      "WEBAUTHN_RP_ENTITY_INFORMATION*"
+    ],
+    "PPPROPERTIES": [
+      "struct Properties**"
+    ],
+    "PKSDATARANGE": [
+      "KSDATAFORMAT*"
+    ],
+    "PWDS_CLI_IMAGE_TYPE": [
+      "WDS_CLI_IMAGE_TYPE*"
+    ],
+    "LPDIRECTSOUNDCAPTURE8": [
+      "IDirectSoundCapture*"
+    ],
+    "PROPSHEETPAGE_RESOURCE": [
+      "DLGTEMPLATE*"
+    ],
+    "PSP_INF_SIGNER_INFO_A": [
+      "SP_INF_SIGNER_INFO_V2_A*"
+    ],
+    "PPFRAME": [
+      "Frame**"
+    ],
+    "PCCERT_SERVER_OCSP_RESPONSE_CONTEXT": [
+      "CERT_SERVER_OCSP_RESPONSE_CONTEXT*"
+    ],
+    "PCWEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS": [
+      "WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS*"
+    ],
+    "LPCQITAB": [
+      "QITAB*"
+    ],
+    "PLISTVIEWMODE": [
+      "_ListViewMode*"
+    ],
+    "PPOLICY_AUDIT_EVENT_TYPE": [
+      "POLICY_AUDIT_EVENT_TYPE*"
+    ],
+    "PCLFS_WRITE_ENTRY": [
+      "CLS_WRITE_ENTRY*"
+    ],
+    "PCWEBAUTHN_PLUGIN_USER_VERIFICATION_REQUEST": [
+      "WEBAUTHN_PLUGIN_USER_VERIFICATION_REQUEST*"
+    ],
+    "PCERT_NAME_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO*"
+    ],
+    "LPCPROPSHEETPAGEA": [
+      "PROPSHEETPAGEA*"
+    ],
+    "PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS": [
+      "WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS*"
+    ],
+    "LPSIZEL": [
+      "SIZE*"
+    ],
+    "PCRYPT_DATA_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "LPCDIPROPHEADER": [
+      "DIPROPHEADER*"
+    ],
+    "PCWEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS_2": [
+      "WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS_2*"
+    ],
+    "PCredHandle": [
+      "SecHandle*"
+    ],
+    "PPNP_VETO_TYPE": [
+      "PNP_VETO_TYPE*"
+    ],
+    "PCPEER_CONTACT": [
+      "PEER_CONTACT*"
+    ],
+    "PFH_DEVICE_VALIDATION_RESULT": [
+      "FH_DEVICE_VALIDATION_RESULT*"
+    ],
+    "PCWEBAUTHN_PLUGIN_CREDENTIAL_DETAILS": [
+      "WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS*"
+    ],
+    "PSHIMOPTS": [
+      "SHIMOPTS*"
+    ],
+    "LPCDSFXEcho": [
+      "DSFXEcho*"
+    ],
+    "PALLOC_CONSOLE_RESULT": [
+      "ALLOC_CONSOLE_RESULT*"
+    ],
+    "LPMC_DISPLAY_TECHNOLOGY_TYPE": [
+      "MC_DISPLAY_TECHNOLOGY_TYPE*"
+    ],
+    "LPMC_COLOR_TEMPERATURE": [
+      "MC_COLOR_TEMPERATURE*"
+    ],
+    "PCCERT_SELECT_CHAIN_PARA": [
+      "CERT_SELECT_CHAIN_PARA*"
+    ],
+    "LPDHCP_SERVER_INFO": [
+      "DHCPDS_SERVER*"
+    ],
+    "PCERT_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "LPSECURITYINFO": [
+      "ISecurityInformation*"
+    ],
+    "PRESOURCEID": [
+      "CM_RESTYPE*"
+    ],
+    "PPEXTENSIONS": [
+      "Extensions**"
+    ],
+    "PCCERT_CONTEXT": [
+      "CERT_CONTEXT*"
+    ],
+    "LPD3D10BLOB": [
+      "ID3DBlob*"
+    ],
+    "LPCDSFXCompressor": [
+      "DSFXCompressor*"
+    ],
+    "LPCDSFXWavesReverb": [
+      "DSFXWavesReverb*"
+    ],
+    "PSP_INF_SIGNER_INFO_W": [
+      "SP_INF_SIGNER_INFO_V2_W*"
+    ],
+    "PARM64_NT_CONTEXT": [
+      "CONTEXT*"
+    ],
+    "PCWEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS_2": [
+      "WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS_2*"
+    ],
+    "LPCMENUITEMINFOW": [
+      "MENUITEMINFOW*"
+    ],
+    "PPFFORWARD_ACTION": [
+      "PFFORWARD_ACTION*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO*"
+    ],
+    "PCUNICODE_STRING": [
+      "UNICODE_STRING*"
+    ],
+    "PCLUSTER_CLOUD_TYPE": [
+      "CLUSTER_CLOUD_TYPE*"
+    ],
+    "PCCRYPT_OID_INFO": [
+      "CRYPT_OID_INFO*"
+    ],
+    "LPCDSBUFFERDESC": [
+      "DSBUFFERDESC*"
+    ],
+    "PRUNTIME_FUNCTION": [
+      "IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY*",
+      "IMAGE_RUNTIME_FUNCTION_ENTRY*"
+    ],
+    "LPCFUSION_INSTALL_REFERENCE": [
+      "FUSION_INSTALL_REFERENCE*"
+    ],
+    "LPD3D10INCLUDE": [
+      "ID3DInclude*"
+    ],
+    "LPCDSFXFlanger": [
+      "DSFXFlanger*"
+    ],
+    "PCACTCTXW": [
+      "ACTCTXW*"
+    ],
+    "PWER_SUBMIT_RESULT": [
+      "WER_SUBMIT_RESULT*"
+    ],
+    "PISCSI_UNIQUE_CONNECTION_ID": [
+      "ISCSI_UNIQUE_SESSION_ID*"
+    ],
+    "PCPEER_INVITATION": [
+      "PEER_INVITATION*"
+    ],
+    "PCACTCTXA": [
+      "ACTCTXA*"
+    ],
+    "PNCryptBufferDesc": [
+      "BCryptBufferDesc*"
+    ],
+    "LPCMMIOINFO": [
+      "MMIOINFO*"
+    ],
+    "LPADRBOOK": [
+      "IAddrBook*"
+    ],
+    "LPCDSFXChorus": [
+      "DSFXChorus*"
+    ],
+    "PCERT_ENHKEY_USAGE": [
+      "CTL_USAGE*"
+    ],
+    "PCRYPT_ATTR_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "LPIID": [
+      "GUID*"
+    ],
+    "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION": [
+      "AUTHZ_SECURITY_ATTRIBUTE_OPERATION*"
+    ],
+    "PCWEBAUTHN_USER_ENTITY_INFORMATION": [
+      "WEBAUTHN_USER_ENTITY_INFORMATION*"
+    ],
+    "PSP_BACKUP_QUEUE_PARAMS_A": [
+      "SP_BACKUP_QUEUE_PARAMS_V2_A*"
+    ],
+    "LPCDSCFXAec": [
+      "DSCFXAec*"
+    ],
+    "PWLAN_HOSTED_NETWORK_REASON": [
+      "WLAN_HOSTED_NETWORK_REASON*"
+    ],
+    "PCWSDXML_TYPE": [
+      "WSDXML_TYPE*"
+    ],
+    "PPDISPATCH": [
+      "struct IDispatch**"
+    ],
+    "PPNODE": [
+      "Node**"
+    ],
+    "PCLUSPROP_DISK_SIGNATURE": [
+      "CLUSPROP_DWORD*"
+    ],
+    "PENCRYPTED_NT_OWF_PASSWORD": [
+      "ENCRYPTED_LM_OWF_PASSWORD*"
+    ],
+    "PKSMETHOD": [
+      "KSIDENTIFIER*"
+    ],
+    "PCWEBAUTHN_PLUGIN_OPERATION_REQUEST": [
+      "WEBAUTHN_PLUGIN_OPERATION_REQUEST*"
+    ],
+    "PCRAWINPUTDEVICE": [
+      "RAWINPUTDEVICE*"
+    ],
+    "PROUTER_CUSTOM_L2TP_POLICY0": [
+      "ROUTER_CUSTOM_IKEv2_POLICY0*"
+    ],
+    "PKSEVENT": [
+      "KSIDENTIFIER*"
+    ],
+    "PSW_DEVICE_LIFETIME": [
+      "SW_DEVICE_LIFETIME*"
+    ],
+    "PCWEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS": [
+      "WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS*"
+    ],
+    "PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS": [
+      "WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS*"
+    ],
+    "PWLDP_WINDOWS_LOCKDOWN_RESTRICTION": [
+      "WLDP_WINDOWS_LOCKDOWN_RESTRICTION*"
+    ],
+    "LPTBBUTTONSB": [
+      "TBBUTTON*"
+    ],
+    "LPCPROPSHEETHEADERW": [
+      "PROPSHEETHEADERW_V2*"
+    ],
+    "LPCDIJOYTYPEINFO": [
+      "DIJOYTYPEINFO*"
+    ],
+    "PCCERT_STRONG_SIGN_PARA": [
+      "CERT_STRONG_SIGN_PARA*"
+    ],
+    "LPBC": [
+      "IBindCtx*"
+    ],
+    "PRTL_OSVERSIONINFOEXW": [
+      "OSVERSIONINFOEXW*"
+    ],
+    "PCTBS_CONTEXT_PARAMS": [
+      "TBS_CONTEXT_PARAMS*"
+    ],
+    "PNETSETUP_JOIN_STATUS": [
+      "NETSETUP_JOIN_STATUS*"
+    ],
+    "LPCSHCOLUMNID": [
+      "PROPERTYKEY*"
+    ],
+    "LPCDSFXGargle": [
+      "DSFXGargle*"
+    ],
+    "LPCSHCOLUMNDATA": [
+      "SHCOLUMNDATA*"
+    ],
+    "LPCDIEFFECT": [
+      "DIEFFECT*"
+    ],
+    "PWLDP_SECURE_SETTING_VALUE_TYPE": [
+      "WLDP_SECURE_SETTING_VALUE_TYPE*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO*"
+    ],
+    "LPCRECT": [
+      "RECT*"
+    ],
+    "PAUTHZ_SID_OPERATION": [
+      "AUTHZ_SID_OPERATION*"
+    ],
+    "PWRDS_PROPERTY_VALUE": [
+      "WTS_PROPERTY_VALUE*"
+    ],
+    "PKSPROPERTY": [
+      "KSIDENTIFIER*"
+    ],
+    "PPDOCUMENT": [
+      "Document**"
+    ],
+    "PCLFS_SCAN_CONTEXT": [
+      "CLS_SCAN_CONTEXT*"
+    ],
+    "LPCPROPSHEETPAGEW": [
+      "PROPSHEETPAGEW*"
+    ],
+    "PSP_DRVINFO_DATA_W": [
+      "SP_DRVINFO_DATA_V2_W*"
+    ],
+    "PCPEER_ENDPOINT": [
+      "PEER_ENDPOINT*"
+    ],
+    "LPCITEMIDLIST": [
+      "ITEMIDLIST*"
+    ],
+    "LPCSHITEMID": [
+      "SHITEMID*"
+    ],
+    "PNT_OWF_PASSWORD": [
+      "LM_OWF_PASSWORD*"
+    ],
+    "PCCERT_CHAIN_CONTEXT": [
+      "CERT_CHAIN_CONTEXT*"
+    ],
+    "LPCDSCBUFFERDESC": [
+      "DSCBUFFERDESC*"
+    ],
+    "LPCDSFXI3DL2Reverb": [
+      "DSFXI3DL2Reverb*"
+    ],
+    "PCLUSPROP_MULTI_SZ": [
+      "CLUSPROP_SZ*"
+    ],
+    "PCCRYPTUI_VIEWCERTIFICATE_STRUCTW": [
+      "CRYPTUI_VIEWCERTIFICATE_STRUCTW*"
+    ],
+    "PCWEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST": [
+      "WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST*"
+    ],
+    "PWLAN_OPCODE_VALUE_TYPE": [
+      "WLAN_OPCODE_VALUE_TYPE*"
+    ],
+    "PSERVICE_NOTIFYW": [
+      "SERVICE_NOTIFY_2W*"
+    ],
+    "LPCDSCFXNoiseSuppress": [
+      "DSCFXNoiseSuppress*"
+    ],
+    "LPCDIJOYCONFIG": [
+      "DIJOYCONFIG*"
+    ],
+    "LPCNSPV2_ROUTINE": [
+      "NSPV2_ROUTINE*"
+    ],
+    "PSP_DRVINFO_DATA_A": [
+      "SP_DRVINFO_DATA_V2_A*"
+    ],
+    "POEM_STRING": [
+      "STRING*"
+    ],
+    "LPLPDIRECTSOUNDCAPTUREBUFFER8": [
+      "IDirectSoundCaptureBuffer8**"
+    ],
+    "PPCOLUMNS": [
+      "Columns**"
+    ],
+    "LPCDIDATAFORMAT": [
+      "DIDATAFORMAT*"
+    ],
+    "PCCRL_CONTEXT": [
+      "CRL_CONTEXT*"
+    ],
+    "PWRDS_LICENSE_CAPABILITIES": [
+      "WTS_LICENSE_CAPABILITIES*"
+    ],
+    "LPMC_VCP_CODE_TYPE": [
+      "MC_VCP_CODE_TYPE*"
+    ],
+    "LPCDIDEVICEOBJECTDATA": [
+      "DIDEVICEOBJECTDATA*"
+    ],
+    "PCEVENT_DESCRIPTOR": [
+      "EVENT_DESCRIPTOR*"
+    ],
+    "LPCRECTL": [
+      "RECTL*"
+    ],
+    "PPVIEWS": [
+      "Views**"
+    ],
+    "PPSNAPINS": [
+      "SnapIns**"
+    ],
+    "LPCSHCOLUMNINIT": [
+      "SHCOLUMNINIT*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_INFO*"
+    ],
+    "PPPROPERTY": [
+      "Property**"
+    ],
+    "PCIMAGE_DELAYLOAD_DESCRIPTOR": [
+      "IMAGE_DELAYLOAD_DESCRIPTOR*"
+    ],
+    "LPCDSFXDistortion": [
+      "DSFXDistortion*"
+    ],
+    "PPCONTEXTMENU": [
+      "ContextMenu**"
+    ],
+    "PCCTL_CONTEXT": [
+      "CTL_CONTEXT*"
+    ],
+    "LPCDS3DBUFFER": [
+      "DS3DBUFFER*"
+    ],
+    "PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS": [
+      "WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS*"
+    ],
+    "PFIRMWARE_TYPE": [
+      "FIRMWARE_TYPE*"
+    ],
+    "PCCRYPTUI_VIEWCERTIFICATE_STRUCTA": [
+      "CRYPTUI_VIEWCERTIFICATE_STRUCTA*"
+    ],
+    "LPLPDIRECTSOUNDBUFFER8": [
+      "IDirectSoundBuffer8**"
+    ],
+    "LPCSCARD_IO_REQUEST": [
+      "SCARD_IO_REQUEST*"
+    ],
+    "LPCDIJOYUSERVALUES": [
+      "DIJOYUSERVALUES*"
+    ],
+    "PCRED_MARSHAL_TYPE": [
+      "CRED_MARSHAL_TYPE*"
+    ],
+    "PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS": [
+      "WEBAUTHN_COSE_CREDENTIAL_PARAMETERS*"
+    ],
+    "PWINBIO_SETTING_SOURCE_TYPE": [
+      "WINBIO_SETTING_SOURCE*"
+    ],
+    "PCWEBAUTHN_CLIENT_DATA": [
+      "WEBAUTHN_CLIENT_DATA*"
+    ],
+    "PCWSDXML_NAMESPACE": [
+      "WSDXML_NAMESPACE*"
+    ],
+    "LPCBASEBROWSERDATA": [
+      "BASEBROWSERDATALH*"
+    ],
+    "PCLUSPROP_PROPERTY_NAME": [
+      "CLUSPROP_SZ*"
+    ],
+    "PPVIEW": [
+      "View**"
+    ],
+    "PCPEER_APPLICATION_REGISTRATION_INFO": [
+      "PEER_APPLICATION_REGISTRATION_INFO*"
+    ],
+    "PCWEBAUTHN_GET_CREDENTIALS_OPTIONS": [
+      "WEBAUTHN_GET_CREDENTIALS_OPTIONS*"
+    ],
+    "PAR_STATE": [
+      "AR_STATE*"
+    ],
+    "LPCPROPSHEETHEADERA": [
+      "PROPSHEETHEADERA_V2*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO*"
+    ],
+    "PCREDIRECTION_FUNCTION_DESCRIPTOR": [
+      "REDIRECTION_FUNCTION_DESCRIPTOR*"
+    ],
+    "PCPEER_PRESENCE_INFO": [
+      "PEER_PRESENCE_INFO*"
+    ],
+    "LPCDLGTEMPLATEW": [
+      "DLGTEMPLATE*"
+    ],
+    "PCPEER_OBJECT": [
+      "PEER_OBJECT*"
+    ],
+    "PCPEERDIST_PUBLICATION_OPTIONS": [
+      "PEERDIST_PUBLICATION_OPTIONS*"
+    ],
+    "PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT": [
+      "CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT*"
+    ],
+    "PPMENUITEM": [
+      "MenuItem**"
+    ],
+    "LPCGUID": [
+      "GUID*"
+    ],
+    "PPCOLUMN": [
+      "Column**"
+    ],
+    "PCWEBAUTHN_CREDENTIAL_ATTESTATION": [
+      "WEBAUTHN_CREDENTIAL_ATTESTATION*"
+    ],
+    "PCWEBAUTHN_PLUGIN_USER_VERIFICATION_REQUEST_2": [
+      "WEBAUTHN_PLUGIN_USER_VERIFICATION_REQUEST_2*"
+    ],
+    "PCLUSPROP_DISK_NUMBER": [
+      "CLUSPROP_DWORD*"
+    ],
+    "PPNODES": [
+      "Nodes**"
+    ],
+    "PCCRYPTUI_CERT_MGR_STRUCT": [
+      "CRYPTUI_CERT_MGR_STRUCT*"
+    ],
+    "PCRL_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "LPCIID": [
+      "GUID*"
+    ],
+    "PDOCUMENTMODE": [
+      "_DocumentMode*"
+    ],
+    "PCAUDIT_POLICY_INFORMATION": [
+      "AUDIT_POLICY_INFORMATION*"
+    ],
+    "PCCERT_SELECT_CRITERIA": [
+      "CERT_SELECT_CRITERIA*"
+    ],
+    "PPAPPLICATION": [
+      "_Application**"
+    ],
+    "LPDHCPCAPI_PARAMS": [
+      "DHCPAPI_PARAMS*"
+    ],
+    "LPCWAVEFORMATEX": [
+      "WAVEFORMATEX*"
+    ],
+    "LPCDLGTEMPLATEA": [
+      "DLGTEMPLATE*"
+    ],
+    "PPEXTENSION": [
+      "Extension**"
+    ],
+    "PRTL_CRITICAL_SECTION_DEBUG": [
+      "CRITICAL_SECTION_DEBUG*"
+    ],
+    "PSID_NAME_USE": [
+      "SID_NAME_USE*"
+    ],
+    "PSERVICE_NOTIFYA": [
+      "SERVICE_NOTIFY_2A*"
+    ],
+    "PCtxtHandle": [
+      "SecHandle*"
+    ],
+    "LPCSCROLLINFO": [
+      "SCROLLINFO*"
+    ],
+    "PFRAMING_PROP": [
+      "FRAMING_PROP*"
+    ],
+    "PCLFS_INFORMATION": [
+      "CLS_INFORMATION*"
+    ],
+    "PCERT_RDN_VALUE_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "LPWSAOVERLAPPED": [
+      "OVERLAPPED*"
+    ],
+    "LPCBORDERWIDTHS": [
+      "RECT*"
+    ],
+    "PSP_BACKUP_QUEUE_PARAMS_W": [
+      "SP_BACKUP_QUEUE_PARAMS_V2_W*"
+    ],
+    "PCRYPT_DER_BLOB": [
+      "CRYPT_INTEGER_BLOB*"
+    ],
+    "PCLFS_LSN": [
+      "CLS_LSN*"
+    ],
+    "PCANSI_STRING": [
+      "STRING*"
+    ],
+    "LPCDSBPOSITIONNOTIFY": [
+      "DSBPOSITIONNOTIFY*"
+    ],
+    "LPCMENUINFO": [
+      "MENUINFO*"
+    ],
+    "PPSNAPIN": [
+      "SnapIn**"
+    ],
+    "LPCMENUITEMINFOA": [
+      "MENUITEMINFOA*"
+    ],
+    "PARM64_RUNTIME_FUNCTION": [
+      "IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY*"
+    ],
+    "PPSCOPENAMESPACE": [
+      "ScopeNamespace**"
+    ],
+    "LPCTBBUTTON": [
+      "TBBUTTON*"
+    ],
+    "PCCRYPTUI_WIZ_IMPORT_SRC_INFO": [
+      "CRYPTUI_WIZ_IMPORT_SRC_INFO*"
+    ],
+    "PANSI_STRING": [
+      "STRING*"
+    ],
+    "PCCRYPTUI_WIZ_EXPORT_INFO": [
+      "CRYPTUI_WIZ_EXPORT_INFO*"
+    ],
+    "LPCFOLDERSETTINGS": [
+      "FOLDERSETTINGS*"
+    ],
+    "LPCDS3DLISTENER": [
+      "DS3DLISTENER*"
+    ],
+    "PCWEBAUTHN_CTAPCBOR_GET_ASSERTION_RESPONSE": [
+      "WEBAUTHN_CTAPCBOR_GET_ASSERTION_RESPONSE*"
+    ],
+    "LPENTRYLIST": [
+      "SBinaryArray*"
+    ],
+    "LPCLSID": [
+      "GUID*"
+    ],
+    "LPCDSFXParamEq": [
+      "DSFXParamEq*"
+    ]
+  },
+  "removed_aliases": {},
+  "reference_aliases_still_absent": {
+    "D3D10_SHADER_VARIABLE_TYPE": [
+      "D3D_SHADER_VARIABLE_TYPE"
+    ],
+    "D3D10_SHADER_VARIABLE_CLASS": [
+      "D3D_SHADER_VARIABLE_CLASS"
+    ],
+    "D3D10_PRIMITIVE": [
+      "D3D_PRIMITIVE"
+    ],
+    "CF_POPULATION_POLICY_PRIMARY_USHORT": [
+      "CF_POPULATION_POLICY_PRIMARY"
+    ],
+    "D3D11_PRIMITIVE_TOPOLOGY": [
+      "D3D_PRIMITIVE_TOPOLOGY"
+    ],
+    "_SCHEMACONTENTTYPE": [
+      "SCHEMACONTENTTYPE"
+    ],
+    "D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE": [
+      "D3D12_SERIALIZED_BLOCK_TYPE"
+    ],
+    "_SCHEMAPROCESSCONTENTS": [
+      "SCHEMAPROCESSCONTENTS"
+    ],
+    "NDIS_MEDIA_CONNECT_STATE": [
+      "NET_IF_MEDIA_CONNECT_STATE"
+    ],
+    "UCollationStrength": [
+      "UColAttributeValue"
+    ],
+    "FA_TAG": [
+      "DEBUG_FLR_PARAM_TYPE"
+    ],
+    "GpUnit": [
+      "Unit"
+    ],
+    "NFC_SE_ROUTING_TABLE_TYPE": [
+      "SECURE_ELEMENT_ROUTING_TYPE"
+    ],
+    "D3D10_PRIMITIVE_TOPOLOGY": [
+      "D3D_PRIMITIVE_TOPOLOGY"
+    ],
+    "NFC_SE_EVENT_TYPE": [
+      "SECURE_ELEMENT_EVENT_TYPE"
+    ],
+    "NDIS_802_11_ENCRYPTION_STATUS": [
+      "NDIS_802_11_WEP_STATUS"
+    ],
+    "IP_PREFIX_ORIGIN": [
+      "NL_PREFIX_ORIGIN"
+    ],
+    "_SXH_PROXY_SETTING": [
+      "SXH_PROXY_SETTING"
+    ],
+    "GpBrushType": [
+      "BrushType"
+    ],
+    "_SXH_SERVER_CERT_OPTION": [
+      "SXH_SERVER_CERT_OPTION"
+    ],
+    "GpStatus": [
+      "Status"
+    ],
+    "tagRASPROJECTION": [
+      "RASPROJECTION"
+    ],
+    "tagUpdateOperation": [
+      "UpdateOperation"
+    ],
+    "GpDashStyle": [
+      "DashStyle"
+    ],
+    "_SERVERXMLHTTP_OPTION": [
+      "SERVERXMLHTTP_OPTION"
+    ],
+    "TRACE_INFO_CLASS": [
+      "TRACE_QUERY_INFO_CLASS"
+    ],
+    "D3D10_NAME": [
+      "D3D_NAME"
+    ],
+    "NDIS_MEDIA_DUPLEX_STATE": [
+      "NET_IF_MEDIA_DUPLEX_STATE"
+    ],
+    "CF_POPULATION_POLICY_MODIFIER_USHORT": [
+      "CF_POPULATION_POLICY_MODIFIER"
+    ],
+    "IP_SUFFIX_ORIGIN": [
+      "NL_SUFFIX_ORIGIN"
+    ],
+    "LISTVIEWMODE": [
+      "_ListViewMode"
+    ],
+    "ADS_SEARCHPREF": [
+      "ADS_SEARCHPREF_ENUM"
+    ],
+    "GpWrapMode": [
+      "WrapMode"
+    ],
+    "D3D11_SRV_DIMENSION": [
+      "D3D_SRV_DIMENSION"
+    ],
+    "GpMatrixOrder": [
+      "MatrixOrder"
+    ],
+    "CF_HYDRATION_POLICY_MODIFIER_USHORT": [
+      "CF_HYDRATION_POLICY_MODIFIER"
+    ],
+    "IP_DAD_STATE": [
+      "NL_DAD_STATE"
+    ],
+    "_SOMITEMTYPE": [
+      "SOMITEMTYPE"
+    ],
+    "CF_HYDRATION_POLICY_PRIMARY_USHORT": [
+      "CF_HYDRATION_POLICY_PRIMARY"
+    ],
+    "D3D12_PRIMITIVE_TOPOLOGY": [
+      "D3D_PRIMITIVE_TOPOLOGY"
+    ],
+    "tagRASCONNSTATE": [
+      "RASCONNSTATE"
+    ],
+    "D3D10_SHADER_INPUT_TYPE": [
+      "D3D_SHADER_INPUT_TYPE"
+    ],
+    "GpFlushIntention": [
+      "FlushIntention"
+    ],
+    "GpPenType": [
+      "PenType"
+    ],
+    "NFC_SE_TYPE": [
+      "SECURE_ELEMENT_TYPE"
+    ],
+    "_SCHEMADERIVATIONMETHOD": [
+      "SCHEMADERIVATIONMETHOD"
+    ],
+    "COLUMNSORTORDER": [
+      "_ColumnSortOrder"
+    ],
+    "ADS_STATUS": [
+      "ADS_STATUSENUM"
+    ],
+    "VIEWOPTIONS": [
+      "_ViewOptions"
+    ],
+    "D3D10_REGISTER_COMPONENT_TYPE": [
+      "D3D_REGISTER_COMPONENT_TYPE"
+    ],
+    "GEOTYPE": [
+      "SYSGEOTYPE"
+    ],
+    "DOCUMENTMODE": [
+      "_DocumentMode"
+    ],
+    "MIB_IPFORWARD_PROTO": [
+      "NL_ROUTE_PROTOCOL"
+    ],
+    "D3D10_SRV_DIMENSION1": [
+      "D3D_SRV_DIMENSION"
+    ],
+    "INHERIT_FLAGS": [
+      "ACE_FLAGS"
+    ],
+    "MBN_SMS_CONSTANTS": [
+      "WWAEXT_SMS_CONSTANTS"
+    ],
+    "GpLineCap": [
+      "LineCap"
+    ],
+    "EXPORTLISTOPTIONS": [
+      "_ExportListOptions"
+    ],
+    "_SCHEMATYPEVARIETY": [
+      "SCHEMATYPEVARIETY"
+    ],
+    "GpFillMode": [
+      "FillMode"
+    ],
+    "tagRASCONNSUBSTATE": [
+      "RASCONNSUBSTATE"
+    ],
+    "GpCoordinateSpace": [
+      "CoordinateSpace"
+    ],
+    "D3D10_RESOURCE_RETURN_TYPE": [
+      "D3D_RESOURCE_RETURN_TYPE"
+    ],
+    "D3D10_CBUFFER_TYPE": [
+      "D3D_CBUFFER_TYPE"
+    ],
+    "GpDashCap": [
+      "DashCap"
+    ],
+    "GpHatchStyle": [
+      "HatchStyle"
+    ],
+    "_SCHEMAUSE": [
+      "SCHEMAUSE"
+    ],
+    "tagDOMNodeType": [
+      "DOMNodeType"
+    ],
+    "D3D10_SRV_DIMENSION": [
+      "D3D_SRV_DIMENSION"
+    ],
+    "_SCHEMAWHITESPACE": [
+      "SCHEMAWHITESPACE"
+    ],
+    "GpLineJoin": [
+      "LineJoin"
+    ],
+    "GpPenAlignment": [
+      "PenAlignment"
+    ],
+    "WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE": [
+      "WTS_LOGON_ERROR_REDIRECTOR_RESPONSE"
+    ]
+  }
+}

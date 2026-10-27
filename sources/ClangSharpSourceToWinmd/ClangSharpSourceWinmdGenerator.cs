@@ -551,9 +551,7 @@ namespace ClangSharpSourceToWinmd
             }
 
             var code = this.GetGeneratedTypedefSource();
-            var fileName = @"z:\dependTypedefStructsCode.cs";
-            File.WriteAllText(fileName, code);
-            var syntaxTree = CSharpSyntaxTree.ParseText(code, null, fileName);
+            var syntaxTree = CSharpSyntaxTree.ParseText(code, path: "GeneratedNativeTypedefs.cs");
             this.compilation = this.compilation.AddSyntaxTrees(syntaxTree);
             this.architectureSymbols.Clear();
             this.treeToModels.Clear();
@@ -1270,7 +1268,7 @@ namespace ClangSharpSourceToWinmd
                 return 900;
             }
 
-            return stem.Length >= 4 && (name.EndsWith(stem, StringComparison.Ordinal) || name.StartsWith(stem, StringComparison.Ordinal)) ? 800 : -1;
+            return stem.Length >= 4 && (name.EndsWith(stem, StringComparison.Ordinal) || name.StartsWith(stem, StringComparison.Ordinal)) ? 800 : 500;
         }
 
         private bool CanUseMappedType(ITypeSymbol original, ITypeSymbol mapped, Architecture architecture, HashSet<ITypeSymbol> visited = null)
@@ -1289,7 +1287,29 @@ namespace ClangSharpSourceToWinmd
                 }
 
                 var fields = mapped.GetMembers().OfType<IFieldSymbol>().Where(f => !f.IsStatic).ToArray();
+                if (fields.Length == 1 && original is IPointerTypeSymbol projectedPointer)
+                {
+                    if (mapped.ToDisplayString() == Win32StringType &&
+                        projectedPointer.PointedAtType.SpecialType == SpecialType.System_SByte &&
+                        fields[0].Type is IPointerTypeSymbol stringPointer &&
+                        stringPointer.PointedAtType.SpecialType == SpecialType.System_Byte)
+                    {
+                        return true;
+                    }
+
+                    if ((fields[0].Type.SpecialType == SpecialType.System_IntPtr || fields[0].Type.SpecialType == SpecialType.System_UIntPtr) &&
+                        projectedPointer.PointedAtType.SpecialType == fields[0].Type.SpecialType)
+                    {
+                        return true;
+                    }
+                }
+
                 return fields.Length == 1 && CanUseMappedType(original, fields[0].Type, architecture, visited);
+            }
+
+            if (mapped is INamedTypeSymbol named && named.EnumUnderlyingType != null)
+            {
+                return original.SpecialType != SpecialType.None && original.SpecialType == named.EnumUnderlyingType.SpecialType;
             }
 
             bool opaque = original.SpecialType == SpecialType.System_IntPtr || original.SpecialType == SpecialType.System_UIntPtr ||
@@ -1554,7 +1574,7 @@ namespace ClangSharpSourceToWinmd
             ref ITypeSymbol typeSymbol,
             Architecture architecture = Architecture.All)
         {
-            if (SymbolTypeInfo.GetElementType(typeSymbol)?.TypeKind == TypeKind.Enum || SymbolTypeInfo.IsMetadataTypedef(typeSymbol))
+            if (typeSymbol.TypeKind == TypeKind.Enum || SymbolTypeInfo.IsMetadataTypedef(typeSymbol))
             {
                 return;
             }

@@ -1,0 +1,11 @@
+--- Z:/win32/Windows.Win32.UI.Shell.h
++++ after/win32/Windows.Win32.UI.Shell.h
+@@ -145,7 +145,7 @@
+     HRESULT __stdcall SHCreateDataObject(LPCITEMIDLIST pidlFolder, uint32_t cidl, LPCITEMIDLIST* apidl, IDataObject* pdtInner, const IID* riid, void** ppv);
+     HRESULT __stdcall CIDLData_CreateFromIDArray(LPCITEMIDLIST pidlFolder, uint32_t cidl, LPCITEMIDLIST* apidl, struct IDataObject** ppdtobj);
+     HRESULT __stdcall SHCreateStdEnumFmtEtc(uint32_t cfmt, const FORMATETC* afmt, struct IEnumFORMATETC** ppenumFormatEtc);
+-    HRESULT __stdcall SHDoDragDrop(HWND hwnd, IDataObject* pdata, IDropSource* pdsrc, DROPEFFECT dwEffect, DWORD* pdwEffect);
++    HRESULT __stdcall SHDoDragDrop(HWND hwnd, IDataObject* pdata, IDropSource* pdsrc, DROPEFFECT dwEffect, DROPEFFECT* pdwEffect);
+     BOOL __stdcall DAD_SetDragImage(HIMAGELIST him, POINT* pptOffset);
+     BOOL __stdcall DAD_DragEnterEx(HWND hwndTarget, const POINT ptStart);
+     BOOL __stdcall DAD_DragEnterEx2(HWND hwndTarget, const POINT ptStart, IDataObject* pdtObject);
