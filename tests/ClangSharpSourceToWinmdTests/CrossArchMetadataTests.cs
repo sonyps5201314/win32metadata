@@ -108,6 +108,22 @@ namespace ClangSharpSourceToWinmdTests
                 : reader.GetString(reader.GetTypeReference((TypeReferenceHandle)parent).Name);
         }
 
+        [DataTestMethod]
+        [DataRow(false)]
+        [DataRow(true)]
+        public void BrokenArchTypesRejectInvalidApiParametersAndReturnTypes(bool returnType)
+        {
+            using var fixture = new MetadataFixture();
+            string declaration = returnType
+                ? "public static extern Arm64Only* Invalid();"
+                : "public static extern void Invalid(Arm64Only* value);";
+            string winmd = fixture.Generate(
+                string.Empty,
+                "public static unsafe partial class Apis { [DllImport(\"test.dll\")] " + declaration + " }",
+                "public struct Arm64Only { public int Value; }");
+            AssertToolExitCode("showBrokenArchTypes", winmd, -1);
+        }
+
         private static string AssertToolExitCode(string command, string winmd, int expected)
         {
             using var process = new Process();
@@ -158,7 +174,7 @@ namespace Windows.Win32.Foundation.Metadata
                     Directory.CreateDirectory(architectureDirectory);
                     File.WriteAllText(
                         Path.Combine(architectureDirectory, "Test.cs"),
-                        "using System; using Windows.Win32.Foundation.Metadata; namespace Test { " + source.Item2 + " }");
+                        "using System; using System.Runtime.InteropServices; using Windows.Win32.Foundation.Metadata; namespace Test { " + source.Item2 + " }");
                 }
 
                 var compilation = ClangSharpSourceCompilation.Create(

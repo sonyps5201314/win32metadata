@@ -60,27 +60,10 @@ public class NativeTypeNameCollector : CSharpSyntaxWalker
         if (typeSyntax == null) return "N/A";
 
         typeSymbol = _semanticModel.GetTypeInfo(typeSyntax).Type;
-        ITypeSymbol typeSymbol_Last = typeSymbol;
-REFIND_NS:
-        if (typeSymbol != null)
+        var elementType = ClangSharpSourceToWinmd.SymbolTypeInfo.GetElementType(typeSymbol);
+        if (elementType?.ContainingNamespace != null && !elementType.ContainingNamespace.IsGlobalNamespace)
         {
-            // For array T[], pointer T*, nullable T?, get the element/underlying type's namespace
-            if (typeSymbol is IArrayTypeSymbol arraySymbol) typeSymbol = arraySymbol.ElementType;
-            else if (typeSymbol is IPointerTypeSymbol pointerSymbol) typeSymbol = pointerSymbol.PointedAtType;
-            else if (typeSymbol.OriginalDefinition.SpecialType == SpecialType.System_Nullable_T)
-            {
-                typeSymbol = (typeSymbol as INamedTypeSymbol)?.TypeArguments.FirstOrDefault();
-            }
-
-            if (typeSymbol?.ContainingNamespace != null && !typeSymbol.ContainingNamespace.IsGlobalNamespace)
-            {
-                return typeSymbol.ContainingNamespace.ToDisplayString();
-            }
-            if (typeSymbol != typeSymbol_Last)
-            {
-                typeSymbol_Last = typeSymbol;
-                goto REFIND_NS;
-            }
+            return elementType.ContainingNamespace.ToDisplayString();
         }
         return "Windows.Win32.Foundation";
     }
@@ -88,9 +71,10 @@ REFIND_NS:
 
     public override void VisitStructDeclaration(StructDeclarationSyntax node)
     {
+        var previousStructName = _currentStructName;
         _currentStructName = node.Identifier.Text;
         base.VisitStructDeclaration(node);
-        _currentStructName = null;
+        _currentStructName = previousStructName;
     }
 
     public override void VisitFieldDeclaration(FieldDeclarationSyntax node)
@@ -110,7 +94,8 @@ REFIND_NS:
                         node.Declaration.Type.ToString(),
                         fieldTypeNamespace,
                         details.Value,
-                        typeSymbol
+                        typeSymbol,
+                        _semanticModel.GetDeclaredSymbol(variable)
                     ));
                 }
             }
@@ -136,7 +121,8 @@ REFIND_NS:
                     parameter.Type?.ToString() ?? "N/A",
                     paramTypeNamespace,
                     details.Value,
-                    typeSymbol
+                    typeSymbol,
+                    _semanticModel.GetDeclaredSymbol(parameter)
                 ));
             }
         }
@@ -153,7 +139,8 @@ REFIND_NS:
                 node.ReturnType.ToString(),
                 returnTypeNamespace,
                 returnDetails.Value,
-                typeSymbol
+                typeSymbol,
+                _semanticModel.GetDeclaredSymbol(node)
             ));
         }
 
@@ -179,7 +166,8 @@ public class FoundElementInfo
     public string ElementManagedTypeNamespace; // 托管类型的命名空间
     public string NativeTypeNameValue; // NativeTypeNameAttribute 的值
     public ITypeSymbol TypeSymbol;
-    public FoundElementInfo(ElementType type, string parentName, string elementName, string elementManagedType, string elementManagedTypeNamespace, string nativeTypeNameValue, ITypeSymbol typeSymbol)
+    public ISymbol OwnerSymbol;
+    public FoundElementInfo(ElementType type, string parentName, string elementName, string elementManagedType, string elementManagedTypeNamespace, string nativeTypeNameValue, ITypeSymbol typeSymbol, ISymbol ownerSymbol = null)
     {
         Type = type;
         ParentName = parentName;
@@ -188,6 +176,7 @@ public class FoundElementInfo
         ElementManagedTypeNamespace = elementManagedTypeNamespace;
         NativeTypeNameValue = nativeTypeNameValue;
         TypeSymbol = typeSymbol;
+        OwnerSymbol = ownerSymbol;
     }
     public override string ToString()
     {

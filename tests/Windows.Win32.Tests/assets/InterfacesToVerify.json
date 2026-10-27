@@ -1,13 +1,13 @@
-﻿[
+[
   {
     "Name": "ID2D1SvgStrokeDashArray",
     "Methods": [
-      "HRESULT RemoveDashesAtEnd(UInt32)",
-      "HRESULT UpdateDashes(D2D1_SVG_LENGTH*, UInt32, UInt32)",
-      "HRESULT UpdateDashes(Single*, UInt32, UInt32)",
-      "HRESULT GetDashes(D2D1_SVG_LENGTH*, UInt32, UInt32)",
-      "HRESULT GetDashes(Single*, UInt32, UInt32)",
-      "UInt32 GetDashesCount()"
+      "HRESULT RemoveDashesAtEnd(UINT32)",
+      "HRESULT UpdateDashes(D2D1_SVG_LENGTH*, UINT32, UINT32)",
+      "HRESULT UpdateDashes(FLOAT*, UINT32, UINT32)",
+      "HRESULT GetDashes(D2D1_SVG_LENGTH*, UINT32, UINT32)",
+      "HRESULT GetDashes(Single*, UINT32, UINT32)",
+      "UINT32 GetDashesCount()"
     ]
   },
   {
@@ -45,8 +45,8 @@
     "Methods": [
       "HRESULT CreateGlyphRunAnalysis(DWRITE_GLYPH_RUN*, DWRITE_MATRIX*, DWRITE_RENDERING_MODE1, DWRITE_MEASURING_MODE, DWRITE_GRID_FIT_MODE, DWRITE_TEXT_ANTIALIAS_MODE, Single, Single, IDWriteGlyphRunAnalysis*)",
       "HRESULT CreateCustomRenderingParams(Single, Single, Single, Single, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE1, DWRITE_GRID_FIT_MODE, IDWriteRenderingParams3*)",
-      "HRESULT CreateFontFaceReference(IDWriteFontFile, UInt32, DWRITE_FONT_SIMULATIONS, IDWriteFontFaceReference*)",
-      "HRESULT CreateFontFaceReference(PWSTR, FILETIME*, UInt32, DWRITE_FONT_SIMULATIONS, IDWriteFontFaceReference*)",
+      "HRESULT CreateFontFaceReference(IDWriteFontFile, UINT32, DWRITE_FONT_SIMULATIONS, IDWriteFontFaceReference*)",
+      "HRESULT CreateFontFaceReference(PWSTR, FILETIME*, UINT32, DWRITE_FONT_SIMULATIONS, IDWriteFontFaceReference*)",
       "HRESULT GetSystemFontSet(IDWriteFontSet*)",
       "HRESULT CreateFontSetBuilder(IDWriteFontSetBuilder*)",
       "HRESULT CreateFontCollectionFromFontSet(IDWriteFontSet, IDWriteFontCollection1*)",

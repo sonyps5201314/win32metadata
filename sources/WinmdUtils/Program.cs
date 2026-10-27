@@ -884,9 +884,15 @@ namespace WinmdUtilsProgram
                     var archAttr = method.GetAttributes().Single(a => a.AttributeType.FullName == "Windows.Win32.Foundation.Metadata.SupportedArchitectureAttribute");
                     Architecture arch = (Architecture)archAttr.FixedArguments[0].Value;
 
+                    bool valid = VerifyTypeHasRightArch(namesToArchDefs, method, method.ReturnType, arch, console);
                     foreach (var param in method.Parameters)
                     {
-                        VerifyTypeHasRightArch(namesToArchDefs, method, param.Type, arch, console);
+                        valid &= VerifyTypeHasRightArch(namesToArchDefs, method, param.Type, arch, console);
+                    }
+
+                    if (!valid)
+                    {
+                        badTopLevelTypes++;
                     }
                 }
             }

@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using MetadataUtils;
+using Architecture = MetadataUtils.Architecture;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -64,6 +65,7 @@ namespace ClangSharpSourceToWinmd
         private Dictionary<string, AssemblyReferenceHandle> assemblyNamesToRefHandles = new Dictionary<string, AssemblyReferenceHandle>();
         private Dictionary<string, ITypeSymbol> nameToSymbols = new Dictionary<string, ITypeSymbol>();
         private readonly CompilationTypeIndex typeIndex = new CompilationTypeIndex();
+        private readonly Dictionary<(string Name, Architecture Architecture), ITypeSymbol> architectureSymbols = new();
         private Dictionary<StructDeclarationSyntax, ISymbol> structNodesToInheritedSymbols = new Dictionary<StructDeclarationSyntax, ISymbol>();
         private Dictionary<string, FieldDeclarationSyntax> nameToGuidConstFields = new Dictionary<string, FieldDeclarationSyntax>();
         private HashSet<string> structNameWithGuids = new HashSet<string>();
@@ -543,16 +545,19 @@ namespace ClangSharpSourceToWinmd
                 {
                     foreach (var info in collector.FoundElements)
                     {
-                        this.RemapToMoreSpecificTypeIfPossible_Internal(false, info.ParentName, info.ElementName, info.NativeTypeNameValue, info.ElementManagedTypeNamespace, info.ElementManagedType, ref info.TypeSymbol);
+                        this.RemapToMoreSpecificTypeIfPossible_Internal(false, info.ParentName, info.ElementName, info.NativeTypeNameValue, info.ElementManagedTypeNamespace, info.ElementManagedType, ref info.TypeSymbol, SymbolTypeInfo.GetArchitecture(info.OwnerSymbol));
                     }
                 }
             }
 
-            var code = dependTypedefStructsCode.ToString();
+            var code = this.GetGeneratedTypedefSource();
             var fileName = @"z:\dependTypedefStructsCode.cs";
             File.WriteAllText(fileName, code);
             var syntaxTree = CSharpSyntaxTree.ParseText(code, null, fileName);
             this.compilation = this.compilation.AddSyntaxTrees(syntaxTree);
+            this.architectureSymbols.Clear();
+            this.treeToModels.Clear();
+            this.nameToSymbols.Clear();
 
             if (validateGeneratedTypedefs)
             {
@@ -973,7 +978,7 @@ namespace ClangSharpSourceToWinmd
             }
         }
 
-        private ITypeSymbol GetTypeFromShortName(string name, bool returnDirectlyIfNotFound = false)
+        private ITypeSymbol GetTypeFromShortName(string name, bool returnDirectlyIfNotFound = false, Architecture architecture = Architecture.All)
         {
             var origName = name;
 
@@ -984,7 +989,11 @@ namespace ClangSharpSourceToWinmd
                 name = name.Substring(0, arrayMatch.Captures[0].Index) + "*";
             }
 
-            if (!this.nameToSymbols.TryGetValue(name, out var ret))
+            ITypeSymbol ret;
+            bool cached = architecture == Architecture.All
+                ? this.nameToSymbols.TryGetValue(name, out ret)
+                : this.architectureSymbols.TryGetValue((name, architecture), out ret);
+            if (!cached)
             {
                 string fixedName = origName;
 
@@ -1044,6 +1053,10 @@ namespace ClangSharpSourceToWinmd
                     {
                         var fullNameToCheck = GetQualifiedName(@namespace, fixedName);
                         ret = this.compilation.GetTypeByMetadataName(fullNameToCheck);
+                        if (ret != null && (SymbolTypeInfo.GetArchitecture(ret) & architecture) != architecture)
+                        {
+                            ret = null;
+                        }
                         if (ret != null)
                         {
                             break;
@@ -1052,7 +1065,7 @@ namespace ClangSharpSourceToWinmd
 
                     if (ret == null)
                     {
-                        ret = this.typeIndex.Find(this.compilation, fixedName);
+                        ret = this.typeIndex.Find(this.compilation, fixedName, architecture);
                     }
                 }
                 else
@@ -1069,56 +1082,260 @@ namespace ClangSharpSourceToWinmd
                 }
 
                 // Use the original name and not the fixed name to cache it
-                this.nameToSymbols[name] = ret;
+                if (architecture == Architecture.All)
+                {
+                    this.nameToSymbols[name] = ret;
+                }
+                else
+                {
+                    this.architectureSymbols[(name, architecture)] = ret;
+                }
             }
 
             return ret;
         }
 
-        StringBuilder dependTypedefStructsCode = new StringBuilder(
-@$"using System;
-using Windows.Win32.Foundation.Metadata;
-");
-        Dictionary<string, string> dependTypedefStructsMap = new Dictionary<string, string>();
-        void CheckForOtherTypeCanBeMapped(string nativeType, string ns, string typeName, ITypeSymbol typeSymbol)
+        private sealed class GeneratedTypedef
         {
-            if (nativeType != typeName && nativeType != "GUID" && typeName != "void")
-            {
-                //if (nativeType == "PDISPATCHERQUEUECONTROLLER")
-                //{
-                //    int x = 0;
-                //}
-                var key = ns + "." + nativeType;
-                var found = this.dependTypedefStructsMap.TryGetValue(key, out _) || this.GetTypeFromShortName(nativeType, true) != null;
-                if (!found)
-                {
-                    var fullTypeName = typeSymbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
-                    // typeSymbol.ToDisplayString返回的类型名不带末尾的指针，所以我们像下面这样手动处理下
-                    var dpos = fullTypeName.LastIndexOf('.');
-                    if (dpos != -1)
-                    {
-                        fullTypeName = fullTypeName.Substring(0, dpos + 1) + typeName;
-                    }
-                    else
-                    {
-                        fullTypeName = typeName;
-                    }
-                    var code =
-@$"namespace {ns}
-{{
-    [NativeTypedef]
-    public unsafe struct {nativeType}
-    {{
-        public {fullTypeName} Value;
-    }}
-}}
-";
-                    this.dependTypedefStructsCode.Append(code);
-                    this.dependTypedefStructsMap.Add(key, typeName);
+            internal string NativeName;
+            internal string Name;
+            internal string Namespace;
+            internal string ValueType;
+            internal Architecture Architecture;
+            internal ITypeSymbol ValueSymbol;
+            internal int Priority;
+        }
 
-                    //Console.WriteLine($"typedef {nativeType} {typeName};");
+        private readonly Dictionary<string, List<GeneratedTypedef>> generatedTypedefs = new(StringComparer.Ordinal);
+        private readonly HashSet<string> generatedTypedefNames = new(StringComparer.Ordinal);
+
+        private string GetGeneratedTypedefSource()
+        {
+            var code = new StringBuilder("using System;\nusing Windows.Win32.Foundation.Metadata;\n");
+            foreach (var item in this.generatedTypedefs.Values.SelectMany(items => items))
+            {
+                item.Name = item.NativeName;
+                int variant = 0;
+                while (this.compilation.GetTypeByMetadataName(item.Namespace + "." + item.Name) != null ||
+                    !this.generatedTypedefNames.Add(item.Namespace + "." + item.Name))
+                {
+                    item.Name = item.NativeName + "____" + ++variant;
+                }
+
+                if (variant > 2)
+                {
+                    this.diagnostics.Add(new GeneratorDiagnostic($"Too many typedef variants for {item.Namespace}.{item.NativeName}.", DiagnosticSeverity.Error));
+                }
+
+                code.AppendLine($"namespace {item.Namespace} {{");
+                code.AppendLine("[NativeTypedef]");
+                if (item.Architecture != Architecture.All)
+                {
+                    code.AppendLine($"[SupportedArchitecture((global::Windows.Win32.Foundation.Metadata.Architecture){(int)item.Architecture})]");
+                }
+
+                code.AppendLine($"public unsafe struct {item.Name} {{ public {item.ValueType} Value; }} }}");
+            }
+
+            return code.ToString();
+        }
+
+        private void CheckForOtherTypeCanBeMapped(string nativeType, ITypeSymbol typeSymbol, Architecture architecture)
+        {
+            if (typeSymbol == null || typeSymbol.TypeKind == TypeKind.Enum || SymbolTypeInfo.IsMetadataTypedef(typeSymbol) ||
+                nativeType == SymbolTypeInfo.GetNativeName(typeSymbol.Name) ||
+                nativeType == typeSymbol.ToDisplayString(SymbolDisplayFormat.MinimallyQualifiedFormat) ||
+                nativeType == "GUID" || typeSymbol.SpecialType == SpecialType.System_Void)
+            {
+                return;
+            }
+
+            architecture &= this.GetUnderlyingArchitecture(typeSymbol);
+            if (architecture == Architecture.None)
+            {
+                return;
+            }
+
+            int priority = GetTypedefPriority(nativeType, typeSymbol);
+            if (priority < 0 || this.GetTypeFromShortName(nativeType, true, architecture) != null)
+            {
+                return;
+            }
+
+            var existing = this.GetTypeFromShortName(nativeType, true);
+            if (existing != null)
+            {
+                Architecture defined = Architecture.None;
+                foreach (var candidate in this.typeIndex.GetNativeCandidates(this.compilation, nativeType))
+                {
+                    defined |= SymbolTypeInfo.GetArchitecture(candidate);
+                }
+
+                architecture &= ~defined;
+                if (architecture == Architecture.None)
+                {
+                    return;
                 }
             }
+
+            string valueType = typeSymbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+            var elementType = SymbolTypeInfo.GetElementType(typeSymbol);
+            string ns = existing?.ContainingNamespace.ToDisplayString() ?? elementType.ContainingNamespace?.ToDisplayString();
+            if (string.IsNullOrEmpty(ns) || ns == "<global namespace>")
+            {
+                ns = "Windows.Win32.Foundation";
+            }
+
+            if (!this.generatedTypedefs.TryGetValue(nativeType, out var definitions))
+            {
+                this.generatedTypedefs[nativeType] = definitions = new List<GeneratedTypedef>();
+            }
+
+            foreach (var definition in definitions)
+            {
+                bool sameType = SymbolTypeInfo.GetTypeKey(definition.ValueSymbol) == SymbolTypeInfo.GetTypeKey(typeSymbol);
+                if (sameType || (definition.Architecture & architecture) != Architecture.None)
+                {
+                    // 重叠架构只保留一个声明；具体的重映射仍须验证底层类型兼容性。
+                    if (priority > definition.Priority)
+                    {
+                        definition.ValueSymbol = typeSymbol;
+                        definition.ValueType = valueType;
+                        definition.Namespace = ns;
+                        definition.Priority = priority;
+                    }
+
+                    definition.Architecture |= architecture;
+                    return;
+                }
+            }
+
+            definitions.Add(new GeneratedTypedef
+            {
+                NativeName = nativeType,
+                Namespace = ns,
+                ValueType = valueType,
+                ValueSymbol = typeSymbol,
+                Priority = priority,
+                Architecture = architecture
+            });
+        }
+
+        private Architecture GetUnderlyingArchitecture(ITypeSymbol type)
+        {
+            var element = SymbolTypeInfo.GetElementType(type);
+            var result = Architecture.None;
+            foreach (var candidate in this.typeIndex.GetNativeCandidates(this.compilation, SymbolTypeInfo.GetNativeName(element.Name)))
+            {
+                if (SymbolTypeInfo.GetTypeKey(candidate) == SymbolTypeInfo.GetTypeKey(element))
+                {
+                    result |= SymbolTypeInfo.GetArchitecture(candidate);
+                }
+            }
+
+            return result == Architecture.None ? SymbolTypeInfo.GetArchitecture(element) : result;
+        }
+
+        private static int GetTypedefPriority(string nativeType, ITypeSymbol type)
+        {
+            var element = SymbolTypeInfo.GetElementType(type);
+            if (type.SpecialType == SpecialType.System_IntPtr || type.SpecialType == SpecialType.System_UIntPtr)
+            {
+                return nativeType == "ULONG_PTR" || nativeType == "LONG_PTR" || nativeType == "UINT_PTR" ||
+                    nativeType == "INT_PTR" || nativeType == "DWORD_PTR" || nativeType == "SIZE_T" || nativeType == "SSIZE_T" ||
+                    nativeType == "uintptr_t" || nativeType == "intptr_t" ? 1000 : 400;
+            }
+
+            if (element.SpecialType != SpecialType.None)
+            {
+                return type is IPointerTypeSymbol && element.SpecialType == SpecialType.System_Void ? 600 : 700;
+            }
+
+            if (!(type is IPointerTypeSymbol))
+            {
+                return 500;
+            }
+
+            string stem = nativeType.StartsWith("LP", StringComparison.Ordinal) ? nativeType.Substring(2)
+                : nativeType.StartsWith("P", StringComparison.Ordinal) ? nativeType.Substring(1) : null;
+            if (stem == null)
+            {
+                return 500;
+            }
+
+            stem = stem.Replace("_", string.Empty).ToUpperInvariant();
+            string name = SymbolTypeInfo.GetNativeName(element.Name).Replace("_", string.Empty).ToUpperInvariant();
+            if (stem == name || (name.StartsWith("I", StringComparison.Ordinal) && stem == name.Substring(1)))
+            {
+                return 900;
+            }
+
+            return stem.Length >= 4 && (name.EndsWith(stem, StringComparison.Ordinal) || name.StartsWith(stem, StringComparison.Ordinal)) ? 800 : -1;
+        }
+
+        private bool CanUseMappedType(ITypeSymbol original, ITypeSymbol mapped, Architecture architecture, HashSet<ITypeSymbol> visited = null)
+        {
+            if (SymbolTypeInfo.GetTypeKey(original) == SymbolTypeInfo.GetTypeKey(mapped))
+            {
+                return true;
+            }
+
+            if (mapped.GetAttributes().Any(a => a.AttributeClass?.Name == "NativeTypedefAttribute"))
+            {
+                visited ??= new HashSet<ITypeSymbol>(SymbolEqualityComparer.Default);
+                if (!visited.Add(mapped))
+                {
+                    return false;
+                }
+
+                var fields = mapped.GetMembers().OfType<IFieldSymbol>().Where(f => !f.IsStatic).ToArray();
+                return fields.Length == 1 && CanUseMappedType(original, fields[0].Type, architecture, visited);
+            }
+
+            bool opaque = original.SpecialType == SpecialType.System_IntPtr || original.SpecialType == SpecialType.System_UIntPtr ||
+                original is IPointerTypeSymbol opaquePointer && opaquePointer.PointedAtType.SpecialType == SpecialType.System_Void;
+            if (opaque && (mapped is IPointerTypeSymbol || mapped.TypeKind == TypeKind.Delegate || this.IsSymbolInterface(mapped)))
+            {
+                return true;
+            }
+
+            if (original is IPointerTypeSymbol first && mapped is IPointerTypeSymbol second)
+            {
+                return CanUseMappedType(first.PointedAtType, second.PointedAtType, architecture, visited);
+            }
+
+            if ((original.SpecialType == SpecialType.System_Char && mapped.SpecialType == SpecialType.System_UInt16) ||
+                (original.SpecialType == SpecialType.System_UInt16 && mapped.SpecialType == SpecialType.System_Char))
+            {
+                return true;
+            }
+
+            bool is64Bit = (architecture & Architecture.X86) == Architecture.None;
+            bool is32Bit = architecture == Architecture.X86;
+            return mapped.SpecialType == SpecialType.System_UIntPtr &&
+                    (is64Bit && original.SpecialType == SpecialType.System_UInt64 || is32Bit && original.SpecialType == SpecialType.System_UInt32) ||
+                mapped.SpecialType == SpecialType.System_IntPtr &&
+                    (is64Bit && original.SpecialType == SpecialType.System_Int64 || is32Bit && original.SpecialType == SpecialType.System_Int32);
+        }
+
+        private ITypeSymbol GetCompatibleNativeType(string name, ITypeSymbol original, Architecture architecture)
+        {
+            var mapped = this.GetTypeFromShortName(name, architecture: architecture);
+            if (mapped != null && CanUseMappedType(original, mapped, architecture))
+            {
+                return mapped;
+            }
+
+            foreach (var candidate in this.typeIndex.GetNativeCandidates(this.compilation, name))
+            {
+                if ((SymbolTypeInfo.GetArchitecture(candidate) & architecture) != Architecture.None &&
+                    CanUseMappedType(original, candidate, architecture))
+                {
+                    return candidate;
+                }
+            }
+
+            return null;
         }
 
         // 使用 HashSet 以获得 O(1) 的平均查找复杂度
@@ -1282,7 +1499,8 @@ using Windows.Win32.Foundation.Metadata;
             string name,
             ImmutableArray<AttributeData> ownerAttributes,
             ref ITypeSymbol typeSymbol,
-            bool isArrayElement = false)
+            bool isArrayElement = false,
+            ISymbol ownerSymbol = null)
         {
             var nativeType = GetNormalizedNativeTypeName(ownerAttributes, isArrayElement);
 
@@ -1300,6 +1518,16 @@ using Windows.Win32.Foundation.Metadata;
                 return;
             }
 
+            if (ownerSymbol is IFieldSymbol constantField && constantField.IsConst)
+            {
+                var constantType = this.GetTypeFromShortName(CleanNativeType(nativeType), architecture: SymbolTypeInfo.GetArchitecture(ownerSymbol));
+                if (constantType != null)
+                {
+                    typeSymbol = constantType;
+                    return;
+                }
+            }
+
             if (typeSymbol.SpecialType == SpecialType.System_SByte && IsCharRegex.IsMatch(nativeType))
             {
                 typeSymbol = this.GetTypeFromShortName("CHAR");
@@ -1313,7 +1541,7 @@ using Windows.Win32.Foundation.Metadata;
             }
 
             var typeName = typeSymbol.ToString();
-            RemapToMoreSpecificTypeIfPossible_Internal(true, owner, name, nativeType, null, typeName, ref typeSymbol);
+            RemapToMoreSpecificTypeIfPossible_Internal(true, owner, name, nativeType, null, typeName, ref typeSymbol, SymbolTypeInfo.GetArchitecture(ownerSymbol));
         }
 
         private void RemapToMoreSpecificTypeIfPossible_Internal(
@@ -1323,8 +1551,14 @@ using Windows.Win32.Foundation.Metadata;
             string nativeType,
             string ns,
             string typeName,
-            ref ITypeSymbol typeSymbol)
+            ref ITypeSymbol typeSymbol,
+            Architecture architecture = Architecture.All)
         {
+            if (SymbolTypeInfo.GetElementType(typeSymbol)?.TypeKind == TypeKind.Enum || SymbolTypeInfo.IsMetadataTypedef(typeSymbol))
+            {
+                return;
+            }
+
             if (nativeType.Contains("(*)") || nativeType.Contains("(void *)"))
             {
                 string fullName = $"{owner}.{name}";
@@ -1379,14 +1613,14 @@ using Windows.Win32.Foundation.Metadata;
                     {
                         if (!nativeType.Contains(' ') && !nativeType.Contains('*') && !nativeType.Contains('[') && !nativeType.Contains('&'))
                         {
-                            this.CheckForOtherTypeCanBeMapped(nativeType, ns, typeName, typeSymbol);
+                            this.CheckForOtherTypeCanBeMapped(nativeType, typeSymbol, architecture);
                             return;
                         }
                     }
                 }
                 else
                 {
-                    newTypeSymbol = this.GetTypeFromShortName(nativeType);
+                    newTypeSymbol = this.GetCompatibleNativeType(nativeType, typeSymbol, architecture);
                     if (newTypeSymbol != null)
                     {
                         typeSymbol = newTypeSymbol;
@@ -1514,12 +1748,38 @@ using Windows.Win32.Foundation.Metadata;
                     bool isNotBasicCppTypeOnly = IsNotBasicCppType(nameOnly);
                     if (isNotBasicCppTypeOnly)
                     {
-                        this.CheckForOtherTypeCanBeMapped(nameOnly, ns, typeNameOnly, typeSymbol);
+                        var elementType = typeSymbol;
+                    for (int i = 0; i < star_count; i++)
+                    {
+                        if (elementType is IPointerTypeSymbol pointer)
+                        {
+                            elementType = pointer.PointedAtType;
+                        }
+                        else if (elementType is IArrayTypeSymbol array)
+                        {
+                            elementType = array.ElementType;
+                        }
+                    }
+
+                    this.CheckForOtherTypeCanBeMapped(nameOnly, elementType, architecture);
                     }
                 }
                 else
                 {
-                    newTypeSymbol = this.GetTypeFromShortName(nameOnly);
+                    var originalElement = typeSymbol;
+                    for (int i = 0; i < star_count; i++)
+                    {
+                        if (originalElement is IPointerTypeSymbol originalPointer)
+                        {
+                            originalElement = originalPointer.PointedAtType;
+                        }
+                        else if (originalElement is IArrayTypeSymbol originalArray)
+                        {
+                            originalElement = originalArray.ElementType;
+                        }
+                    }
+
+                    newTypeSymbol = this.GetCompatibleNativeType(nameOnly, originalElement, architecture);
 
                     if (newTypeSymbol != null)
                     {
@@ -1529,11 +1789,18 @@ using Windows.Win32.Foundation.Metadata;
                             for (int i = 0; i < star_count; i++)
                             {
                                 currentName += "*";
-                                var pointerSymbol = this.GetTypeFromShortName(currentName);
+                                var pointerSymbol = this.GetTypeFromShortName(currentName, architecture: architecture);
                                 if (pointerSymbol == null)
                                 {
                                     pointerSymbol = this.compilation.CreatePointerTypeSymbol(newTypeSymbol);
-                                    this.nameToSymbols[currentName] = pointerSymbol;
+                                    if (architecture == Architecture.All)
+                                    {
+                                        this.nameToSymbols[currentName] = pointerSymbol;
+                                    }
+                                    else
+                                    {
+                                        this.architectureSymbols[(currentName, architecture)] = pointerSymbol;
+                                    }
                                 }
 
                                 newTypeSymbol = pointerSymbol;
@@ -1639,7 +1906,7 @@ using Windows.Win32.Foundation.Metadata;
             bool thisCall)
         {
             var returnType = methodSymbol.ReturnType;
-            this.RemapToMoreSpecificTypeIfPossible(methodSymbol.Name, "return", methodSymbol.GetReturnTypeAttributes(), ref returnType);
+            this.RemapToMoreSpecificTypeIfPossible(methodSymbol.Name, "return", methodSymbol.GetReturnTypeAttributes(), ref returnType, ownerSymbol: methodSymbol);
 
             List<Parameter> parameters = new List<Parameter>();
             foreach (var p in methodSymbol.Parameters)
@@ -2558,7 +2825,7 @@ using Windows.Win32.Foundation.Metadata;
 
             name = fieldSymbol.Name;
 
-            this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref type);
+            this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref type, ownerSymbol: fieldSymbol);
 
             if (type.Name.EndsWith("_e__FixedBuffer"))
             {
@@ -2572,7 +2839,7 @@ using Windows.Win32.Foundation.Metadata;
                 }
 
                 var fieldType = fixedBufferInfo.Type;
-                this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref fieldType, isArrayElement: true);
+                this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref fieldType, isArrayElement: true, ownerSymbol: fieldSymbol);
 
                 signatureEncoder.Array(
                     s => this.EncodeTypeSymbol(fieldType, signatureEncoder),
@@ -2863,7 +3130,7 @@ using Windows.Win32.Foundation.Metadata;
                     methodName = methodSymbol.Name;
                 }
 
-                generator.RemapToMoreSpecificTypeIfPossible(methodName, paramName, parameterSymbol.GetAttributes(), ref paramType);
+                generator.RemapToMoreSpecificTypeIfPossible(methodName, paramName, parameterSymbol.GetAttributes(), ref paramType, ownerSymbol: parameterSymbol);
                 ParameterAttributes parameterAttributes = ParameterAttributes.None;
                 var symbolAttrs = parameterSymbol.GetAttributes();
                 if (symbolAttrs.Any(a => a.AttributeClass.Name == "InAttribute"))
