@@ -1,0 +1,9 @@
+{
+  "published_winmd": "L:\\Open_Code\\win32metadata\\bin\\Windows.Win32.winmd",
+  "sha256": "624cfd6bd4ba3cdfb3375ceddcc3aab8233daa78140e53d1e6ec172e5989c54c",
+  "size": 24875520,
+  "published_headers": "Z:\\TYPEDEF",
+  "headers_match_after": true,
+  "source_commit": "9209b24b",
+  "tools_sha256": "ae77d3cc9c912e4af89a6927a1cc8479d8778e704f42ab8a611056db374fa08e"
+}

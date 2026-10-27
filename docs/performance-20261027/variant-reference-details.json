@@ -1,0 +1,50 @@
+[
+  {
+    "Row": 26947,
+    "Type": "VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION",
+    "Attributes": [
+      {
+        "Constructor": "MemberReference",
+        "Blob": "0100010000000000"
+      },
+      {
+        "Constructor": "MemberReference",
+        "Blob": "0100020000000000"
+      }
+    ],
+    "Methods": [
+      {
+        "Name": ".ctor",
+        "Signature": "2002011C18"
+      },
+      {
+        "Name": "Invoke",
+        "Signature": "20011183A90F11C000EE4D"
+      }
+    ]
+  },
+  {
+    "Row": 30177,
+    "Type": "VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION",
+    "Attributes": [
+      {
+        "Constructor": "MemberReference",
+        "Blob": "0100010000000000"
+      },
+      {
+        "Constructor": "MemberReference",
+        "Blob": "0100050000000000"
+      }
+    ],
+    "Methods": [
+      {
+        "Name": ".ctor",
+        "Signature": "2002011C18"
+      },
+      {
+        "Name": "Invoke",
+        "Signature": "20011183A90F01"
+      }
+    ]
+  }
+]

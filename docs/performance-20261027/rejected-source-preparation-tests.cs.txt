@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using ClangSharpSourceToWinmd;
+using Microsoft.CodeAnalysis;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ClangSharpSourceToWinmdTests
+{
+    [TestClass]
+    public class SourcePreparationTests
+    {
+        [DataTestMethod]
+        [DataRow("x64")]
+        [DataRow("crossarch")]
+        public void PreparationPreservesRawSourcesDiagnosticsAndArchitectureVariants(string arch)
+        {
+            var directory = Path.Combine(Path.GetTempPath(), "WinmdSourcePreparationTests", Guid.NewGuid().ToString("N"));
+            Directory.CreateDirectory(directory);
+            try
+            {
+                var rawFiles = new Dictionary<string, string> { [Path.Combine(directory, "Common.cs")] = CommonSource };
+                foreach (var target in new[] { "x86", "x64", "arm64" })
+                {
+                    Directory.CreateDirectory(Path.Combine(directory, target));
+                    rawFiles.Add(Path.Combine(directory, target, "Partition.cs"), ArchSource.Replace("FIELD_TYPE", target == "x86" ? "int" : "long"));
+                }
+
+                foreach (var file in rawFiles)
+                {
+                    File.WriteAllText(file.Key, file.Value);
+                }
+
+                var compilation = ClangSharpSourceCompilation.Create(directory, arch,
+                    new Dictionary<string, string>(), new Dictionary<string, Dictionary<string, string>>(), Array.Empty<string>(),
+                    new Dictionary<string, string>(), new Dictionary<string, string> { ["MoveMe"] = "Windows.Win32.Moved" },
+                    new HashSet<string>(), Array.Empty<string>(), new Dictionary<string, string>(), new Dictionary<string, string>());
+                var diagnostics = compilation.GetDiagnostics();
+                Assert.AreEqual(1, diagnostics.Count);
+                Assert.AreEqual("CS0246", diagnostics[0].Id);
+                StringAssert.EndsWith(diagnostics[0].Location.GetLineSpan().Path, "Common.modified.cs");
+                Assert.IsNotNull(compilation.CSharpCompilation.GetTypeByMetadataName("Windows.Win32.Moved.MoveMe"));
+                Assert.AreEqual(1, compilation.CSharpCompilation.GetSymbolsWithName("Identical", SymbolFilter.Type).Count());
+                Assert.AreEqual(arch == "crossarch" ? 2 : 1,
+                    compilation.CSharpCompilation.GetSymbolsWithName(n => n.StartsWith("Different"), SymbolFilter.Type).Count());
+
+                foreach (var tree in compilation.CSharpCompilation.SyntaxTrees)
+                {
+                    Assert.AreEqual(File.ReadAllText(tree.FilePath), tree.GetText().ToString(), tree.FilePath);
+                }
+
+                foreach (var file in rawFiles)
+                {
+                    Assert.AreEqual(file.Value, File.ReadAllText(file.Key), file.Key);
+                }
+            }
+            finally
+            {
+                Directory.Delete(directory, true);
+            }
+        }
+
+        private const string CommonSource = @"
+using System;
+namespace Windows.Win32.Foundation.Metadata
+{
+    [Flags] public enum Architecture { None = 0, X86 = 1, X64 = 2, Arm64 = 4, All = 7 }
+    public class SupportedArchitectureAttribute : Attribute
+    {
+        public SupportedArchitectureAttribute(Architecture value) { }
+    }
+}
+namespace Original
+{
+    public struct MoveMe { public int Value; }
+    public struct Broken { public IStillMissing Value; }
+}";
+
+        private const string ArchSource = @"
+using Windows.Win32.Foundation.Metadata;
+namespace Windows.Win32.Test
+{
+    public struct Identical { public int Value; }
+    public struct Different { public FIELD_TYPE Value; }
+}";
+    }
+}

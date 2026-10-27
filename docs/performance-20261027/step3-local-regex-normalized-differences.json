@@ -1,0 +1,18 @@
+[
+  {
+    "offset": 24063499,
+    "hex_offset": "0x16f2e0b",
+    "before": 165,
+    "after": 215,
+    "before_bytes": "01d780060612c001a50c060612c001a510",
+    "after_bytes": "01d780060612c001d784060612c001a510"
+  },
+  {
+    "offset": 24063500,
+    "hex_offset": "0x16f2e0c",
+    "before": 12,
+    "after": 132,
+    "before_bytes": "d780060612c001a50c060612c001a51006",
+    "after_bytes": "d780060612c001d784060612c001a51006"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "Name": "step3-local-regex",
+  "Emitter": "L:\\Open_Code\\win32metadata\\bin\\Release\\net10.0\\ClangSharpSourceToWinmd.exe",
+  "Arguments": [
+    "--sourceDir",
+    "L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input",
+    "--arch",
+    "crossarch",
+    "--version",
+    "71.0.52.48558",
+    "--outputFileName",
+    "L:\\Open_Code\\win32metadata\\bin\\performance-implementation-20261027\\step3-local-regex\\profiled-current.winmd",
+    "--autoTypes",
+    "L:\\Open_Code\\win32metadata\\generation\\WinSDK\\autoTypes.json",
+    "@L:\\Open_Code\\win32metadata\\generation\\WinSDK\\emitter.settings.rsp",
+    "@L:\\Open_Code\\win32metadata\\generation\\WinSDK\\requiredNamespacesForNames.rsp",
+    "@L:\\Open_Code\\win32metadata\\generation\\WinSDK\\documentationMappings.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\emitter.functionPointerFixups.generated.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\emitter.autoFnPtr.crossarch.generated.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\enumsMakeFlags.generated.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\enumsRemap.rsp"
+  ],
+  "Seconds": 169.9759416,
+  "CpuSeconds": 322.015625,
+  "PeakWorkingSetBytes": 3390836736,
+  "ExitCode": 0
+}

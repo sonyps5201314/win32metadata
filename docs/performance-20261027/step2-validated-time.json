@@ -1,0 +1,28 @@
+{
+  "Name": "step2-validated",
+  "Emitter": "L:\\Open_Code\\win32metadata\\bin\\Release\\net10.0\\ClangSharpSourceToWinmd.exe",
+  "Arguments": [
+    "--sourceDir",
+    "L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input",
+    "--arch",
+    "crossarch",
+    "--version",
+    "71.0.52.48558",
+    "--outputFileName",
+    "L:\\Open_Code\\win32metadata\\bin\\performance-implementation-20261027\\step2-validated\\profiled-current.winmd",
+    "--autoTypes",
+    "L:\\Open_Code\\win32metadata\\generation\\WinSDK\\autoTypes.json",
+    "@L:\\Open_Code\\win32metadata\\generation\\WinSDK\\emitter.settings.rsp",
+    "@L:\\Open_Code\\win32metadata\\generation\\WinSDK\\requiredNamespacesForNames.rsp",
+    "@L:\\Open_Code\\win32metadata\\generation\\WinSDK\\documentationMappings.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\emitter.functionPointerFixups.generated.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\emitter.autoFnPtr.crossarch.generated.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\enumsMakeFlags.generated.rsp",
+    "@L:\\Open_Code\\win32metadata\\bin\\performance-20261027\\input\\enumsRemap.rsp",
+    "--validateGeneratedTypedefs"
+  ],
+  "Seconds": 93.3554816,
+  "CpuSeconds": 101.4375,
+  "PeakWorkingSetBytes": 4200570880,
+  "ExitCode": 0
+}

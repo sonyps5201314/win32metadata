@@ -1,0 +1,23 @@
+{
+  "before": "L:\\Open_Code\\win32metadata\\bin\\performance-implementation-20261027\\before-benchmark\\Windows.Win32.winmd",
+  "after": "L:\\Open_Code\\win32metadata\\bin\\performance-implementation-20261027\\after-benchmark\\Windows.Win32.winmd",
+  "before_size": 24875520,
+  "after_size": 24875520,
+  "before_sha256": "b257e6e8730b8e6b3934a7708cee6e646f671305ae9756196e2dfa23fb96f3fc",
+  "after_sha256": "624cfd6bd4ba3cdfb3375ceddcc3aab8233daa78140e53d1e6ec172e5989c54c",
+  "raw_different_bytes": 17,
+  "normalized_equal": true,
+  "normalized_different_bytes": 0,
+  "normalized_before_sha256": "09e27baa2b9bd9573ce7212db61b435b6c36e6d364c0c5693aaf6237ae9b270f",
+  "normalized_after_sha256": "09e27baa2b9bd9573ce7212db61b435b6c36e6d364c0c5693aaf6237ae9b270f",
+  "before_mask": {
+    "pe_timestamp_offset": 136,
+    "mvid_offset": 17498944,
+    "mvid_bytes": "e922ac13d63247428bbac8472f512347"
+  },
+  "after_mask": {
+    "pe_timestamp_offset": 136,
+    "mvid_offset": 17498944,
+    "mvid_bytes": "17c6bcfe64caa143990967761e443a6e"
+  }
+}
