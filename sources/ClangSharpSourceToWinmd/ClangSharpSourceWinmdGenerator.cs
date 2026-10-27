@@ -1047,23 +1047,15 @@ namespace ClangSharpSourceToWinmd
 
                 if (!fixedName.Contains("."))
                 {
-                    foreach (string @namespace in new string[] { "System" })
+                    ret = this.typeIndex.Find(this.compilation, fixedName, architecture);
+                    if (ret == null)
                     {
-                        var fullNameToCheck = GetQualifiedName(@namespace, fixedName);
+                        var fullNameToCheck = GetQualifiedName("System", fixedName);
                         ret = this.compilation.GetTypeByMetadataName(fullNameToCheck);
                         if (ret != null && (SymbolTypeInfo.GetArchitecture(ret) & architecture) != architecture)
                         {
                             ret = null;
                         }
-                        if (ret != null)
-                        {
-                            break;
-                        }
-                    }
-
-                    if (ret == null)
-                    {
-                        ret = this.typeIndex.Find(this.compilation, fixedName, architecture);
                     }
                 }
                 else
@@ -1155,12 +1147,20 @@ namespace ClangSharpSourceToWinmd
             }
 
             int priority = GetTypedefPriority(nativeType, typeSymbol);
-            if (priority < 0 || this.GetTypeFromShortName(nativeType, true, architecture) != null)
+            var available = this.GetTypeFromShortName(nativeType, true, architecture);
+            if (priority < 0 || available != null &&
+                (available.SpecialType == SpecialType.None || this.CanUseMappedType(typeSymbol, available, architecture)))
             {
                 return;
             }
 
             var existing = this.GetTypeFromShortName(nativeType, true);
+            bool frameworkCollision = existing != null && existing.SpecialType != SpecialType.None;
+            if (frameworkCollision)
+            {
+                existing = null;
+            }
+
             if (existing != null)
             {
                 Architecture defined = Architecture.None;
@@ -1178,7 +1178,8 @@ namespace ClangSharpSourceToWinmd
 
             string valueType = typeSymbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
             var elementType = SymbolTypeInfo.GetElementType(typeSymbol);
-            string ns = existing?.ContainingNamespace.ToDisplayString() ?? elementType.ContainingNamespace?.ToDisplayString();
+            string ns = frameworkCollision ? "Windows.Win32.Foundation"
+                : existing?.ContainingNamespace.ToDisplayString() ?? elementType.ContainingNamespace?.ToDisplayString();
             if (string.IsNullOrEmpty(ns) || ns == "<global namespace>")
             {
                 ns = "Windows.Win32.Foundation";
@@ -1271,9 +1272,28 @@ namespace ClangSharpSourceToWinmd
             return stem.Length >= 4 && (name.EndsWith(stem, StringComparison.Ordinal) || name.StartsWith(stem, StringComparison.Ordinal)) ? 800 : 500;
         }
 
-        private bool CanUseMappedType(ITypeSymbol original, ITypeSymbol mapped, Architecture architecture, HashSet<ITypeSymbol> visited = null)
+        private static int GetIntegerWidth(SpecialType type)
+        {
+            return type switch
+            {
+                SpecialType.System_SByte or SpecialType.System_Byte => 1,
+                SpecialType.System_Int16 or SpecialType.System_UInt16 => 2,
+                SpecialType.System_Int32 or SpecialType.System_UInt32 => 4,
+                SpecialType.System_Int64 or SpecialType.System_UInt64 => 8,
+                _ => 0
+            };
+        }
+
+        private bool CanUseMappedType(ITypeSymbol original, ITypeSymbol mapped, Architecture architecture,
+            bool isPointerTarget = false, HashSet<ITypeSymbol> visited = null)
         {
             if (SymbolTypeInfo.GetTypeKey(original) == SymbolTypeInfo.GetTypeKey(mapped))
+            {
+                return true;
+            }
+
+            if (isPointerTarget && original.SpecialType == SpecialType.System_Byte &&
+                mapped.SpecialType == SpecialType.None && mapped.TypeKind == TypeKind.Struct)
             {
                 return true;
             }
@@ -1304,7 +1324,7 @@ namespace ClangSharpSourceToWinmd
                     }
                 }
 
-                return fields.Length == 1 && CanUseMappedType(original, fields[0].Type, architecture, visited);
+                return fields.Length == 1 && CanUseMappedType(original, fields[0].Type, architecture, isPointerTarget, visited);
             }
 
             if (mapped is INamedTypeSymbol named && named.EnumUnderlyingType != null)
@@ -1321,7 +1341,14 @@ namespace ClangSharpSourceToWinmd
 
             if (original is IPointerTypeSymbol first && mapped is IPointerTypeSymbol second)
             {
-                return CanUseMappedType(first.PointedAtType, second.PointedAtType, architecture, visited);
+                return CanUseMappedType(first.PointedAtType, second.PointedAtType, architecture, true, visited);
+            }
+
+            int pointerWidth = GetIntegerWidth(original.SpecialType);
+            if (isPointerTarget && pointerWidth != 0 &&
+                pointerWidth == GetIntegerWidth(mapped.SpecialType))
+            {
+                return true;
             }
 
             if ((original.SpecialType == SpecialType.System_Char && mapped.SpecialType == SpecialType.System_UInt16) ||
@@ -1338,10 +1365,10 @@ namespace ClangSharpSourceToWinmd
                     (is64Bit && original.SpecialType == SpecialType.System_Int64 || is32Bit && original.SpecialType == SpecialType.System_Int32);
         }
 
-        private ITypeSymbol GetCompatibleNativeType(string name, ITypeSymbol original, Architecture architecture)
+        private ITypeSymbol GetCompatibleNativeType(string name, ITypeSymbol original, Architecture architecture, bool isPointerTarget = false)
         {
             var mapped = this.GetTypeFromShortName(name, architecture: architecture);
-            if (mapped != null && CanUseMappedType(original, mapped, architecture))
+            if (mapped != null && CanUseMappedType(original, mapped, architecture, isPointerTarget))
             {
                 return mapped;
             }
@@ -1349,7 +1376,7 @@ namespace ClangSharpSourceToWinmd
             foreach (var candidate in this.typeIndex.GetNativeCandidates(this.compilation, name))
             {
                 if ((SymbolTypeInfo.GetArchitecture(candidate) & architecture) != Architecture.None &&
-                    CanUseMappedType(original, candidate, architecture))
+                    CanUseMappedType(original, candidate, architecture, isPointerTarget))
                 {
                     return candidate;
                 }
@@ -1799,7 +1826,7 @@ namespace ClangSharpSourceToWinmd
                         }
                     }
 
-                    newTypeSymbol = this.GetCompatibleNativeType(nameOnly, originalElement, architecture);
+                    newTypeSymbol = this.GetCompatibleNativeType(nameOnly, originalElement, architecture, star_count > 0);
 
                     if (newTypeSymbol != null)
                     {

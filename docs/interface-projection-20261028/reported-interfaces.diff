@@ -1,0 +1,105 @@
+--- before/IMSMQQueueInfo
++++ after/IMSMQQueueInfo
+@@ -9,7 +9,7 @@
+         virtual HRESULT __stdcall put_PathName(BSTR bstrPathName) noexcept = 0;
+         virtual HRESULT __stdcall get_FormatName(BSTR* pbstrFormatName) noexcept = 0;
+         virtual HRESULT __stdcall put_FormatName(BSTR bstrFormatName) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsTransactional(int16_t* pisTransactional) noexcept = 0;
++        virtual HRESULT __stdcall get_IsTransactional(Boolean* pisTransactional) noexcept = 0;
+         virtual HRESULT __stdcall get_PrivLevel(int32_t* plPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall put_PrivLevel(int32_t lPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall get_Journal(int32_t* plJournal) noexcept = 0;
+@@ -24,7 +24,7 @@
+         virtual HRESULT __stdcall put_Authenticate(int32_t lAuthenticate) noexcept = 0;
+         virtual HRESULT __stdcall get_JournalQuota(int32_t* plJournalQuota) noexcept = 0;
+         virtual HRESULT __stdcall put_JournalQuota(int32_t lJournalQuota) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsWorldReadable(int16_t* pisWorldReadable) noexcept = 0;
++        virtual HRESULT __stdcall get_IsWorldReadable(Boolean* pisWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Delete() noexcept = 0;
+         virtual HRESULT __stdcall Open(int32_t Access, int32_t ShareMode, struct IMSMQQueue** ppq) noexcept = 0;
+--- before/IMSMQQueueInfo2
++++ after/IMSMQQueueInfo2
+@@ -9,7 +9,7 @@
+         virtual HRESULT __stdcall put_PathName(BSTR bstrPathName) noexcept = 0;
+         virtual HRESULT __stdcall get_FormatName(BSTR* pbstrFormatName) noexcept = 0;
+         virtual HRESULT __stdcall put_FormatName(BSTR bstrFormatName) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsTransactional(int16_t* pisTransactional) noexcept = 0;
++        virtual HRESULT __stdcall get_IsTransactional(Boolean* pisTransactional) noexcept = 0;
+         virtual HRESULT __stdcall get_PrivLevel(int32_t* plPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall put_PrivLevel(int32_t lPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall get_Journal(int32_t* plJournal) noexcept = 0;
+@@ -24,7 +24,7 @@
+         virtual HRESULT __stdcall put_Authenticate(int32_t lAuthenticate) noexcept = 0;
+         virtual HRESULT __stdcall get_JournalQuota(int32_t* plJournalQuota) noexcept = 0;
+         virtual HRESULT __stdcall put_JournalQuota(int32_t lJournalQuota) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsWorldReadable(int16_t* pisWorldReadable) noexcept = 0;
++        virtual HRESULT __stdcall get_IsWorldReadable(Boolean* pisWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Delete() noexcept = 0;
+         virtual HRESULT __stdcall Open(int32_t Access, int32_t ShareMode, struct IMSMQQueue2** ppq) noexcept = 0;
+--- before/IMSMQQueueInfo3
++++ after/IMSMQQueueInfo3
+@@ -9,7 +9,7 @@
+         virtual HRESULT __stdcall put_PathName(BSTR bstrPathName) noexcept = 0;
+         virtual HRESULT __stdcall get_FormatName(BSTR* pbstrFormatName) noexcept = 0;
+         virtual HRESULT __stdcall put_FormatName(BSTR bstrFormatName) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsTransactional(int16_t* pisTransactional) noexcept = 0;
++        virtual HRESULT __stdcall get_IsTransactional(Boolean* pisTransactional) noexcept = 0;
+         virtual HRESULT __stdcall get_PrivLevel(int32_t* plPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall put_PrivLevel(int32_t lPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall get_Journal(int32_t* plJournal) noexcept = 0;
+@@ -24,7 +24,7 @@
+         virtual HRESULT __stdcall put_Authenticate(int32_t lAuthenticate) noexcept = 0;
+         virtual HRESULT __stdcall get_JournalQuota(int32_t* plJournalQuota) noexcept = 0;
+         virtual HRESULT __stdcall put_JournalQuota(int32_t lJournalQuota) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsWorldReadable(int16_t* pisWorldReadable) noexcept = 0;
++        virtual HRESULT __stdcall get_IsWorldReadable(Boolean* pisWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Delete() noexcept = 0;
+         virtual HRESULT __stdcall Open(int32_t Access, int32_t ShareMode, struct IMSMQQueue3** ppq) noexcept = 0;
+--- before/IMSMQQueueInfo4
++++ after/IMSMQQueueInfo4
+@@ -9,7 +9,7 @@
+         virtual HRESULT __stdcall put_PathName(BSTR bstrPathName) noexcept = 0;
+         virtual HRESULT __stdcall get_FormatName(BSTR* pbstrFormatName) noexcept = 0;
+         virtual HRESULT __stdcall put_FormatName(BSTR bstrFormatName) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsTransactional(int16_t* pisTransactional) noexcept = 0;
++        virtual HRESULT __stdcall get_IsTransactional(Boolean* pisTransactional) noexcept = 0;
+         virtual HRESULT __stdcall get_PrivLevel(int32_t* plPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall put_PrivLevel(int32_t lPrivLevel) noexcept = 0;
+         virtual HRESULT __stdcall get_Journal(int32_t* plJournal) noexcept = 0;
+@@ -24,7 +24,7 @@
+         virtual HRESULT __stdcall put_Authenticate(int32_t lAuthenticate) noexcept = 0;
+         virtual HRESULT __stdcall get_JournalQuota(int32_t* plJournalQuota) noexcept = 0;
+         virtual HRESULT __stdcall put_JournalQuota(int32_t lJournalQuota) noexcept = 0;
+-        virtual HRESULT __stdcall get_IsWorldReadable(int16_t* pisWorldReadable) noexcept = 0;
++        virtual HRESULT __stdcall get_IsWorldReadable(Boolean* pisWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) noexcept = 0;
+         virtual HRESULT __stdcall Delete() noexcept = 0;
+         virtual HRESULT __stdcall Open(int32_t Access, int32_t ShareMode, struct IMSMQQueue4** ppq) noexcept = 0;
+--- before/IShellImageData
++++ after/IShellImageData
+@@ -17,17 +17,17 @@
+         virtual HRESULT __stdcall SelectPage(ULONG iPage) noexcept = 0;
+         virtual HRESULT __stdcall GetSize(SIZE* pSize) noexcept = 0;
+         virtual HRESULT __stdcall GetRawDataFormat(GUID* pDataFormat) noexcept = 0;
+-        virtual HRESULT __stdcall GetPixelFormat(uint32_t* pFormat) noexcept = 0;
++        virtual HRESULT __stdcall GetPixelFormat(PixelFormat* pFormat) noexcept = 0;
+         virtual HRESULT __stdcall GetDelay(DWORD* pdwDelay) noexcept = 0;
+         virtual HRESULT __stdcall GetProperties(DWORD dwMode, struct IPropertySetStorage** ppPropSet) noexcept = 0;
+         virtual HRESULT __stdcall Rotate(DWORD dwAngle) noexcept = 0;
+-        virtual HRESULT __stdcall Scale(ULONG cx, ULONG cy, uint32_t hints) noexcept = 0;
++        virtual HRESULT __stdcall Scale(ULONG cx, ULONG cy, InterpolationMode hints) noexcept = 0;
+         virtual HRESULT __stdcall DiscardEdit() noexcept = 0;
+         virtual HRESULT __stdcall SetEncoderParams(IPropertyBag* pbagEnc) noexcept = 0;
+         virtual HRESULT __stdcall DisplayName(PWSTR wszName, uint32_t cch) noexcept = 0;
+         virtual HRESULT __stdcall GetResolution(ULONG* puResolutionX, ULONG* puResolutionY) noexcept = 0;
+-        virtual HRESULT __stdcall GetEncoderParams(GUID* pguidFmt, uint8_t** ppEncParams) noexcept = 0;
++        virtual HRESULT __stdcall GetEncoderParams(GUID* pguidFmt, EncoderParameters** ppEncParams) noexcept = 0;
+         virtual HRESULT __stdcall RegisterAbort(IShellImageDataAbort* pAbort, struct IShellImageDataAbort** ppAbortPrev) noexcept = 0;
+-        virtual HRESULT __stdcall CloneFrame(uint8_t** ppImg) noexcept = 0;
+-        virtual HRESULT __stdcall ReplaceFrame(uint8_t* pImg) noexcept = 0;
++        virtual HRESULT __stdcall CloneFrame(Image** ppImg) noexcept = 0;
++        virtual HRESULT __stdcall ReplaceFrame(Image* pImg) noexcept = 0;
+     };

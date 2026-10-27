@@ -1,0 +1,23 @@
+{
+  "tests": {
+    "ClangSharpSourceToWinmdTests.dll": 43,
+    "MetadataUtils.Tests.dll": 21,
+    "Win32MetadataScraperTests.dll": 50,
+    "Windows.Win32.Tests.dll": 46
+  },
+  "total_tests": 160,
+  "cpp_architecture_tests": [
+    "x64",
+    "x86"
+  ],
+  "published_files": 1308,
+  "changed_files": [
+    "win32\\impl\\complex_interfaces.h",
+    "win32\\impl\\complex_structs.h",
+    "win32\\impl\\Windows.Win32.Foundation.0.h"
+  ],
+  "headers_match": true,
+  "winmd_sha256": "5CCCE289E2774C5E723EC4F692F55556470F6D2FAD53EE16C288B41B520A64AC",
+  "winmd_bytes": 24859648,
+  "root_winmd_matches": true
+}

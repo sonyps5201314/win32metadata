@@ -1,5 +1,7 @@
 # 2026-10-27 Shell typedef 回退修复
 
+后续 Boolean 别名及 IShellImageData 条件占位类型的修复、160项完整测试和当前产物哈希见 [2026-10-28 接口类型投影修复](interface-type-projection-20261028.md)。本文哈希、测试数与产物数量保留为当时验收的历史记录。
+
 ## 问题与原因
 
 用户对比 `Z:\win32\Windows.Win32.UI.Shell.h` 与 `Z:\TYPEDEF\win32\Windows.Win32.UI.Shell.h`，发现完整性测试修复后，合法 typedef 名称被展开。上一轮全部测试通过，只能证明当时检查的完整性约束成立，未能覆盖这些 API 的原生别名。

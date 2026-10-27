@@ -1,0 +1,12 @@
+{
+  "before_files": 1308,
+  "after_files": 1308,
+  "added": [],
+  "removed": [],
+  "changed": [
+    "win32\\impl\\Windows.Win32.Foundation.0.h",
+    "win32\\impl\\complex_interfaces.h",
+    "win32\\impl\\complex_structs.h"
+  ],
+  "same": 1305
+}

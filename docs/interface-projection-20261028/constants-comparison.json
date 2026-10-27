@@ -1,0 +1,19 @@
+{
+  "AfterSchema": {
+    "Methods": 70790,
+    "Fields": 253734,
+    "Types": 41326
+  },
+  "BeforeSchema": {
+    "Methods": 70790,
+    "Fields": 253733,
+    "Types": 41325
+  },
+  "Missing": [],
+  "Added": [],
+  "Changed": [],
+  "AfterLiteral": 158115,
+  "BeforeGuid": 5910,
+  "AfterGuid": 5910,
+  "BeforeLiteral": 158115
+}

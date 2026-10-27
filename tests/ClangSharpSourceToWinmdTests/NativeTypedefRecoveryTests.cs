@@ -223,6 +223,89 @@ namespace Semantic
         }
 
         [TestMethod]
+        public void NativeBooleanAliasDoesNotResolveToFrameworkBoolean()
+        {
+            using var module = new GeneratedModule(@"
+namespace MessageQueuing
+{
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""Boolean *"")] public short* Transactional;
+        public bool ManagedBoolean;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Transactional", "Boolean", 1);
+            AssertValueSignature(module, "Boolean", 0, SignatureTypeCode.Int16);
+            var definition = module.Types.Single(t => module.Reader.GetString(t.Name) == "Boolean");
+            Assert.AreNotEqual("System", module.Reader.GetString(definition.Namespace));
+            var holder = module.Types.Single(t => module.Reader.GetString(t.Name) == "Holder");
+            var boolean = holder.GetFields().Select(module.Reader.GetFieldDefinition)
+                .Single(f => module.Reader.GetString(f.Name) == "ManagedBoolean");
+            AssertFieldSignature(module.Reader, boolean, 0, SignatureTypeCode.Boolean);
+        }
+
+        [TestMethod]
+        public void BytePlaceholdersRecoverNativePointerTargetsWithoutChangingScalarBytes()
+        {
+            using var module = new GeneratedModule(@"
+namespace Imaging
+{
+    [NativeTypedef] public struct Image { public IntPtr Value; }
+    public struct EncoderParameters { public uint Count; }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""Image *"")] public byte* Frame;
+        [NativeTypeName(""Image **"")] public byte** Frames;
+        [NativeTypeName(""EncoderParameters **"")] public byte** Encoders;
+        [NativeTypeName(""Image"")] public byte Scalar;
+        public byte* Bytes;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Frame", "Image", 1);
+            AssertFieldTarget(module, "Holder", "Frames", "Image", 2);
+            AssertFieldTarget(module, "Holder", "Encoders", "EncoderParameters", 2);
+            var holder = module.Types.Single(t => module.Reader.GetString(t.Name) == "Holder");
+            var fields = holder.GetFields().Select(module.Reader.GetFieldDefinition)
+                .ToDictionary(f => module.Reader.GetString(f.Name));
+            AssertFieldSignature(module.Reader, fields["Scalar"], 0, SignatureTypeCode.Byte);
+            AssertFieldSignature(module.Reader, fields["Bytes"], 1, SignatureTypeCode.Byte);
+        }
+
+        [TestMethod]
+        public void ExplicitEnumMappingAndPointerAliasesKeepWidthAndRejectUnrelatedScalarEnums()
+        {
+            using var module = new GeneratedModule(@"
+namespace Graphics
+{
+    public enum InterpolationMode : int { Invalid = -1, Default = 0 }
+}
+namespace Imaging
+{
+    public enum PRIORITY : int { Low = 1, Normal = 2 }
+    [NativeTypedef] public struct PixelFormat { public int Value; }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""InterpolationMode"")] public uint Hints;
+        [NativeTypeName(""PixelFormat *"")] public uint* Format;
+        [NativeTypeName(""InterpolationMode"")] public ulong WrongWidth;
+        [NativeTypeName(""PixelFormat"")] public uint Scalar;
+        [NativeTypeName(""PRIORITY"")] public uint Priority;
+    }
+}
+", new Dictionary<string, string> { ["Holder::Hints"] = "Graphics.InterpolationMode" });
+            AssertFieldTarget(module, "Holder", "Hints", "InterpolationMode");
+            AssertFieldTarget(module, "Holder", "Format", "PixelFormat", 1);
+            var holder = module.Types.Single(t => module.Reader.GetString(t.Name) == "Holder");
+            var fields = holder.GetFields().Select(module.Reader.GetFieldDefinition)
+                .ToDictionary(f => module.Reader.GetString(f.Name));
+            AssertFieldSignature(module.Reader, fields["WrongWidth"], 0, SignatureTypeCode.UInt64);
+            AssertFieldSignature(module.Reader, fields["Scalar"], 0, SignatureTypeCode.UInt32);
+            AssertFieldSignature(module.Reader, fields["Priority"], 0, SignatureTypeCode.UInt32);
+        }
+
+        [TestMethod]
         public void ConflictingProjectionsKeepOneAliasWithoutChangingSpecializedBuffers()
         {
             using var module = new GeneratedModule(@"
@@ -326,11 +409,11 @@ namespace Hypervisor
             private readonly PEReader pe;
             private readonly Stream stream;
 
-            internal GeneratedModule(string source)
+            internal GeneratedModule(string source, Dictionary<string, string>? remaps = null)
             {
                 Directory.CreateDirectory(this.directory);
                 File.WriteAllText(Path.Combine(this.directory, "Source.cs"), MetadataSource + source);
-                var compilation = ClangSharpSourceCompilation.Create(this.directory, "x64", new Dictionary<string, string>(),
+                var compilation = ClangSharpSourceCompilation.Create(this.directory, "x64", remaps ?? new Dictionary<string, string>(),
                     new Dictionary<string, Dictionary<string, string>>(), Array.Empty<string>(), new Dictionary<string, string>(),
                     new Dictionary<string, string>(), new HashSet<string>(), Array.Empty<string>(),
                     new Dictionary<string, string>(), new Dictionary<string, string>());
