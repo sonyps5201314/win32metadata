@@ -1,0 +1,17 @@
+{
+  "tests": {
+    "ClangSharpSourceToWinmdTests": 35,
+    "Win32MetadataScraperTests": 50,
+    "Windows.Win32.Tests": 26,
+    "MetadataUtils.Tests": 17
+  },
+  "total_tests": 128,
+  "winmd_sha256": "8912091C00112E08A3BD1989D55E76DDDD045C70A43BBD9445E35C35AE2B094F",
+  "winmd_size": 24838656,
+  "cpp_header_files": 1308,
+  "published_headers_match": true,
+  "cpp_architecture_tests": [
+    "x64",
+    "x86"
+  ]
+}

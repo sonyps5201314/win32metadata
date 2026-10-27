@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "before",
+    "Types": 41635,
+    "Fields": 254043,
+    "Methods": 70790,
+    "Size": 24875520
+  },
+  {
+    "Name": "after",
+    "Types": 41100,
+    "Fields": 253508,
+    "Methods": 70790,
+    "Size": 24838656
+  }
+]
