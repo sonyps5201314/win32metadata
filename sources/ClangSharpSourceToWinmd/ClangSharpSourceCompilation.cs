@@ -324,10 +324,16 @@ namespace ClangSharpSourceToWinmd
 
         public ReadOnlyCollection<Diagnostic> GetDiagnostics()
         {
+            return GetDeclarationDiagnostics(this.compilation, this.typeImports);
+        }
+
+        internal static ReadOnlyCollection<Diagnostic> GetDeclarationDiagnostics(
+            CSharpCompilation compilation, Dictionary<string, string> typeImports)
+        {
             List<Diagnostic> diags = new List<Diagnostic>();
             var culture = new System.Globalization.CultureInfo("en-US");
 
-            foreach (var diag in this.compilation.GetDeclarationDiagnostics())
+            foreach (var diag in compilation.GetDeclarationDiagnostics())
             {
                 if (diag.Severity == DiagnosticSeverity.Warning)
                 {
@@ -365,7 +371,7 @@ namespace ClangSharpSourceToWinmd
                     if (match.Success)
                     {
                         var symbolName = match.Groups[1].Value;
-                        if (this.typeImports.ContainsKey(symbolName) || this.typeImports.ContainsKey($"{symbolName}(interface)"))
+                        if (typeImports.ContainsKey(symbolName) || typeImports.ContainsKey($"{symbolName}(interface)"))
                         {
                             continue;
                         }

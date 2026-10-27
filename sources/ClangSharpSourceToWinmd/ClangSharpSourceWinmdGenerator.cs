@@ -170,7 +170,8 @@ namespace ClangSharpSourceToWinmd
             HashSet<string> reducePointerLevels,
             HashSet<string> forceGuidConsts,
             Version version,
-            string outputFileName)
+            string outputFileName,
+            bool validateGeneratedTypedefs = false)
         {
             ClangSharpSourceWinmdGenerator generator =
                 new ClangSharpSourceWinmdGenerator(
@@ -181,7 +182,7 @@ namespace ClangSharpSourceToWinmd
                     version,
                     Path.GetFileName(outputFileName));
 
-            generator.PopulateMetadataBuilder();
+            generator.PopulateMetadataBuilder(validateGeneratedTypedefs);
 
             if (!generator.diagnostics.Any(d => d.Severity == DiagnosticSeverity.Error))
             {
@@ -530,7 +531,7 @@ namespace ClangSharpSourceToWinmd
             this.WroteWinmd = true;
         }
 
-        private void PopulateMetadataBuilder()
+        private void PopulateMetadataBuilder(bool validateGeneratedTypedefs)
         {
             foreach (var tree in this.compilation.SyntaxTrees)
             {
@@ -553,19 +554,19 @@ namespace ClangSharpSourceToWinmd
             var syntaxTree = CSharpSyntaxTree.ParseText(code, null, fileName);
             this.compilation = this.compilation.AddSyntaxTrees(syntaxTree);
 
-            // 检查编译诊断信息 (可选，但有助于调试)
-            var diagnostics = this.compilation.GetDiagnostics();
-            foreach (var diag in diagnostics.Where(d => d.Severity == DiagnosticSeverity.Error))
+            if (validateGeneratedTypedefs)
             {
-                string line = string.Empty;
-                var pos = diag.Location.GetLineSpan();
-                if (pos.Path != null)
+                foreach (var diagnostic in ClangSharpSourceCompilation.GetDeclarationDiagnostics(this.compilation, this.typeImports))
                 {
-                    if (pos.Path == fileName)
+                    if (diagnostic.Severity == DiagnosticSeverity.Error && diagnostic.Location.SourceTree == syntaxTree)
                     {
-                        line += pos.Path + " (" + (pos.StartLinePosition.Line + 1) + "," + (pos.StartLinePosition.Character + 1) + ")";
-                        Debug.WriteLine($"{line}: {diag.GetMessage()}");
+                        this.diagnostics.Add(new GeneratorDiagnostic(diagnostic.ToString(), DiagnosticSeverity.Error));
                     }
+                }
+
+                if (this.diagnostics.Any(d => d.Severity == DiagnosticSeverity.Error))
+                {
+                    return;
                 }
             }
 

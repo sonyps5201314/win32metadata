@@ -25,6 +25,7 @@ namespace ClangSharpSourceToWinmd
                 new Option<string>("--arch", () => "x64", "The CPU architecture."),
                 new Option<string>("--outputFileName", "The path to the .winmd to create") { IsRequired = true },
                 new Option<string>("--version", description: "The version to use on the .winmd", getDefaultValue: () => "1.0.0.0"),
+                new Option<bool>("--validateGeneratedTypedefs", "Validate generated native typedef declarations before emitting metadata."),
                 new Option<string>("--memberRemap", "Remaps fields and parameters by adding attributes or changing the type.", ArgumentArity.OneOrMore),
 
                 new Option<string>("--enumAddition", "Add a member to an enum.", ArgumentArity.OneOrMore),
@@ -160,7 +161,8 @@ namespace ClangSharpSourceToWinmd
                     reducePointerLevels,
                     forceGuidConsts,
                     assemblyVersion, 
-                    outputFileName);
+                    outputFileName,
+                    context.ParseResult.ValueForOption<bool>("--validateGeneratedTypedefs"));
 
             mainWatch.Stop();
 
