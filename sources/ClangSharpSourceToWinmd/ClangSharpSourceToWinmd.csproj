@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MetadataUtils\MetadataUtils.csproj" />
+    <InternalsVisibleTo Include="ClangSharpSourceToWinmdTests" />
   </ItemGroup>
 
 </Project>

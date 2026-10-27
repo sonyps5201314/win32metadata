@@ -63,6 +63,7 @@ namespace ClangSharpSourceToWinmd
         private HashSet<string> reducePointerLevels;
         private Dictionary<string, AssemblyReferenceHandle> assemblyNamesToRefHandles = new Dictionary<string, AssemblyReferenceHandle>();
         private Dictionary<string, ITypeSymbol> nameToSymbols = new Dictionary<string, ITypeSymbol>();
+        private readonly CompilationTypeIndex typeIndex = new CompilationTypeIndex();
         private Dictionary<StructDeclarationSyntax, ISymbol> structNodesToInheritedSymbols = new Dictionary<StructDeclarationSyntax, ISymbol>();
         private Dictionary<string, FieldDeclarationSyntax> nameToGuidConstFields = new Dictionary<string, FieldDeclarationSyntax>();
         private HashSet<string> structNameWithGuids = new HashSet<string>();
@@ -1050,7 +1051,7 @@ namespace ClangSharpSourceToWinmd
 
                     if (ret == null)
                     {
-                        ret = this.compilation.GetSymbolsWithName(fixedName, SymbolFilter.Type).FirstOrDefault() as ITypeSymbol;
+                        ret = this.typeIndex.Find(this.compilation, fixedName);
                     }
                 }
                 else
