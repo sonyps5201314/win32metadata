@@ -63,5 +63,10 @@
     "count": 1308,
     "changed_files": 163,
     "all_hashes_equal": true
+  },
+  "historical_artifact": true,
+  "superseded_x86_limit": {
+    "status": "fixed",
+    "verification": "../x86-forward-declarations-20261029/verification.json"
   }
 }

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-29",
+  "source_bases": {
+    "cppwin32_head": "161d272935c7c05a9add83c3c9341526280d6261",
+    "win32metadata_head": "d354e8622b40927bab509df4c5a29b9f6bda6fda"
+  },
+  "winmd_sha256": "C4B0B235173A4F803D86A8FAE0A31296B145D02C92DBB988E6A04D805240D519",
+  "winmd_unchanged": true,
+  "cppwin32_exe_sha256": "61B2884BFFCEE18B036282CAB631944E88BE47CC26FAB424AC1EEA52F584120A",
+  "baseline_tests": {
+    "fixture_x86": "expected failure",
+    "actual_sdk_x86": "expected failure"
+  },
+  "final_tests": {
+    "fixture_x64": "passed",
+    "fixture_x86": "passed",
+    "actual_sdk_x64": "passed",
+    "actual_sdk_x86": "passed"
+  },
+  "actual_sdk_checks": {
+    "PSP_aliases": 27,
+    "PINFCONTEXT_alias": 1,
+    "interface_aliases": 6,
+    "PRIORITY": 1,
+    "device_header_included_on_both_platforms": true
+  },
+  "projection": {
+    "files": 1308,
+    "changed_files": [
+      "impl/complex_structs.h",
+      "impl/Windows.Win32.Devices.DeviceAndDriverInstallation.0.h",
+      "impl/Windows.Win32.Devices.Display.0.h",
+      "impl/Windows.Win32.Media.Audio.0.h",
+      "impl/Windows.Win32.Networking.WinHttp.0.h",
+      "impl/Windows.Win32.Networking.WinSock.0.h",
+      "impl/Windows.Win32.NetworkManagement.Dns.0.h",
+      "impl/Windows.Win32.NetworkManagement.NetBios.0.h",
+      "impl/Windows.Win32.NetworkManagement.Rras.0.h",
+      "impl/Windows.Win32.NetworkManagement.Snmp.0.h",
+      "impl/Windows.Win32.System.Diagnostics.Debug.0.h",
+      "impl/Windows.Win32.System.Diagnostics.Debug.Extensions.0.h",
+      "impl/Windows.Win32.System.Kernel.0.h",
+      "impl/Windows.Win32.System.Memory.0.h",
+      "impl/Windows.Win32.System.Search.0.h",
+      "impl/Windows.Win32.UI.Controls.0.h",
+      "impl/Windows.Win32.UI.Controls.Dialogs.0.h",
+      "impl/Windows.Win32.UI.Shell.0.h"
+    ],
+    "only_adds_architecture_guarded_forward_declarations": true,
+    "removed_lines": 0
+  },
+  "publication": {
+    "target": "Z:\\TYPEDEF\\win32",
+    "all_1308_hashes_match": true
+  },
+  "evidence_root": "Z:\\cppwin32-x86-forward-20261029",
+  "cppwin32_commit": "206ec8d54610e9839b355d2b5274567eb1f35150"
+}
