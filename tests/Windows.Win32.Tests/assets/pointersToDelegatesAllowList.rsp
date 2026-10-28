@@ -18,3 +18,5 @@ Windows.Win32.System.WinRT.Apis.RoRegisterActivationFactories
 
 # RtmV2.h 中 PRTM_ENTITY_EXPORT_METHOD 是函数指针的指针。
 Windows.Win32.NetworkManagement.Rras.PRTM_ENTITY_EXPORT_METHOD.Value
+# Msi.h 将 PINSTALLUI_HANDLER_RECORD 定义为指向回调指针的指针。
+Windows.Win32.System.ApplicationInstallationAndServicing.PINSTALLUI_HANDLER_RECORD.Value

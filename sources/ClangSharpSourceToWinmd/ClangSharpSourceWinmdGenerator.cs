@@ -545,7 +545,18 @@ namespace ClangSharpSourceToWinmd
                 {
                     foreach (var info in collector.FoundElements)
                     {
-                        this.RemapToMoreSpecificTypeIfPossible_Internal(false, info.ParentName, info.ElementName, info.NativeTypeNameValue, info.ElementManagedTypeNamespace, info.ElementManagedType, ref info.TypeSymbol, SymbolTypeInfo.GetArchitecture(info.OwnerSymbol));
+                        var nativeType = info.NativeTypeNameValue;
+                        var typeSymbol = info.TypeSymbol;
+                        if (info.OwnerSymbol is IFieldSymbol fixedField && fixedField.IsFixedSizeBuffer)
+                        {
+                            nativeType = ArrayMatcher.Replace(nativeType, string.Empty).TrimEnd();
+                            if (typeSymbol is IPointerTypeSymbol fixedPointer)
+                            {
+                                typeSymbol = fixedPointer.PointedAtType;
+                            }
+                        }
+
+                        this.RemapToMoreSpecificTypeIfPossible_Internal(false, info.ParentName, info.ElementName, nativeType, info.ElementManagedTypeNamespace, typeSymbol.ToString(), ref typeSymbol, SymbolTypeInfo.GetArchitecture(info.OwnerSymbol));
                     }
                 }
             }
@@ -1119,6 +1130,10 @@ namespace ClangSharpSourceToWinmd
 
                 code.AppendLine($"namespace {item.Namespace} {{");
                 code.AppendLine("[NativeTypedef]");
+                if (item.ValueSymbol.DeclaringSyntaxReferences.Any(r => r.GetSyntax() is StructDeclarationSyntax declaration && this.IsInterfaceDef(declaration)))
+                {
+                    code.AppendLine($"[AlsoUsableFor(\"{item.ValueSymbol.ToDisplayString()}\")]");
+                }
                 if (item.Architecture != Architecture.All)
                 {
                     code.AppendLine($"[SupportedArchitecture((global::Windows.Win32.Foundation.Metadata.Architecture){(int)item.Architecture})]");
@@ -1247,7 +1262,12 @@ namespace ClangSharpSourceToWinmd
 
             if (element.SpecialType != SpecialType.None)
             {
-                return type is IPointerTypeSymbol && element.SpecialType == SpecialType.System_Void ? 600 : 700;
+                if (type is IPointerTypeSymbol && element.SpecialType == SpecialType.System_Void)
+                {
+                    return nativeType.EndsWith("VOID", StringComparison.Ordinal) ? 1000 : 600;
+                }
+
+                return 700;
             }
 
             if (!(type is IPointerTypeSymbol))
@@ -1284,6 +1304,26 @@ namespace ClangSharpSourceToWinmd
             };
         }
 
+        private static bool TryGetArrayTypedef(ITypeSymbol type, out ITypeSymbol element, out int count)
+        {
+            element = null;
+            count = 0;
+            if (!type.GetAttributes().Any(a => a.AttributeClass?.Name == "NativeTypedefAttribute"))
+            {
+                return false;
+            }
+
+            var fields = type.GetMembers().OfType<IFieldSymbol>().Where(f => !f.IsStatic).ToArray();
+            if (fields.Length != 1 || !fields[0].IsFixedSizeBuffer)
+            {
+                return false;
+            }
+
+            element = SymbolTypeInfo.GetElementType(fields[0].Type);
+            count = fields[0].FixedSize;
+            return true;
+        }
+
         private bool CanUseMappedType(ITypeSymbol original, ITypeSymbol mapped, Architecture architecture,
             bool isPointerTarget = false, HashSet<ITypeSymbol> visited = null)
         {
@@ -1292,13 +1332,25 @@ namespace ClangSharpSourceToWinmd
                 return true;
             }
 
+            if (TryGetArrayTypedef(mapped, out var arrayElement, out _))
+            {
+                if (!isPointerTarget)
+                {
+                    return false;
+                }
+
+                var sourceElement = original is IPointerTypeSymbol arrayPointer ? arrayPointer.PointedAtType : original;
+                return sourceElement.SpecialType == SpecialType.System_Void ||
+                    CanUseMappedType(sourceElement, arrayElement, architecture, visited: visited);
+            }
+
             if (isPointerTarget && original.SpecialType == SpecialType.System_Byte &&
                 mapped.SpecialType == SpecialType.None && mapped.TypeKind == TypeKind.Struct)
             {
                 return true;
             }
 
-            if (mapped.GetAttributes().Any(a => a.AttributeClass?.Name == "NativeTypedefAttribute"))
+            if (mapped.GetAttributes().Any(a => a.AttributeClass?.Name == "NativeTypedefAttribute" || a.AttributeClass?.Name == "MetadataTypedefAttribute"))
             {
                 visited ??= new HashSet<ITypeSymbol>(SymbolEqualityComparer.Default);
                 if (!visited.Add(mapped))
@@ -1307,6 +1359,31 @@ namespace ClangSharpSourceToWinmd
                 }
 
                 var fields = mapped.GetMembers().OfType<IFieldSymbol>().Where(f => !f.IsStatic).ToArray();
+                if (fields.Length == 1)
+                {
+                    var valueType = fields[0].Type.SpecialType;
+                    if (valueType == SpecialType.System_UIntPtr &&
+                        (original.SpecialType == SpecialType.System_UInt32 || original.SpecialType == SpecialType.System_UInt64) ||
+                        valueType == SpecialType.System_IntPtr &&
+                        (original.SpecialType == SpecialType.System_Int32 || original.SpecialType == SpecialType.System_Int64))
+                    {
+                        return true;
+                    }
+
+                    if ((valueType == SpecialType.System_IntPtr || valueType == SpecialType.System_UIntPtr) &&
+                        original is IPointerTypeSymbol address && address.PointedAtType.SpecialType == SpecialType.System_Void)
+                    {
+                        return true;
+                    }
+
+                    bool declaredAlias = !mapped.DeclaringSyntaxReferences.Any(r => r.SyntaxTree.FilePath == "GeneratedNativeTypedefs.cs");
+                    int width = GetIntegerWidth(original.SpecialType);
+                    if (declaredAlias && width != 0 && width == GetIntegerWidth(valueType))
+                    {
+                        return true;
+                    }
+                }
+
                 if (fields.Length == 1 && original is IPointerTypeSymbol projectedPointer)
                 {
                     if (mapped.ToDisplayString() == Win32StringType &&
@@ -1332,6 +1409,36 @@ namespace ClangSharpSourceToWinmd
                 return original.SpecialType != SpecialType.None && original.SpecialType == named.EnumUnderlyingType.SpecialType;
             }
 
+            if (original is INamedTypeSymbol originalDelegate && mapped is INamedTypeSymbol mappedDelegate &&
+                originalDelegate.DelegateInvokeMethod is IMethodSymbol firstInvoke && mappedDelegate.DelegateInvokeMethod is IMethodSymbol secondInvoke)
+            {
+                visited ??= new HashSet<ITypeSymbol>(SymbolEqualityComparer.Default);
+                if (!visited.Add(mapped) || firstInvoke.Parameters.Length != secondInvoke.Parameters.Length ||
+                    originalDelegate.ContainingNamespace.ToDisplayString() != mappedDelegate.ContainingNamespace.ToDisplayString() ||
+                    GetDelegateConvention(originalDelegate) != GetDelegateConvention(mappedDelegate))
+                {
+                    return false;
+                }
+
+                int returnWidth = GetIntegerWidth(firstInvoke.ReturnType.SpecialType);
+                if (!CanUseMappedType(firstInvoke.ReturnType, secondInvoke.ReturnType, architecture, visited: visited) &&
+                    (returnWidth == 0 || returnWidth != GetIntegerWidth(secondInvoke.ReturnType.SpecialType)))
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < firstInvoke.Parameters.Length; i++)
+                {
+                    if (firstInvoke.Parameters[i].RefKind != secondInvoke.Parameters[i].RefKind ||
+                        !CanUseMappedType(firstInvoke.Parameters[i].Type, secondInvoke.Parameters[i].Type, architecture, visited: visited))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
             bool opaque = original.SpecialType == SpecialType.System_IntPtr || original.SpecialType == SpecialType.System_UIntPtr ||
                 original is IPointerTypeSymbol opaquePointer && opaquePointer.PointedAtType.SpecialType == SpecialType.System_Void;
             if (opaque && (mapped is IPointerTypeSymbol || mapped.TypeKind == TypeKind.Delegate || this.IsSymbolInterface(mapped)))
@@ -1341,6 +1448,11 @@ namespace ClangSharpSourceToWinmd
 
             if (original is IPointerTypeSymbol first && mapped is IPointerTypeSymbol second)
             {
+                if (first.PointedAtType.SpecialType == SpecialType.System_Byte && second.PointedAtType.SpecialType == SpecialType.System_Void)
+                {
+                    return true;
+                }
+
                 return CanUseMappedType(first.PointedAtType, second.PointedAtType, architecture, true, visited);
             }
 
@@ -1363,6 +1475,13 @@ namespace ClangSharpSourceToWinmd
                     (is64Bit && original.SpecialType == SpecialType.System_UInt64 || is32Bit && original.SpecialType == SpecialType.System_UInt32) ||
                 mapped.SpecialType == SpecialType.System_IntPtr &&
                     (is64Bit && original.SpecialType == SpecialType.System_Int64 || is32Bit && original.SpecialType == SpecialType.System_Int32);
+        }
+
+        private static int GetDelegateConvention(INamedTypeSymbol type)
+        {
+            var attribute = type.GetAttributes().FirstOrDefault(a => a.AttributeClass?.Name == "UnmanagedFunctionPointerAttribute");
+            int value = attribute == null ? 1 : Convert.ToInt32(attribute.ConstructorArguments[0].Value);
+            return value == 1 ? 3 : value;
         }
 
         private ITypeSymbol GetCompatibleNativeType(string name, ITypeSymbol original, Architecture architecture, bool isPointerTarget = false)
@@ -1559,9 +1678,15 @@ namespace ClangSharpSourceToWinmd
 
             this.EnsureEnumSizeMatchesOriginalSize(owner, name, typeSymbol, nativeType, out var wasEnum);
 
-            // Don't try to fix up an enum
+            // 只恢复底层枚举相同的显式别名，不把语义枚举重新解释成整数别名。
             if (wasEnum)
             {
+                var alias = this.GetCompatibleNativeType(CleanNativeType(nativeType), typeSymbol, SymbolTypeInfo.GetArchitecture(ownerSymbol));
+                if (alias != null && alias.GetAttributes().Any(a => a.AttributeClass?.Name == "NativeTypedefAttribute"))
+                {
+                    typeSymbol = alias;
+                }
+
                 return;
             }
 
@@ -1677,6 +1802,7 @@ namespace ClangSharpSourceToWinmd
 
                 string nameOnly;
                 int star_count = 0;
+                star_count = ArrayMatcher.Matches(nativeType).Count;
                 var kpos = nativeType.IndexOf('*');
                 if (kpos == -1)
                 {
@@ -1691,7 +1817,7 @@ namespace ClangSharpSourceToWinmd
                     }
                     else
                     {
-                        star_count++;
+                        star_count = Math.Max(1, star_count);
                     }
                 }
                 if (kpos > -1)
@@ -2470,6 +2596,16 @@ namespace ClangSharpSourceToWinmd
                 return true;
             }
 
+            if (symbol is ITypeSymbol alias && alias.GetAttributes().Any(a => a.AttributeClass?.Name == "NativeTypedefAttribute") &&
+                alias.GetAttributes().Any(a => a.AttributeClass?.Name == "AlsoUsableForAttribute"))
+            {
+                var field = alias.GetMembers("Value").OfType<IFieldSymbol>().SingleOrDefault();
+                if (field != null && this.IsSymbolInterface(field.Type))
+                {
+                    return true;
+                }
+            }
+
             return this.reducePointerLevels.Contains(symbol.Name);
         }
 
@@ -2861,6 +2997,79 @@ namespace ClangSharpSourceToWinmd
             return firstMethod;
         }
 
+        private bool TryEncodeArrayTypedefField(IFieldSymbol field, ITypeSymbol type, SignatureTypeEncoder encoder)
+        {
+            if (!field.IsFixedSizeBuffer && !type.Name.EndsWith("_e__FixedBuffer"))
+            {
+                return false;
+            }
+
+            var nativeType = GetNormalizedNativeTypeName(field.GetAttributes());
+            if (nativeType == null || nativeType.Contains('*') || nativeType.Contains('&'))
+            {
+                return false;
+            }
+
+            var aliasName = CleanNativeType(ArrayMatcher.Replace(nativeType, string.Empty).TrimEnd());
+            var alias = this.GetTypeFromShortName(aliasName, architecture: SymbolTypeInfo.GetArchitecture(field));
+            if (alias == null || !TryGetArrayTypedef(alias, out var aliasElement, out int aliasCount))
+            {
+                return false;
+            }
+
+            int count;
+            ITypeSymbol element;
+            if (field.IsFixedSizeBuffer)
+            {
+                count = field.FixedSize;
+                element = SymbolTypeInfo.GetElementType(field.Type);
+            }
+            else if (type.Name.EndsWith("_e__FixedBuffer"))
+            {
+                if (!this.fixedBufferTypeToInfo.TryGetValue(type, out var info))
+                {
+                    this.AddFixedBufferTypeInfoForStructNode((StructDeclarationSyntax)type.DeclaringSyntaxReferences[0].GetSyntax());
+                    info = this.fixedBufferTypeToInfo[type];
+                }
+
+                count = info.Count;
+                element = info.Type;
+            }
+            else
+            {
+                return false;
+            }
+
+            int outerCount = 1;
+            var dimensions = ArrayMatcher.Matches(nativeType);
+            foreach (Match dimension in dimensions)
+            {
+                if (!int.TryParse(dimension.Value.Trim('[', ']'), out int size) || size <= 0)
+                {
+                    return false;
+                }
+
+                outerCount = checked(outerCount * size);
+            }
+
+            if (count != checked(outerCount * aliasCount) || !this.CanUseMappedType(element, aliasElement, SymbolTypeInfo.GetArchitecture(field)))
+            {
+                return false;
+            }
+
+            if (dimensions.Count == 0)
+            {
+                this.EncodeTypeSymbol(alias, encoder);
+            }
+            else
+            {
+                encoder.Array(e => this.EncodeTypeSymbol(alias, e),
+                    s => s.Shape(1, ImmutableArray.Create(outerCount), ImmutableArray.Create(0)));
+            }
+
+            return true;
+        }
+
         private BlobBuilder EncodeFieldSignature(string structName, SemanticModel model, FieldDeclarationSyntax field, out string name)
         {
             var fieldVariable = field.Declaration.Variables.First();
@@ -2872,7 +3081,13 @@ namespace ClangSharpSourceToWinmd
 
             name = fieldSymbol.Name;
 
-            this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref type, ownerSymbol: fieldSymbol);
+            if (this.TryEncodeArrayTypedefField(fieldSymbol, type, signatureEncoder))
+            {
+                return fieldSignature;
+            }
+
+            this.RemapToMoreSpecificTypeIfPossible(structName, name, fieldSymbol.GetAttributes(), ref type,
+                isArrayElement: fieldVariable.ArgumentList != null, ownerSymbol: fieldSymbol);
 
             if (type.Name.EndsWith("_e__FixedBuffer"))
             {

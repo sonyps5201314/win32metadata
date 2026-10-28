@@ -1,0 +1,440 @@
+[
+  {
+    "Namespace": "Windows.Win32.Networking.ActiveDirectory",
+    "Name": "ADS_SEARCHPREF",
+    "ValueType": "Windows.Win32.Networking.ActiveDirectory.ADS_SEARCHPREF_ENUM",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Networking.ActiveDirectory",
+    "Name": "ADS_STATUS",
+    "ValueType": "Windows.Win32.Networking.ActiveDirectory.ADS_STATUSENUM",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Storage.CloudFilters",
+    "Name": "CF_HYDRATION_POLICY_MODIFIER_USHORT",
+    "ValueType": "Windows.Win32.Storage.CloudFilters.CF_HYDRATION_POLICY_MODIFIER",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Storage.CloudFilters",
+    "Name": "CF_HYDRATION_POLICY_PRIMARY_USHORT",
+    "ValueType": "Windows.Win32.Storage.CloudFilters.CF_HYDRATION_POLICY_PRIMARY",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Storage.CloudFilters",
+    "Name": "CF_POPULATION_POLICY_MODIFIER_USHORT",
+    "ValueType": "Windows.Win32.Storage.CloudFilters.CF_POPULATION_POLICY_MODIFIER",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Storage.CloudFilters",
+    "Name": "CF_POPULATION_POLICY_PRIMARY_USHORT",
+    "ValueType": "Windows.Win32.Storage.CloudFilters.CF_POPULATION_POLICY_PRIMARY",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Mmc",
+    "Name": "COLUMNSORTORDER",
+    "ValueType": "Windows.Win32.System.Mmc._ColumnSortOrder",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_CBUFFER_TYPE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_CBUFFER_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_NAME",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_NAME",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_PRIMITIVE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_PRIMITIVE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_PRIMITIVE_TOPOLOGY",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_PRIMITIVE_TOPOLOGY",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_REGISTER_COMPONENT_TYPE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_REGISTER_COMPONENT_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_RESOURCE_RETURN_TYPE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_RESOURCE_RETURN_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_SHADER_INPUT_TYPE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_SHADER_INPUT_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_SHADER_VARIABLE_CLASS",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_SHADER_VARIABLE_CLASS",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_SHADER_VARIABLE_TYPE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_SHADER_VARIABLE_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_SRV_DIMENSION",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_SRV_DIMENSION",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D10_SRV_DIMENSION1",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_SRV_DIMENSION",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D11_PRIMITIVE_TOPOLOGY",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_PRIMITIVE_TOPOLOGY",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D11_SRV_DIMENSION",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_SRV_DIMENSION",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D",
+    "Name": "D3D12_PRIMITIVE_TOPOLOGY",
+    "ValueType": "Windows.Win32.Graphics.Direct3D.D3D_PRIMITIVE_TOPOLOGY",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.Direct3D12",
+    "Name": "D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE",
+    "ValueType": "Windows.Win32.Graphics.Direct3D12.D3D12_SERIALIZED_BLOCK_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Mmc",
+    "Name": "DOCUMENTMODE",
+    "ValueType": "Windows.Win32.System.Mmc._DocumentMode",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Mmc",
+    "Name": "EXPORTLISTOPTIONS",
+    "ValueType": "Windows.Win32.System.Mmc._ExportListOptions",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Diagnostics.Debug.Extensions",
+    "Name": "FA_TAG",
+    "ValueType": "Windows.Win32.System.Diagnostics.Debug.Extensions.DEBUG_FLR_PARAM_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Globalization",
+    "Name": "GEOTYPE",
+    "ValueType": "Windows.Win32.Globalization.SYSGEOTYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpBrushType",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.BrushType",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpCoordinateSpace",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.CoordinateSpace",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpDashCap",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.DashCap",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpDashStyle",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.DashStyle",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpFillMode",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.FillMode",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpFlushIntention",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.FlushIntention",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpHatchStyle",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.HatchStyle",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpLineCap",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.LineCap",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpLineJoin",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.LineJoin",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpMatrixOrder",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.MatrixOrder",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpPenAlignment",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.PenAlignment",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpPenType",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.PenType",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpStatus",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.Status",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpUnit",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.Unit",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Graphics.GdiPlus",
+    "Name": "GpWrapMode",
+    "ValueType": "Windows.Win32.Graphics.GdiPlus.WrapMode",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Security",
+    "Name": "INHERIT_FLAGS",
+    "ValueType": "Windows.Win32.Security.ACE_FLAGS",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Networking.WinSock",
+    "Name": "IP_DAD_STATE",
+    "ValueType": "Windows.Win32.Networking.WinSock.NL_DAD_STATE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Networking.WinSock",
+    "Name": "IP_PREFIX_ORIGIN",
+    "ValueType": "Windows.Win32.Networking.WinSock.NL_PREFIX_ORIGIN",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Networking.WinSock",
+    "Name": "IP_SUFFIX_ORIGIN",
+    "ValueType": "Windows.Win32.Networking.WinSock.NL_SUFFIX_ORIGIN",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Mmc",
+    "Name": "LISTVIEWMODE",
+    "ValueType": "Windows.Win32.System.Mmc._ListViewMode",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.MobileBroadband",
+    "Name": "MBN_SMS_CONSTANTS",
+    "ValueType": "Windows.Win32.NetworkManagement.MobileBroadband.WWAEXT_SMS_CONSTANTS",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Networking.WinSock",
+    "Name": "MIB_IPFORWARD_PROTO",
+    "ValueType": "Windows.Win32.Networking.WinSock.NL_ROUTE_PROTOCOL",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.Ndis",
+    "Name": "NDIS_802_11_ENCRYPTION_STATUS",
+    "ValueType": "Windows.Win32.NetworkManagement.Ndis.NDIS_802_11_WEP_STATUS",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.Ndis",
+    "Name": "NDIS_MEDIA_CONNECT_STATE",
+    "ValueType": "Windows.Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.Ndis",
+    "Name": "NDIS_MEDIA_DUPLEX_STATE",
+    "ValueType": "Windows.Win32.NetworkManagement.Ndis.NET_IF_MEDIA_DUPLEX_STATE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Devices.Nfc",
+    "Name": "NFC_SE_EVENT_TYPE",
+    "ValueType": "Windows.Win32.Devices.Nfc.SECURE_ELEMENT_EVENT_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Devices.Nfc",
+    "Name": "NFC_SE_ROUTING_TABLE_TYPE",
+    "ValueType": "Windows.Win32.Devices.Nfc.SECURE_ELEMENT_ROUTING_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Devices.Nfc",
+    "Name": "NFC_SE_TYPE",
+    "ValueType": "Windows.Win32.Devices.Nfc.SECURE_ELEMENT_TYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Diagnostics.Etw",
+    "Name": "TRACE_INFO_CLASS",
+    "ValueType": "Windows.Win32.System.Diagnostics.Etw.TRACE_QUERY_INFO_CLASS",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Globalization",
+    "Name": "UCollationStrength",
+    "ValueType": "Windows.Win32.Globalization.UColAttributeValue",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.Mmc",
+    "Name": "VIEWOPTIONS",
+    "ValueType": "Windows.Win32.System.Mmc._ViewOptions",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.RemoteDesktop",
+    "Name": "WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE",
+    "ValueType": "Windows.Win32.System.RemoteDesktop.WTS_LOGON_ERROR_REDIRECTOR_RESPONSE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SCHEMACONTENTTYPE",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SCHEMACONTENTTYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SCHEMADERIVATIONMETHOD",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SCHEMADERIVATIONMETHOD",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SCHEMAPROCESSCONTENTS",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SCHEMAPROCESSCONTENTS",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SCHEMATYPEVARIETY",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SCHEMATYPEVARIETY",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SCHEMAUSE",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SCHEMAUSE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SCHEMAWHITESPACE",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SCHEMAWHITESPACE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SERVERXMLHTTP_OPTION",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SERVERXMLHTTP_OPTION",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SOMITEMTYPE",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SOMITEMTYPE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SXH_PROXY_SETTING",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SXH_PROXY_SETTING",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "_SXH_SERVER_CERT_OPTION",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.SXH_SERVER_CERT_OPTION",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.Data.Xml.MsXml",
+    "Name": "tagDOMNodeType",
+    "ValueType": "Windows.Win32.Data.Xml.MsXml.DOMNodeType",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.Rras",
+    "Name": "tagRASCONNSTATE",
+    "ValueType": "Windows.Win32.NetworkManagement.Rras.RASCONNSTATE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.Rras",
+    "Name": "tagRASCONNSUBSTATE",
+    "ValueType": "Windows.Win32.NetworkManagement.Rras.RASCONNSUBSTATE",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.NetworkManagement.Rras",
+    "Name": "tagRASPROJECTION",
+    "ValueType": "Windows.Win32.NetworkManagement.Rras.RASPROJECTION",
+    "NativeTypedef": true
+  },
+  {
+    "Namespace": "Windows.Win32.System.UpdateAgent",
+    "Name": "tagUpdateOperation",
+    "ValueType": "Windows.Win32.System.UpdateAgent.UpdateOperation",
+    "NativeTypedef": true
+  }
+]

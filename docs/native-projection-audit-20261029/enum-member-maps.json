@@ -1,0 +1,242 @@
+{
+  "CreateSyntheticPointerDevice::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 5507,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "GetPointerType::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 5396,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "INTERACTION_CONTEXT_OUTPUT2::inputType": {
+    "file": "common\\Input_IntContext.cs",
+    "line": 534,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "INTERACTION_CONTEXT_OUTPUT::inputType": {
+    "file": "common\\Input_IntContext.cs",
+    "line": 504,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "IPropertyUI::FormatForDisplay::puiff": {
+    "file": "x86\\Shell.cs",
+    "line": 7708,
+    "native": "PROPERTYUI_FORMAT_FLAGS",
+    "type": "Windows.Win32.UI.Shell.PROPERTYUI_FORMAT_FLAGS"
+  },
+  "IPropertyUI::GetDisplayName::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 7672,
+    "native": "PROPERTYUI_NAME_FLAGS",
+    "type": "Windows.Win32.UI.Shell.PROPERTYUI_NAME_FLAGS"
+  },
+  "IPropertyUI::GetFlags::pflags": {
+    "file": "x86\\Shell.cs",
+    "line": 7699,
+    "native": "PROPERTYUI_FLAGS",
+    "type": "Windows.Win32.UI.Shell.PROPERTYUI_FLAGS"
+  },
+  "IPropertyUI::_FormatForDisplay::puiff": {
+    "file": "x86\\Shell.cs",
+    "line": 7620,
+    "native": "PROPERTYUI_FORMAT_FLAGS",
+    "type": "Windows.Win32.UI.Shell.PROPERTYUI_FORMAT_FLAGS"
+  },
+  "IPropertyUI::_GetDisplayName::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 7604,
+    "native": "PROPERTYUI_NAME_FLAGS",
+    "type": "Windows.Win32.UI.Shell.PROPERTYUI_NAME_FLAGS"
+  },
+  "IPropertyUI::_GetFlags::pflags": {
+    "file": "x86\\Shell.cs",
+    "line": 7616,
+    "native": "PROPERTYUI_FLAGS",
+    "type": "Windows.Win32.UI.Shell.PROPERTYUI_FLAGS"
+  },
+  "IRowsetFind::FindNextRow::CompareOp": {
+    "file": "x86\\Search.cs",
+    "line": 3883,
+    "native": "DBCOMPAREOP",
+    "type": "Windows.Win32.System.Search.DBCOMPAREOP"
+  },
+  "IRowsetFind::_FindNextRow::CompareOp": {
+    "file": "x86\\Search.cs",
+    "line": 3853,
+    "native": "DBCOMPAREOP",
+    "type": "Windows.Win32.System.Search.DBCOMPAREOP"
+  },
+  "ITravelLogStg::EnumEntries::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 67528,
+    "native": "TLENUMF",
+    "type": "Windows.Win32.UI.Shell.TLENUMF"
+  },
+  "ITravelLogStg::FindEntries::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 67537,
+    "native": "TLENUMF",
+    "type": "Windows.Win32.UI.Shell.TLENUMF"
+  },
+  "ITravelLogStg::GetCount::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 67546,
+    "native": "TLENUMF",
+    "type": "Windows.Win32.UI.Shell.TLENUMF"
+  },
+  "ITravelLogStg::_EnumEntries::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 67464,
+    "native": "TLENUMF",
+    "type": "Windows.Win32.UI.Shell.TLENUMF"
+  },
+  "ITravelLogStg::_FindEntries::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 67468,
+    "native": "TLENUMF",
+    "type": "Windows.Win32.UI.Shell.TLENUMF"
+  },
+  "ITravelLogStg::_GetCount::flags": {
+    "file": "x86\\Shell.cs",
+    "line": 67472,
+    "native": "TLENUMF",
+    "type": "Windows.Win32.UI.Shell.TLENUMF"
+  },
+  "IViewFilter::GetFilter::pCompareOps": {
+    "file": "x86\\Search.cs",
+    "line": 4350,
+    "native": "DBCOMPAREOP",
+    "type": "Windows.Win32.System.Search.DBCOMPAREOP"
+  },
+  "IViewFilter::SetFilter::CompareOps": {
+    "file": "x86\\Search.cs",
+    "line": 4368,
+    "native": "DBCOMPAREOP",
+    "type": "Windows.Win32.System.Search.DBCOMPAREOP"
+  },
+  "IViewFilter::_GetFilter::pCompareOps": {
+    "file": "x86\\Search.cs",
+    "line": 4312,
+    "native": "DBCOMPAREOP",
+    "type": "Windows.Win32.System.Search.DBCOMPAREOP"
+  },
+  "IViewFilter::_SetFilter::CompareOps": {
+    "file": "x86\\Search.cs",
+    "line": 4320,
+    "native": "DBCOMPAREOP",
+    "type": "Windows.Win32.System.Search.DBCOMPAREOP"
+  },
+  "IViewSort::GetSortOrder::prgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 4273,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort::SetSortOrder::rgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 4282,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort::_GetSortOrder::prgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 4239,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort::_SetSortOrder::rgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 4243,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort_GetSortOrder_Proxy::prgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 23534,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort_GetSortOrder_Stub::prgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 23538,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort_RemoteGetSortOrder_Proxy::prgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 22713,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort_RemoteSetSortOrder_Proxy::rgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 22720,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort_SetSortOrder_Proxy::rgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 23542,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "IViewSort_SetSortOrder_Stub::rgOrders": {
+    "file": "x86\\Search.cs",
+    "line": 23546,
+    "native": "DBSORT",
+    "type": "Windows.Win32.System.Search.DBSORT"
+  },
+  "MFPCreateMediaPlayer::creationOptions": {
+    "file": "x86\\Mf.cs",
+    "line": 74024,
+    "native": "MFP_CREATION_OPTIONS",
+    "type": "Windows.Win32.Media.MediaFoundation.MFP_CREATION_OPTIONS"
+  },
+  "POINTER_INFO::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 1321,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "POINTER_TYPE_INFO::type": {
+    "file": "x86\\MenuRc.cs",
+    "line": 1445,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "RegisterPointerInputTarget::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 5487,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "RegisterPointerInputTargetEx::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 5497,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "SYNTHETIC_DEVICE_CREATION_PARAMS::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 1486,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "UnregisterPointerInputTarget::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 5492,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  },
+  "UnregisterPointerInputTargetEx::pointerType": {
+    "file": "x86\\MenuRc.cs",
+    "line": 5502,
+    "native": "POINTER_INPUT_TYPE",
+    "type": "Windows.Win32.UI.WindowsAndMessaging.POINTER_INPUT_TYPE"
+  }
+}

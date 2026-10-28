@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-29",
+  "source_bases": {
+    "win32metadata": "ae01a7caaa143f8184884896710472fd5c7f581d",
+    "cppwin32": "0934c5256f04164fd208693091c11462ad385c2d"
+  },
+  "winmd": {
+    "path": "L:\\Open_Code\\win32metadata\\bin\\Windows.Win32.winmd",
+    "sha256": "C4B0B235173A4F803D86A8FAE0A31296B145D02C92DBB988E6A04D805240D519",
+    "bytes": 24869888,
+    "version": "71.0.57.7327"
+  },
+  "cppwin32_exe": {
+    "path": "L:\\Open_Code\\cppwin32\\cppwin32\\x64\\Debug\\cppwin32.exe",
+    "sha256": "4651838EDB1DE8020F50295DE61DDD914FBA052C4E01150FDFB00E74B0C8FB85"
+  },
+  "headers": {
+    "count": 1308,
+    "tree_manifest_sha256": "DE3FB3E0740510D491BDD0DEA185EE4C44A538AC6C8B8D9EEB49FCB779FAC847"
+  },
+  "dotnet_tests": {
+    "total": "179",
+    "executed": "179",
+    "passed": "179",
+    "failed": "0",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  },
+  "native_fixture": {
+    "x64": "passed",
+    "x86": "passed"
+  },
+  "sdk_interface_alias_checks": {
+    "x64": "passed",
+    "x86": "passed",
+    "priority_actual_header": "x64 passed"
+  },
+  "unchanged_constants": {
+    "literal": 158115,
+    "guid": 5910
+  },
+  "all_observed_declaration_changes": 4891,
+  "unclassified": 0,
+  "new_raw_cpp_integer_api_fallbacks": 0,
+  "evidence_root": "Z:\\winmd-full-audit-20261028",
+  "limits": [
+    "文本声明目录不是完整 C++ AST；常量与 GUID 使用独立 PE 元数据比较。",
+    "DeviceAndDriverInstallation.0.h 的整组 x86 编译仍有参考版本同样存在的 SP_* 架构前置声明问题；本轮接口别名 x86 验证不包含该组。"
+  ],
+  "publication": {
+    "target": "Z:\\TYPEDEF\\win32",
+    "source": "Z:\\winmd-full-audit-20261028\\accepted\\win32",
+    "count": 1308,
+    "changed_files": 163,
+    "all_hashes_equal": true
+  }
+}

@@ -223,6 +223,152 @@ namespace Semantic
         }
 
         [TestMethod]
+        public void CanonicalHandlesRestorePlatformWidthOpaquePointersAndSignedStorage()
+        {
+            using var module = new GeneratedModule(@"
+namespace Handles
+{
+    [NativeTypedef] public struct HANDLE_PTR { public UIntPtr Value; }
+    [NativeTypedef] public struct HDEVINFO { public IntPtr Value; }
+    [NativeTypedef] public struct REGHANDLE { public long Value; }
+    [NativeTypedef] public struct PDH_STATUS { public int Value; }
+    [MetadataTypedef] public struct PROCESSTRACE_HANDLE { public ulong Value; }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""HANDLE_PTR"")] public uint Portable;
+        [NativeTypeName(""HANDLE_PTR *"")] public uint* Output;
+        [NativeTypeName(""HDEVINFO"")] public void* Device;
+        [NativeTypeName(""REGHANDLE"")] public ulong Registration;
+        [NativeTypeName(""PDH_STATUS"")] public uint Status;
+        [NativeTypeName(""PROCESSTRACE_HANDLE"")] public ulong Trace;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Portable", "HANDLE_PTR");
+            AssertFieldTarget(module, "Holder", "Output", "HANDLE_PTR", 1);
+            AssertFieldTarget(module, "Holder", "Device", "HDEVINFO");
+            AssertFieldTarget(module, "Holder", "Registration", "REGHANDLE");
+            AssertFieldTarget(module, "Holder", "Status", "PDH_STATUS");
+            AssertFieldTarget(module, "Holder", "Trace", "PROCESSTRACE_HANDLE");
+            AssertValueSignature(module, "HANDLE_PTR", 0, SignatureTypeCode.UIntPtr);
+        }
+
+        [TestMethod]
+        public void VoidPointerAliasUsesVoidInsteadOfAnObservedByteBuffer()
+        {
+            using var module = new GeneratedModule(@"
+namespace Buffers
+{
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""LPVOID"")] public byte* Bytes;
+        [NativeTypeName(""LPVOID"")] public void* Address;
+    }
+}
+");
+            AssertValueSignature(module, "LPVOID", 1, SignatureTypeCode.Void);
+            AssertFieldTarget(module, "Holder", "Bytes", "LPVOID");
+            AssertFieldTarget(module, "Holder", "Address", "LPVOID");
+        }
+
+        [TestMethod]
+        public void ArrayParametersRetainBothArrayDecayAndExplicitPointerOutsideStringAlias()
+        {
+            using var module = new GeneratedModule(@"
+namespace Windows.Win32.Foundation
+{
+    [NativeTypedef] public unsafe struct PWSTR { public char* Value; }
+}
+namespace Profiler
+{
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""LPCWSTR *[]"")] public ushort*** Names;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Names", "PWSTR", 2);
+        }
+
+        [TestMethod]
+        public void DeclaredEnumAliasesKeepTheirNamesWithoutInventingIntegerAliases()
+        {
+            using var module = new GeneratedModule(@"
+namespace Enums
+{
+    public enum Flags : uint { One = 1 }
+    [NativeTypedef] public struct FLAGS_ALIAS { public Flags Value; }
+    public struct Holder
+    {
+        [NativeTypeName(""FLAGS_ALIAS"")] public Flags Named;
+        [NativeTypeName(""DWORD"")] public Flags Projected;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Named", "FLAGS_ALIAS");
+            AssertFieldTarget(module, "Holder", "Projected", "Flags");
+            Assert.IsFalse(module.Types.Any(t => module.Reader.GetString(t.Name) == "DWORD"));
+        }
+
+        [TestMethod]
+        public void CallbackRecoveryChecksTheCallingConventionAndCompleteSignature()
+        {
+            using var module = new GeneratedModule(@"
+namespace Callbacks
+{
+    [System.Runtime.InteropServices.UnmanagedFunctionPointer(System.Runtime.InteropServices.CallingConvention.StdCall)]
+    public unsafe delegate int SEC_THREAD_START(void* value);
+    [System.Runtime.InteropServices.UnmanagedFunctionPointer(System.Runtime.InteropServices.CallingConvention.Winapi)]
+    public unsafe delegate uint THREAD_START(void* value);
+    [System.Runtime.InteropServices.UnmanagedFunctionPointer(System.Runtime.InteropServices.CallingConvention.Cdecl)]
+    public unsafe delegate int CDECL_START(void* value);
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""SEC_THREAD_START"")] public THREAD_START Thread;
+        [NativeTypeName(""SEC_THREAD_START"")] public CDECL_START DifferentConvention;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Thread", "SEC_THREAD_START");
+            AssertFieldTarget(module, "Holder", "DifferentConvention", "CDECL_START");
+        }
+
+        [TestMethod]
+        public void ArrayTypedefsKeepTheirExtentInsideFieldsAndOutsidePointerParameters()
+        {
+            using var module = new GeneratedModule(@"
+namespace Arrays
+{
+    [NativeTypedef] public unsafe struct MAC { public fixed byte Value[6]; }
+    [NativeTypedef] public unsafe struct PMAC { public MAC* Value; }
+    [NativeTypedef] public unsafe struct Orientation { public fixed float Value[9]; }
+    public unsafe struct Holder
+    {
+        [NativeTypeName(""MAC"")] public fixed byte Address[6];
+        [NativeTypeName(""MAC[2]"")] public fixed byte Addresses[12];
+        [NativeTypeName(""PMAC"")] public byte** Pointer;
+        [NativeTypeName(""Orientation *"")] public float** Rotation;
+    }
+}
+");
+            AssertFieldTarget(module, "Holder", "Address", "MAC");
+            AssertFieldTarget(module, "Holder", "Pointer", "PMAC");
+            AssertFieldTarget(module, "Holder", "Rotation", "Orientation", 1);
+            var holder = module.Types.Single(t => module.Reader.GetString(t.Name) == "Holder");
+            var field = holder.GetFields().Select(module.Reader.GetFieldDefinition)
+                .Single(f => module.Reader.GetString(f.Name) == "Addresses");
+            var signature = module.Reader.GetBlobReader(field.Signature);
+            signature.ReadSignatureHeader();
+            Assert.AreEqual(SignatureTypeCode.Array, signature.ReadSignatureTypeCode());
+            Assert.AreEqual(SignatureTypeCode.TypeHandle, signature.ReadSignatureTypeCode());
+            var handle = signature.ReadTypeHandle();
+            Assert.AreEqual("MAC", module.Reader.GetString(module.Reader.GetTypeDefinition((TypeDefinitionHandle)handle).Name));
+            Assert.AreEqual(1, signature.ReadCompressedInteger());
+            Assert.AreEqual(1, signature.ReadCompressedInteger());
+            Assert.AreEqual(2, signature.ReadCompressedInteger());
+        }
+
+        [TestMethod]
         public void NativeBooleanAliasDoesNotResolveToFrameworkBoolean()
         {
             using var module = new GeneratedModule(@"
@@ -301,7 +447,7 @@ namespace Imaging
             var fields = holder.GetFields().Select(module.Reader.GetFieldDefinition)
                 .ToDictionary(f => module.Reader.GetString(f.Name));
             AssertFieldSignature(module.Reader, fields["WrongWidth"], 0, SignatureTypeCode.UInt64);
-            AssertFieldSignature(module.Reader, fields["Scalar"], 0, SignatureTypeCode.UInt32);
+            AssertFieldTarget(module, "Holder", "Scalar", "PixelFormat");
             AssertFieldSignature(module.Reader, fields["Priority"], 0, SignatureTypeCode.UInt32);
         }
 

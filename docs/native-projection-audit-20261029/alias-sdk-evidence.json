@@ -1,0 +1,1373 @@
+{
+  "ADS_SEARCHPREF": {
+    "declarations": [
+      {
+        "declaration": "typedef ADS_SEARCHPREF_ENUM ADS_SEARCHPREF;",
+        "file": "um\\Iads.h",
+        "line": 1236
+      }
+    ],
+    "old_projection": [
+      [
+        "ADS_SEARCHPREF_ENUM",
+        "Windows.Win32.Networking.ActiveDirectory.0.h"
+      ],
+      [
+        "ADS_SEARCHPREF_ENUM",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "ADS_STATUS": {
+    "declarations": [
+      {
+        "declaration": "typedef ADS_STATUSENUM ADS_STATUS;",
+        "file": "um\\Iads.h",
+        "line": 1150
+      }
+    ],
+    "old_projection": [
+      [
+        "ADS_STATUSENUM",
+        "Windows.Win32.Networking.ActiveDirectory.0.h"
+      ],
+      [
+        "ADS_STATUSENUM",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "CF_HYDRATION_POLICY_MODIFIER_USHORT": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "CF_HYDRATION_POLICY_MODIFIER",
+        "Windows.Win32.Storage.CloudFilters.0.h"
+      ],
+      [
+        "CF_HYDRATION_POLICY_MODIFIER",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "CF_HYDRATION_POLICY_PRIMARY_USHORT": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "CF_HYDRATION_POLICY_PRIMARY",
+        "Windows.Win32.Storage.CloudFilters.0.h"
+      ],
+      [
+        "CF_HYDRATION_POLICY_PRIMARY",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "CF_POPULATION_POLICY_MODIFIER_USHORT": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "CF_POPULATION_POLICY_MODIFIER",
+        "Windows.Win32.Storage.CloudFilters.0.h"
+      ],
+      [
+        "CF_POPULATION_POLICY_MODIFIER",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "CF_POPULATION_POLICY_PRIMARY_USHORT": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "CF_POPULATION_POLICY_PRIMARY",
+        "Windows.Win32.Storage.CloudFilters.0.h"
+      ],
+      [
+        "CF_POPULATION_POLICY_PRIMARY",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "COLUMNSORTORDER": {
+    "declarations": [
+      {
+        "declaration": "typedef enum ColumnSortOrder COLUMNSORTORDER;",
+        "file": "um\\MMCObj.h",
+        "line": 3619
+      },
+      {
+        "declaration": "typedef enum ColumnSortOrder COLUMNSORTORDER;",
+        "file": "um\\MMCObj.Idl",
+        "line": 814
+      }
+    ],
+    "old_projection": [
+      [
+        "_ColumnSortOrder",
+        "Windows.Win32.System.Mmc.0.h"
+      ],
+      [
+        "_ColumnSortOrder",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_CBUFFER_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_CBUFFER_TYPE D3D10_CBUFFER_TYPE;",
+        "file": "um\\d3d10shader.h",
+        "line": 152
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_CBUFFER_TYPE",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_CBUFFER_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_NAME": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_NAME D3D10_NAME;",
+        "file": "um\\d3d10shader.h",
+        "line": 155
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_NAME",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_NAME",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_PRIMITIVE": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_PRIMITIVE D3D10_PRIMITIVE;",
+        "file": "um\\d3d10.h",
+        "line": 667
+      },
+      {
+        "declaration": "typedef D3D_PRIMITIVE D3D10_PRIMITIVE;",
+        "file": "um\\d3d10.idl",
+        "line": 286
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_PRIMITIVE",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_PRIMITIVE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_PRIMITIVE_TOPOLOGY": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_PRIMITIVE_TOPOLOGY D3D10_PRIMITIVE_TOPOLOGY;",
+        "file": "um\\d3d10.h",
+        "line": 665
+      },
+      {
+        "declaration": "typedef D3D_PRIMITIVE_TOPOLOGY D3D10_PRIMITIVE_TOPOLOGY;",
+        "file": "um\\d3d10.idl",
+        "line": 284
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_PRIMITIVE_TOPOLOGY",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_PRIMITIVE_TOPOLOGY",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_REGISTER_COMPONENT_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_REGISTER_COMPONENT_TYPE D3D10_REGISTER_COMPONENT_TYPE;",
+        "file": "um\\d3d10shader.h",
+        "line": 159
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_REGISTER_COMPONENT_TYPE",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_REGISTER_COMPONENT_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_RESOURCE_RETURN_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_RESOURCE_RETURN_TYPE D3D10_RESOURCE_RETURN_TYPE;",
+        "file": "um\\d3d10shader.h",
+        "line": 157
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_RESOURCE_RETURN_TYPE",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_RESOURCE_RETURN_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_SHADER_INPUT_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_SHADER_INPUT_TYPE D3D10_SHADER_INPUT_TYPE;",
+        "file": "um\\d3d10shader.h",
+        "line": 146
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_SHADER_INPUT_TYPE",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_SHADER_INPUT_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_SHADER_VARIABLE_CLASS": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_SHADER_VARIABLE_CLASS D3D10_SHADER_VARIABLE_CLASS;",
+        "file": "um\\d3d10shader.h",
+        "line": 134
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_SHADER_VARIABLE_CLASS",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_SHADER_VARIABLE_CLASS",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_SHADER_VARIABLE_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_SHADER_VARIABLE_TYPE D3D10_SHADER_VARIABLE_TYPE;",
+        "file": "um\\d3d10shader.h",
+        "line": 140
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_SHADER_VARIABLE_TYPE",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_SHADER_VARIABLE_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_SRV_DIMENSION": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION;",
+        "file": "um\\d3d10.h",
+        "line": 706
+      },
+      {
+        "declaration": "typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION;",
+        "file": "um\\d3d10.idl",
+        "line": 324
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_SRV_DIMENSION",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_SRV_DIMENSION",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D10_SRV_DIMENSION1": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION1;",
+        "file": "um\\d3d10_1.h",
+        "line": 324
+      },
+      {
+        "declaration": "typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION1;",
+        "file": "um\\d3d10_1.idl",
+        "line": 120
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_SRV_DIMENSION",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_SRV_DIMENSION",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D11_PRIMITIVE_TOPOLOGY": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;",
+        "file": "um\\d3d11.h",
+        "line": 1101
+      },
+      {
+        "declaration": "typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;",
+        "file": "um\\d3d11.idl",
+        "line": 444
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_PRIMITIVE_TOPOLOGY",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_PRIMITIVE_TOPOLOGY",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D11_SRV_DIMENSION": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_SRV_DIMENSION D3D11_SRV_DIMENSION;",
+        "file": "um\\d3d11.h",
+        "line": 1171
+      },
+      {
+        "declaration": "typedef D3D_SRV_DIMENSION D3D11_SRV_DIMENSION;",
+        "file": "um\\d3d11.idl",
+        "line": 514
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_SRV_DIMENSION",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_SRV_DIMENSION",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D12_PRIMITIVE_TOPOLOGY": {
+    "declarations": [
+      {
+        "declaration": "typedef D3D_PRIMITIVE_TOPOLOGY D3D12_PRIMITIVE_TOPOLOGY;",
+        "file": "um\\d3d12.h",
+        "line": 1612
+      },
+      {
+        "declaration": "typedef D3D_PRIMITIVE_TOPOLOGY D3D12_PRIMITIVE_TOPOLOGY;",
+        "file": "um\\d3d12.idl",
+        "line": 543
+      }
+    ],
+    "old_projection": [
+      [
+        "D3D_PRIMITIVE_TOPOLOGY",
+        "Windows.Win32.Graphics.Direct3D.0.h"
+      ],
+      [
+        "D3D_PRIMITIVE_TOPOLOGY",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "D3D12_SERIALIZED_BLOCK_TYPE",
+        "Windows.Win32.Graphics.Direct3D12.0.h"
+      ],
+      [
+        "D3D12_SERIALIZED_BLOCK_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "DOCUMENTMODE": {
+    "declarations": [
+      {
+        "declaration": "typedef enum DocumentMode DOCUMENTMODE;",
+        "file": "um\\MMCObj.h",
+        "line": 615
+      },
+      {
+        "declaration": "typedef enum DocumentMode DOCUMENTMODE;",
+        "file": "um\\MMCObj.Idl",
+        "line": 229
+      }
+    ],
+    "old_projection": [
+      [
+        "_DocumentMode",
+        "Windows.Win32.System.Mmc.0.h"
+      ],
+      [
+        "_DocumentMode",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "EXPORTLISTOPTIONS": {
+    "declarations": [
+      {
+        "declaration": "typedef enum ExportListOptions EXPORTLISTOPTIONS;",
+        "file": "um\\MMCObj.h",
+        "line": 662
+      },
+      {
+        "declaration": "typedef enum ExportListOptions EXPORTLISTOPTIONS;",
+        "file": "um\\MMCObj.Idl",
+        "line": 284
+      }
+    ],
+    "old_projection": [
+      [
+        "_ExportListOptions",
+        "Windows.Win32.System.Mmc.0.h"
+      ],
+      [
+        "_ExportListOptions",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "FA_TAG": {
+    "declarations": [
+      {
+        "declaration": "typedef DEBUG_FLR_PARAM_TYPE FA_TAG;",
+        "file": "um\\extsfns.h",
+        "line": 1560
+      }
+    ],
+    "old_projection": [
+      [
+        "DEBUG_FLR_PARAM_TYPE",
+        "Windows.Win32.System.Diagnostics.Debug.Extensions.0.h"
+      ],
+      [
+        "DEBUG_FLR_PARAM_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GEOTYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef DWORD GEOTYPE;",
+        "file": "um\\WinNls.h",
+        "line": 1105
+      }
+    ],
+    "old_projection": [
+      [
+        "SYSGEOTYPE",
+        "Windows.Win32.Globalization.0.h"
+      ],
+      [
+        "SYSGEOTYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpBrushType": {
+    "declarations": [
+      {
+        "declaration": "typedef BrushType GpBrushType;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 106
+      }
+    ],
+    "old_projection": [
+      [
+        "BrushType",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "BrushType",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpCoordinateSpace": {
+    "declarations": [
+      {
+        "declaration": "typedef CoordinateSpace GpCoordinateSpace;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 88
+      }
+    ],
+    "old_projection": [
+      [
+        "CoordinateSpace",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "CoordinateSpace",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpDashCap": {
+    "declarations": [
+      {
+        "declaration": "typedef DashCap GpDashCap;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 97
+      }
+    ],
+    "old_projection": [
+      [
+        "DashCap",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "DashCap",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpDashStyle": {
+    "declarations": [
+      {
+        "declaration": "typedef DashStyle GpDashStyle;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 95
+      }
+    ],
+    "old_projection": [
+      [
+        "DashStyle",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "DashStyle",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpFillMode": {
+    "declarations": [
+      {
+        "declaration": "typedef FillMode GpFillMode;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 85
+      }
+    ],
+    "old_projection": [
+      [
+        "FillMode",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "FillMode",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpFlushIntention": {
+    "declarations": [
+      {
+        "declaration": "typedef FlushIntention GpFlushIntention;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 108
+      }
+    ],
+    "old_projection": [
+      [
+        "FlushIntention",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "FlushIntention",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpHatchStyle": {
+    "declarations": [
+      {
+        "declaration": "typedef HatchStyle GpHatchStyle;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 94
+      }
+    ],
+    "old_projection": [
+      [
+        "HatchStyle",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "HatchStyle",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpLineCap": {
+    "declarations": [
+      {
+        "declaration": "typedef LineCap GpLineCap;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 96
+      }
+    ],
+    "old_projection": [
+      [
+        "LineCap",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "LineCap",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpLineJoin": {
+    "declarations": [
+      {
+        "declaration": "typedef LineJoin GpLineJoin;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 102
+      }
+    ],
+    "old_projection": [
+      [
+        "LineJoin",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "LineJoin",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpMatrixOrder": {
+    "declarations": [
+      {
+        "declaration": "typedef MatrixOrder GpMatrixOrder;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 107
+      }
+    ],
+    "old_projection": [
+      [
+        "MatrixOrder",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "MatrixOrder",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpPenAlignment": {
+    "declarations": [
+      {
+        "declaration": "typedef PenAlignment GpPenAlignment;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 100
+      }
+    ],
+    "old_projection": [
+      [
+        "PenAlignment",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "PenAlignment",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpPenType": {
+    "declarations": [
+      {
+        "declaration": "typedef PenType GpPenType;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 103
+      }
+    ],
+    "old_projection": [
+      [
+        "PenType",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "PenType",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpStatus": {
+    "declarations": [
+      {
+        "declaration": "typedef _Return_type_success_(return == Ok) Status GpStatus;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 84
+      }
+    ],
+    "old_projection": [
+      [
+        "Status",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "Status",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpUnit": {
+    "declarations": [
+      {
+        "declaration": "typedef Unit GpUnit;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 87
+      }
+    ],
+    "old_projection": [
+      [
+        "Unit",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "Unit",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "GpWrapMode": {
+    "declarations": [
+      {
+        "declaration": "typedef WrapMode GpWrapMode;",
+        "file": "um\\gdiplusgpstubs.h",
+        "line": 86
+      }
+    ],
+    "old_projection": [
+      [
+        "WrapMode",
+        "Windows.Win32.Graphics.GdiPlus.0.h"
+      ],
+      [
+        "WrapMode",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "INHERIT_FLAGS": {
+    "declarations": [
+      {
+        "declaration": "typedef ULONG INHERIT_FLAGS, *PINHERIT_FLAGS;",
+        "file": "um\\AccCtrl.h",
+        "line": 375
+      },
+      {
+        "declaration": "typedef ULONG INHERIT_FLAGS;",
+        "file": "um\\oledb.h",
+        "line": 14210
+      }
+    ],
+    "old_projection": [
+      [
+        "ACE_FLAGS",
+        "Windows.Win32.Security.0.h"
+      ],
+      [
+        "ACE_FLAGS",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "IP_DAD_STATE": {
+    "declarations": [
+      {
+        "declaration": "typedef NL_DAD_STATE IP_DAD_STATE;",
+        "file": "um\\IPTypes.h",
+        "line": 111
+      }
+    ],
+    "old_projection": [
+      [
+        "NL_DAD_STATE",
+        "Windows.Win32.Networking.WinSock.0.h"
+      ],
+      [
+        "NL_DAD_STATE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "IP_PREFIX_ORIGIN": {
+    "declarations": [
+      {
+        "declaration": "typedef NL_PREFIX_ORIGIN IP_PREFIX_ORIGIN;",
+        "file": "um\\IPTypes.h",
+        "line": 109
+      }
+    ],
+    "old_projection": [
+      [
+        "NL_PREFIX_ORIGIN",
+        "Windows.Win32.Networking.WinSock.0.h"
+      ],
+      [
+        "NL_PREFIX_ORIGIN",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "IP_SUFFIX_ORIGIN": {
+    "declarations": [
+      {
+        "declaration": "typedef NL_SUFFIX_ORIGIN IP_SUFFIX_ORIGIN;",
+        "file": "um\\IPTypes.h",
+        "line": 110
+      }
+    ],
+    "old_projection": [
+      [
+        "NL_SUFFIX_ORIGIN",
+        "Windows.Win32.Networking.WinSock.0.h"
+      ],
+      [
+        "NL_SUFFIX_ORIGIN",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "LISTVIEWMODE": {
+    "declarations": [
+      {
+        "declaration": "typedef enum ListViewMode LISTVIEWMODE;",
+        "file": "um\\MMCObj.h",
+        "line": 631
+      },
+      {
+        "declaration": "typedef enum ListViewMode LISTVIEWMODE;",
+        "file": "um\\MMCObj.Idl",
+        "line": 248
+      }
+    ],
+    "old_projection": [
+      [
+        "_ListViewMode",
+        "Windows.Win32.System.Mmc.0.h"
+      ],
+      [
+        "_ListViewMode",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "MBN_SMS_CONSTANTS": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\mbnapi.idl",
+      "line": 937
+    },
+    "old_projection": [
+      [
+        "WWAEXT_SMS_CONSTANTS",
+        "Windows.Win32.NetworkManagement.MobileBroadband.0.h"
+      ],
+      [
+        "WWAEXT_SMS_CONSTANTS",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "MIB_IPFORWARD_PROTO": {
+    "declarations": [
+      {
+        "declaration": "typedef NL_ROUTE_PROTOCOL MIB_IPFORWARD_PROTO;",
+        "file": "shared\\ipmib.h",
+        "line": 97
+      }
+    ],
+    "old_projection": [
+      [
+        "NL_ROUTE_PROTOCOL",
+        "Windows.Win32.Networking.WinSock.0.h"
+      ],
+      [
+        "NL_ROUTE_PROTOCOL",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "NDIS_802_11_ENCRYPTION_STATUS": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "NDIS_802_11_WEP_STATUS",
+        "Windows.Win32.NetworkManagement.Ndis.0.h"
+      ],
+      [
+        "NDIS_802_11_WEP_STATUS",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "NDIS_MEDIA_CONNECT_STATE": {
+    "declarations": [
+      {
+        "declaration": "typedef NET_IF_MEDIA_CONNECT_STATE NDIS_MEDIA_CONNECT_STATE, *PNDIS_MEDIA_CONNECT_STATE;",
+        "file": "shared\\ntddndis.h",
+        "line": 2832
+      }
+    ],
+    "old_projection": [
+      [
+        "NET_IF_MEDIA_CONNECT_STATE",
+        "Windows.Win32.NetworkManagement.Ndis.0.h"
+      ],
+      [
+        "NET_IF_MEDIA_CONNECT_STATE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "NDIS_MEDIA_DUPLEX_STATE": {
+    "declarations": [
+      {
+        "declaration": "typedef NET_IF_MEDIA_DUPLEX_STATE NDIS_MEDIA_DUPLEX_STATE, *PNDIS_MEDIA_DUPLEX_STATE;",
+        "file": "shared\\ntddndis.h",
+        "line": 2837
+      }
+    ],
+    "old_projection": [
+      [
+        "NET_IF_MEDIA_DUPLEX_STATE",
+        "Windows.Win32.NetworkManagement.Ndis.0.h"
+      ],
+      [
+        "NET_IF_MEDIA_DUPLEX_STATE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "NFC_SE_EVENT_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef SECURE_ELEMENT_EVENT_TYPE NFC_SE_EVENT_TYPE;",
+        "file": "shared\\nfcdtadev.h",
+        "line": 461
+      }
+    ],
+    "old_projection": [
+      [
+        "SECURE_ELEMENT_EVENT_TYPE",
+        "Windows.Win32.Devices.Nfc.0.h"
+      ],
+      [
+        "SECURE_ELEMENT_EVENT_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "NFC_SE_ROUTING_TABLE_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef SECURE_ELEMENT_ROUTING_TYPE NFC_SE_ROUTING_TABLE_TYPE;",
+        "file": "shared\\nfcdtadev.h",
+        "line": 488
+      }
+    ],
+    "old_projection": [
+      [
+        "SECURE_ELEMENT_ROUTING_TYPE",
+        "Windows.Win32.Devices.Nfc.0.h"
+      ],
+      [
+        "SECURE_ELEMENT_ROUTING_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "NFC_SE_TYPE": {
+    "declarations": [
+      {
+        "declaration": "typedef SECURE_ELEMENT_TYPE NFC_SE_TYPE;",
+        "file": "shared\\nfcdtadev.h",
+        "line": 459
+      }
+    ],
+    "old_projection": [
+      [
+        "SECURE_ELEMENT_TYPE",
+        "Windows.Win32.Devices.Nfc.0.h"
+      ],
+      [
+        "SECURE_ELEMENT_TYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "TRACE_INFO_CLASS": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "TRACE_QUERY_INFO_CLASS",
+        "Windows.Win32.System.Diagnostics.Etw.0.h"
+      ],
+      [
+        "TRACE_QUERY_INFO_CLASS",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "UCollationStrength": {
+    "declarations": [
+      {
+        "declaration": "typedef UColAttributeValue UCollationStrength;",
+        "file": "um\\icu.h",
+        "line": 31527
+      },
+      {
+        "declaration": "typedef UColAttributeValue UCollationStrength;",
+        "file": "um\\icui18n.h",
+        "line": 2369
+      }
+    ],
+    "old_projection": [
+      [
+        "UColAttributeValue",
+        "Windows.Win32.Globalization.0.h"
+      ],
+      [
+        "UColAttributeValue",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "VIEWOPTIONS": {
+    "declarations": [
+      {
+        "declaration": "typedef enum ViewOptions VIEWOPTIONS;",
+        "file": "um\\MMCObj.h",
+        "line": 647
+      },
+      {
+        "declaration": "typedef enum ViewOptions VIEWOPTIONS;",
+        "file": "um\\MMCObj.Idl",
+        "line": 267
+      }
+    ],
+    "old_projection": [
+      [
+        "_ViewOptions",
+        "Windows.Win32.System.Mmc.0.h"
+      ],
+      [
+        "_ViewOptions",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE": {
+    "declarations": [
+      {
+        "declaration": "typedef WTS_LOGON_ERROR_REDIRECTOR_RESPONSE WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE;",
+        "file": "um\\wtsdefs.h",
+        "line": 1029
+      }
+    ],
+    "old_projection": [
+      [
+        "WTS_LOGON_ERROR_REDIRECTOR_RESPONSE",
+        "Windows.Win32.System.RemoteDesktop.0.h"
+      ],
+      [
+        "WTS_LOGON_ERROR_REDIRECTOR_RESPONSE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SCHEMACONTENTTYPE": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 2995
+    },
+    "old_projection": [
+      [
+        "SCHEMACONTENTTYPE",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SCHEMACONTENTTYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SCHEMADERIVATIONMETHOD": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 2981
+    },
+    "old_projection": [
+      [
+        "SCHEMADERIVATIONMETHOD",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SCHEMADERIVATIONMETHOD",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SCHEMAPROCESSCONTENTS": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 3005
+    },
+    "old_projection": [
+      [
+        "SCHEMAPROCESSCONTENTS",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SCHEMAPROCESSCONTENTS",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SCHEMATYPEVARIETY": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 3026
+    },
+    "old_projection": [
+      [
+        "SCHEMATYPEVARIETY",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SCHEMATYPEVARIETY",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SCHEMAUSE": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 2972
+    },
+    "old_projection": [
+      [
+        "SCHEMAUSE",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SCHEMAUSE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SCHEMAWHITESPACE": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 3015
+    },
+    "old_projection": [
+      [
+        "SCHEMAWHITESPACE",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SCHEMAWHITESPACE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SERVERXMLHTTP_OPTION": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 1607
+    },
+    "old_projection": [
+      [
+        "SERVERXMLHTTP_OPTION",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SERVERXMLHTTP_OPTION",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SOMITEMTYPE": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 2886
+    },
+    "old_projection": [
+      [
+        "SOMITEMTYPE",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SOMITEMTYPE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SXH_PROXY_SETTING": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 1634
+    },
+    "old_projection": [
+      [
+        "SXH_PROXY_SETTING",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SXH_PROXY_SETTING",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "_SXH_SERVER_CERT_OPTION": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\MsXml6.Idl",
+      "line": 1619
+    },
+    "old_projection": [
+      [
+        "SXH_SERVER_CERT_OPTION",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "SXH_SERVER_CERT_OPTION",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "tagDOMNodeType": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\XmlDom.Idl",
+      "line": 53
+    },
+    "old_projection": [
+      [
+        "DOMNodeType",
+        "Windows.Win32.Data.Xml.MsXml.0.h"
+      ],
+      [
+        "DOMNodeType",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "tagRASCONNSTATE": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "RASCONNSTATE",
+        "Windows.Win32.NetworkManagement.Rras.0.h"
+      ],
+      [
+        "RASCONNSTATE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "tagRASCONNSUBSTATE": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "RASCONNSUBSTATE",
+        "Windows.Win32.NetworkManagement.Rras.0.h"
+      ],
+      [
+        "RASCONNSUBSTATE",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "tagRASPROJECTION": {
+    "declarations": [],
+    "old_projection": [
+      [
+        "RASPROJECTION",
+        "Windows.Win32.NetworkManagement.Rras.0.h"
+      ],
+      [
+        "RASPROJECTION",
+        "complex_structs.h"
+      ]
+    ]
+  },
+  "tagUpdateOperation": {
+    "declarations": [],
+    "enum_tag": {
+      "file": "um\\wuapi.idl",
+      "line": 464
+    },
+    "old_projection": [
+      [
+        "UpdateOperation",
+        "Windows.Win32.System.UpdateAgent.0.h"
+      ],
+      [
+        "UpdateOperation",
+        "complex_structs.h"
+      ]
+    ]
+  }
+}

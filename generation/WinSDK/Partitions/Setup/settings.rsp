@@ -16,3 +16,7 @@
 UIALL
 --namespace
 Windows.Win32.System.ApplicationInstallationAndServicing
+--remap
+INSTALLUI_HANDLER_RECORD=INSTALLUI_HANDLER_RECORD
+--preserve-auto-fnptr-level
+PINSTALLUI_HANDLER_RECORD

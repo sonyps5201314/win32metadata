@@ -44,6 +44,19 @@ using Windows.Win32.Foundation.Metadata;
                     item.NativeTypedef = true;
                 }
 
+                string valueName = "Value";
+                if (item.ArraySize.HasValue)
+                {
+                    if (item.ArraySize.Value <= 0)
+                    {
+                        throw new System.InvalidOperationException($"Invalid array size for {item.Name}.");
+                    }
+
+                    safety = "unsafe ";
+                    valueType = "fixed " + valueType;
+                    valueName += "[" + item.ArraySize.Value + "]";
+                }
+
                 if (!string.IsNullOrEmpty(item.CloseApi))
                 {
                     if (!apiNamesToNamespaces.TryGetValue(item.CloseApi, out var apiNamespace))
@@ -104,7 +117,7 @@ $@"namespace {currentNamespace}
 $@"    [{(item.NativeTypedef ? "NativeTypedef" : "MetadataTypedef")}]
     public {safety}struct {item.Name}
     {{
-        public {valueType} Value;
+        public {valueType} {valueName};
     }}
 ");
 
